@@ -8,20 +8,21 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 import { getAuth } from "firebase/auth";
 
-let META = import.meta.env;
+
 const firebaseConfig = {
-  apiKey: META.
-  VITE_API_KEY ,
+  apiKey: import.meta.env.VITE_API_KEY,
 
-  authDomain:META.VITE_AUTH_DOMAIN,
-  projectId: META.VITE_PROJECT_ID ,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId:import.meta.env.VITE_PROJECT_ID ,
 
-  storageBucket: META.VITE_STROAGE_BUCKET,
-  messagingSenderId: META.VITE_MESSAGING_SENDER_ID,
-  appId:META.VITE_APP_ID
+  storageBucket:import.meta.env.VITE_STROAGE_BUCKET,
+
+  messagingSenderId:import.meta.env. VITE_MESSAGING_SENDER_ID,
+  appId:import.meta.env.VITE_APP_ID
 };
 
-
+const api = import.meta.env.VITE_API_KEY;
+console.log(api)
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

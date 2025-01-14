@@ -1,10 +1,12 @@
 
 
 
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import Auth from '../Firebase/Config';
+import { createMemoryRouter } from 'react-router-dom';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
 
-const MyContext = createContext();
+export const MyContext = createContext();
 
 function AuthContext({children}) {
 
@@ -14,6 +16,48 @@ function AuthContext({children}) {
 
     // create reg with 
 
+    const CreateAccountWithEmailAndPassword = (email , password)=>{
+        return createUserWithEmailAndPassword(Auth, email,password);
+    }
+
+    const Googleprovider = new GoogleAuthProvider();
+
+    const CreateAccountWIthGoole = ()=>{
+        
+        return signInWithPopup(Auth,Googleprovider)
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    // onauth change 
+
+    useEffect(()=>{
+
+        const unsubcribe = onAuthStateChanged(Auth, (currentUser)=>{
+
+            if(currentUser)
+            {
+                setuser(currentUser);
+            }else{
+                setloading(false);
+
+            }
+
+        })
+
+        return unsubcribe;
+
+    },[])
+
 
 
 
@@ -21,7 +65,8 @@ function AuthContext({children}) {
 
 
     const authInfo ={
-        loading, setloading,user,setuser
+        loading, setloading,user,setuser,
+        CreateAccountWithEmailAndPassword,CreateAccountWIthGoole
     }
 
 
