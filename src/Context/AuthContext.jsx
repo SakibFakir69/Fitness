@@ -4,7 +4,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import Auth from '../Firebase/Config';
 import { createMemoryRouter } from 'react-router-dom';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
 
 export const MyContext = createContext();
 
@@ -23,10 +23,15 @@ function AuthContext({children}) {
     const Googleprovider = new GoogleAuthProvider();
 
     const CreateAccountWIthGoole = ()=>{
-        
+
         return signInWithPopup(Auth,Googleprovider)
 
 
+    }
+    // logout
+
+    const logoutButton = ()=>{
+        return signOut(Auth)
     }
 
 
@@ -66,7 +71,8 @@ function AuthContext({children}) {
 
     const authInfo ={
         loading, setloading,user,setuser,
-        CreateAccountWithEmailAndPassword,CreateAccountWIthGoole
+        CreateAccountWithEmailAndPassword,CreateAccountWIthGoole,
+        logoutButton 
     }
 
 

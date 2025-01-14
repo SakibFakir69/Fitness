@@ -1,43 +1,30 @@
+import React from "react";
+import { Link } from "react-router-dom";
 
-
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-
-
-import Lottie from 'react-lottie';
-import animLogin from '../../public/Animation - 1736851204044.json'
+import Lottie from "react-lottie";
+import animLogin from "../../public/Animation - 1736851204044.json";
 
 function Login() {
+  
+  const options = {
+    loop: true,
+    autoplay: true,
+    animationData: animLogin,
+  };
 
-    const options = {
-        loop: true,
-        autoplay:true,
-        animationData:animLogin,
 
-    }
-
- 
 
 
   return (
-    <div className='border-2'>
-        
-        <div className="flex flex-col lg:flex-row">
+    <div className="border-2">
+      <div className="flex flex-col lg:flex-row">
         <section className="flex-1 justify-center bg-green-200  ">
-
-            <h1 className='text-center text-2xl md:text-6xl lg:text-6xl md:font-bold font-semibold text-black px-5'>Log In to Unlock Your Fitness Potential</h1>
-            <div className='flex justify-center'>
+          <h1 className="text-center text-2xl md:text-6xl lg:text-6xl md:font-bold font-semibold text-black px-5">
+            Log In to Unlock Your Fitness Potential
+          </h1>
+          <div className="flex justify-center">
             <Lottie options={options} />
-            </div>
-
-
-
-         
-           
-            
-           
-           
+          </div>
         </section>
         {/* bg-white dark:bg-gray-900 */}
 
@@ -58,10 +45,6 @@ function Login() {
               </div>
 
               {/* photo url */}
-
-
-              
-              
 
               <div class="relative flex items-center mt-6">
                 <span class="absolute">
@@ -113,8 +96,6 @@ function Login() {
                 />
               </div>
 
-     
-
               <div class="mt-6">
                 <button class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                   Log in
@@ -125,7 +106,8 @@ function Login() {
                     href="#"
                     class="text-sm text-blue-500 hover:underline dark:text-blue-400"
                   >
-                    Already have an account? <Link to={'/accountpage/registation'}>Registation</Link>
+                    Already have an account?{" "}
+                    <Link to={"/accountpage/registation"}>Registation</Link>
                   </a>
                 </div>
               </div>
@@ -133,10 +115,8 @@ function Login() {
           </div>
         </section>
       </div>
-
-
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

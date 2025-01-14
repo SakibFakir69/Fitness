@@ -1,11 +1,34 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import UseAuth from "../Hooks/UseAuth";
+import { use } from "react";
 
 function Navbar() {
   const [isclosed, setisclosed] = useState(!true);
   console.log(isclosed);
   const loc = useLocation();
   console.log(loc);
+
+  const { user,logoutButton ,setloading,setuser } = UseAuth();
+
+
+  const logoutHandleButton = ()=>{
+    setloading(false);
+    logoutButton()
+    .then((result)=>{
+      setuser(null);
+      setloading(true);
+    })
+    .cathc((error)=>{
+      console.log(`this error from navbar ${error.message}`)
+    });
+
+    console.log('log out button cliced')
+    
+  }
+
+
+  console.log(user);
 
   const links = (
     <>
@@ -54,8 +77,7 @@ function Navbar() {
               </svg>
             </div>
             <div>
-              {
-                isclosed  && 
+              {isclosed && (
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
@@ -79,7 +101,7 @@ function Navbar() {
                     </div>
                   </li>
                 </ul>
-              }
+              )}
             </div>
           </div>
           <a className="btn btn-ghost text-xl">Fitnesss</a>
@@ -90,16 +112,32 @@ function Navbar() {
         </div>
 
         <div className="navbar-end">
-          <div className="flex gap-4">
-            <div className="avatar online lg:visible invisible">
-              <div className="w-14 rounded-full">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          {user ? (
+            <div>
+              <div className="flex gap-4">
+                <div className="avatar online lg:visible invisible">
+                  <div className="w-14 rounded-full">
+                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  </div>
+                </div>
+
+                <button className="btn" onClick={logoutHandleButton}>
+                  Log out 
+
+                </button>
+
               </div>
             </div>
+          ) : (
 
-            <Link to={'/accountpage/registation'} className="btn">Log in</Link>
 
-          </div>
+
+            <div>
+              <Link to={'/accountpage/login'} className="btn">Log in </Link>
+
+
+            </div>
+          )}
         </div>
       </div>
     </div>

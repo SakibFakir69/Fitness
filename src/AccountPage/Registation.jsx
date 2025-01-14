@@ -1,10 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { data, Link, useNavigate } from "react-router-dom";
 
 import Lottie from "react-lottie";
 
 import RegAnimtion from "../../public/Animation - 1736852299839.json";
 import UseAuth from "../Hooks/UseAuth";
+// problem google reg 
+// google sign ar time kivava db ta rakbo
 
 function Registation() {
   const {
@@ -13,16 +15,130 @@ function Registation() {
     setloading,
     setuser,
   } = UseAuth();
+  const goHome = useNavigate();
+
+  // eror catching 
+
+  const [Error , setError ] = useState('');
+
+  
+
+
+
+
+
+
+
+
+
 
   const CreateAccountwithEmailand_password_handle = (event) => {
+
     event.preventDefault();
     console.log("account email");
 
-    const Data_Form = new FormData();
+    const Data_Form = new FormData(event.target);
     const Data = Object.fromEntries(Data_Form);
     // also added data to database
 
-    const { name, email, photoURL, password } = Data;
+    const { name, email, photoURL, password,ConfirmPassword } = Data;
+    console.log(Data)
+
+    
+
+
+
+
+
+
+    setloading(true);
+
+    // 
+    if(!name || !email  || !password || !photoURL)
+    {
+      setError('All fields are required');
+      // setloading(false);
+      return ;
+    }
+    if(password!==ConfirmPassword)
+    {
+      setError('Password do not match');
+      // setloading(false);
+      return;
+
+    }
+    const cKpassword = (pass)=>
+    {
+      const passlength = pass.length>=6;
+      const Uppercase = /[A-Z]/.test(pass);
+      const lowercase = /[a-z]/.test(pass);
+      const number = /[0-9]/.test(pass);
+
+
+      if(!passlength)
+      {
+        setError('password must be minmum 6 length')
+        return;
+      }
+      if(!Uppercase)
+      {
+        setError('Password must be one uppercase');
+        return ;
+      }
+      if(!lowercase)
+      {
+        setError('Password must be one lowercase');
+        return;
+      }
+      if(!number)
+      {
+        setError('Password must be one number');
+        return;
+      }
+
+    }
+   
+
+
+
+    // email
+    // const EmailValidation = (email)=>{
+    //   return email.includes('@');
+
+    // }
+    // const EmailCk = EmailValidation(email);
+    // if(!EmailCk)
+    // {
+    //   setError('Email must have @ symbol')
+    // }
+
+    const passwordChceker = cKpassword(password);
+    if(passwordChceker)
+    {
+      setError(passwordChceker);
+      return ;
+    }
+
+    // error end 
+
+
+
+    CreateAccountWithEmailAndPassword(email,password)
+    .then((result)=>{
+      const users = result.user;
+      setloading(false);
+      setuser(users);
+      goHome('/')
+
+    })
+    .catch((error)=>{
+      console.log(`this erorr from  reg page com create user  ${error.code}`)
+    })
+
+
+
+
+
     const usersGetformRegData = {
       Name: name,
       Email: email,
@@ -30,6 +146,7 @@ function Registation() {
       Password: password,
       // set this data to database after succesfully login
     };
+
   };
   // createuser with google login
 
@@ -42,10 +159,12 @@ function Registation() {
       const users = result.user;
       setuser(users);
       setloading(false);
+      goHome('/')
 
     })
     .catch((error)=>{
       console.log(`error founed on reg page ${error.code}`)
+      setError(error.message);
     })
 
     console.log('google button clickled')
@@ -109,6 +228,8 @@ function Registation() {
 
                 <input
                   type="text"
+                  minLength={3}
+                  min={'3'}
                   name="name"
                   class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Username"
@@ -134,7 +255,7 @@ function Registation() {
                 </span>
 
                 <input
-                  type="text"
+                  type="url"
                   name="photoURL"
                   class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="PhotoURL"
@@ -213,11 +334,17 @@ function Registation() {
 
                 <input
                   type="password"
+                  name="ConfirmPassword"
                   class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Confirm Password"
                 />
               </div>
+              <div>
+               {
+                Error && <p className="text-red-500">{Error}</p>
 
+               }
+              </div>
               <div class="mt-6">
                 <button
                   type="submit"
