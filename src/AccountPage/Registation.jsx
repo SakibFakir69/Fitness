@@ -5,6 +5,8 @@ import Lottie from "react-lottie";
 
 import RegAnimtion from "../../public/Animation - 1736852299839.json";
 import UseAuth from "../Hooks/UseAuth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // problem google reg 
 // google sign ar time kivava db ta rakbo
 
@@ -128,11 +130,15 @@ function Registation() {
       const users = result.user;
       setloading(false);
       setuser(users);
-      goHome('/')
+      goHome('/');
+      
+      toast.success('Successfully Registation!')
+      
 
     })
     .catch((error)=>{
-      console.log(`this erorr from  reg page com create user  ${error.code}`)
+      console.log(`this erorr from  reg page com create user  ${error.code}`);
+      toast.error("Failed to registation")
     })
 
 
@@ -159,12 +165,20 @@ function Registation() {
       const users = result.user;
       setuser(users);
       setloading(false);
-      goHome('/')
+      goHome('/');
+      toast.success('Successfully Registation!')
+      // send data to DB
+      const userData = {
+        Name : users.displayName,
+        email : users.email,
+        photoURL: users.photoURL,
+      }
 
     })
     .catch((error)=>{
       console.log(`error founed on reg page ${error.code}`)
       setError(error.message);
+      toast.error(`${error.message}`)
     })
 
     console.log('google button clickled')
@@ -187,6 +201,8 @@ function Registation() {
             <Lottie options={options} />
           </div>
         </section>
+        {/* toast container */}
+        <ToastContainer/>
 
         <section class="bg-white dark:bg-gray-900 flex-1 ">
           <div class="container flex items-center justify-center min-h-screen px-6 mx-auto flex-col">

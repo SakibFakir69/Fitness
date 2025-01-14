@@ -4,7 +4,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import Auth from '../Firebase/Config';
 import { createMemoryRouter } from 'react-router-dom';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 
 export const MyContext = createContext();
 
@@ -32,6 +32,19 @@ function AuthContext({children}) {
 
     const logoutButton = ()=>{
         return signOut(Auth)
+    }
+
+    // log in
+
+
+    const LoginWithemailAndPassword= (email , password)=>{
+
+        return signInWithEmailAndPassword(Auth, email,password);
+
+
+    }
+    const loginWithgoogleprovider = ()=>{
+        return signInWithPopup(Auth,Googleprovider);
     }
 
 
@@ -72,7 +85,7 @@ function AuthContext({children}) {
     const authInfo ={
         loading, setloading,user,setuser,
         CreateAccountWithEmailAndPassword,CreateAccountWIthGoole,
-        logoutButton 
+        logoutButton ,loginWithgoogleprovider,LoginWithemailAndPassword
     }
 
 
