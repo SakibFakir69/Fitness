@@ -10,21 +10,23 @@ import "swiper/css/navigation";
 import Typewriter from 'typewriter-effect';
 import {Link} from 'react-router-dom'
 function Banner() {
-  return (
-    <div className=" w-full flex  items-center mx-auto flex-col space-y-8   bg-green-300 h-screen">
 
-      <div className="text-4xl font-bold text-white">
+
+
+
+
+  
+  return (
+    <div className=" w-full flex  items-center mx-auto flex-col space-y-8   bg-green-300 p-4">
+
+      <div className="text-4xl font-bold text-white text-center">
         {/* text Push Your Limits, Redefine Your Strength*/}
-        <Typewriter  options={{
-          strings:['Push Your Limits, Redefine Your Strength'],
-          autoStart:true,
-          loop:true
-        }}/>
+        <h2>Push Your Limits, Redefine Your Strength</h2>
 
       </div>
 
       <Swiper
-      className="rounded   md:h-[250px] w-10/12 border flex space-y-5 h-[180px] p-10"
+      className="rounded   md:h-[250px] w-10/12 flex space-y-5 h-[180px] p-10"
         spaceBetween={40}
         slidesPerView={1}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
