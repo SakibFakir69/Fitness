@@ -7,6 +7,7 @@ import RegAnimtion from "../../public/Animation - 1736852299839.json";
 import UseAuth from "../Hooks/UseAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 // problem google reg 
 // google sign ar time kivava db ta rakbo
 
@@ -22,6 +23,9 @@ function Registation() {
   // eror catching 
 
   const [Error , setError ] = useState('');
+
+  const useaxiosPublic=UseAxiosPublic();
+
 
   
 
@@ -122,6 +126,15 @@ function Registation() {
     }
 
     // error end 
+    
+    const usersGetformRegData = {
+      Name: name,
+      Email: email,
+      PhotoUrl: photoURL,
+      Password: password,
+
+    };
+
 
 
 
@@ -131,8 +144,27 @@ function Registation() {
       setloading(false);
       setuser(users);
       goHome('/');
-      
-      toast.success('Successfully Registation!')
+
+      toast.success('Successfully Registation!');
+      // add data to DB
+
+      if(users)
+      {
+        useaxiosPublic.post('/users',usersGetformRegData)
+        .then((res)=>{
+          console.log("data added done")
+        })
+        .catch((error)=>{
+          console.log("error get to db")
+        })
+      }
+
+     
+
+
+
+
+
       
 
     })
@@ -145,13 +177,6 @@ function Registation() {
 
 
 
-    const usersGetformRegData = {
-      Name: name,
-      Email: email,
-      PhotoUrl: photoURL,
-      Password: password,
-      // set this data to database after succesfully login
-    };
 
   };
   // createuser with google login
@@ -172,6 +197,18 @@ function Registation() {
         Name : users.displayName,
         email : users.email,
         photoURL: users.photoURL,
+      }
+
+      if(users)
+      {
+      useaxiosPublic.post('/users', userData)
+      .then((res)=>{
+        console.log("data done to google")
+      })
+      .catch((error)=>{
+        console.log(`error founded ${error.name}`)
+      })
+
       }
 
     })

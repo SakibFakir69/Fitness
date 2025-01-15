@@ -39,7 +39,7 @@ function Navbar() {
         <NavLink>All Trainer</NavLink>
       </li>
       <li>
-        <NavLink>All classes</NavLink>
+        <NavLink to={'/allclass'}>All classes</NavLink>
       </li>
       <li>
         <NavLink>DashBoard</NavLink>

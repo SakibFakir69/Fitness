@@ -4,6 +4,7 @@ import HomeLayoutes from "../Layouts/HomeLayoutes";
 import AccountLayouts from "../Layouts/AccountLayouts";
 import Login from "../AccountPage/Login";
 import Registation from "../AccountPage/Registation";
+import AllClass from "../Component/AllClass";
 
 
 
@@ -18,6 +19,10 @@ export const route =createBrowserRouter([
                 path:'/',
                 element : <HomeLayoutes/>
             },
+            {
+                path:'/allclass',
+                element : <AllClass/>
+            }
       
         ]
     },
