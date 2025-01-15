@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 function AboutSection() {
   return (
-    <motion.div className="mt-10 px-4">
+    <div className="mt-10 px-4 bg-BgCustome">
 
       <div>
         <h2 className="text-4xl text-center font-bold mb-5">
@@ -15,12 +15,13 @@ function AboutSection() {
       </div>
 
       <section className="grid">
+
         <div className="flex">
           <motion.div
             initial={{ x: -300 }}
             whileInView={{ x: 10 }}
             transition={{ duration: 1 }}
-            className="border flex-1 p-4"
+            className="rounded-md border flex-1 p-4 bg-white"
           >
             <h2 className="text-2xl font-bold">Our Mission</h2>
             <p>
@@ -42,7 +43,7 @@ function AboutSection() {
 
             animate={{ x: 0 }}
             transition={{ duration: 1.5 }}
-            className="flex-1 border p-4"
+            className="flex-1 border p-4 bg-black text-white rounded-md"
           >
             <h2 className="text-2xl font-bold">Our Vision</h2>
             <p>
@@ -64,7 +65,7 @@ function AboutSection() {
             initial={{ x: -300 }}
             whileInView={{ x: 10 }}
             transition={{ duration: 1 }}
-            className="border flex-1 p-4"
+            className="border flex-1 p-4 bg-red-200 rounded-md shadow-lg"
           >
             <h2 className="text-2xl font-bold">
               {" "}
@@ -91,7 +92,7 @@ function AboutSection() {
             initial={{ x: 900 }}
             animate={{ x: 0 }}
             transition={{ duration: 1.5 }}
-            className="flex-1 border p-4"
+            className="flex-1 border p-4 bg-emerald-200 rounded-md "
           >
             <h2 className="text-2xl font-bold">Making Wellness Simple and Smart</h2>
             <p>
@@ -104,7 +105,7 @@ function AboutSection() {
 
 
       </section>
-    </motion.div>
+    </div>
   );
 }
 
