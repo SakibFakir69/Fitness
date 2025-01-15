@@ -11,6 +11,9 @@ import img06 from "../../public/foood.jpg";
 
 import React from "react";
 import ShineBorder from "@/components/ui/shine-border";
+
+import { motion } from "framer-motion";
+
 function FeaturedSection() {
   // use magic ui make eye catching
   const section = [
@@ -72,19 +75,18 @@ function FeaturedSection() {
             className="p-4 shadow-lg "
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
           >
-           <div className="md:flex gap-4 ">
+            <motion.div className="md:flex gap-4 " whileHover={{scale:1.10}} transition={{duration:2,}}>
 
-           <div className="flex-1 space-y-2 p-2">
-              <h3 className="text-2xl font-semibold">👉 {item.Title}</h3>
+              <div className="flex-1 space-y-2 p-2">
+                <h3 className="text-2xl font-semibold">👉 {item.Title}</h3>
 
-              <p className="text-base  ">{item.description}</p>
-            </div>
+                <p className="text-base  ">{item.description}</p>
+              </div>
 
-            <div className="flex-1  flex justify-center items-center">
-              <img src={item.image} className="rounded-md"/>
-            </div>
-           </div>
-
+              <div className="flex-1  flex justify-center items-center">
+                <img src={item.image} className="rounded-md" />
+              </div>
+            </motion.div>
           </ShineBorder>
         ))}
       </section>
