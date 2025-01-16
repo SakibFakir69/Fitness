@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 function AboutSection() {
   return (
-    <div className="mt-10 px-4 bg-BgCustome">
+    <div className="mt-10 px-10 bg-BgCustome">
 
       <div>
         <h2 className="text-4xl text-center font-bold mb-5">
@@ -85,7 +85,7 @@ function AboutSection() {
         {/* 4th */}
 
         
-        <div className="flex mt-10 ">
+        <div className="flex mt-10 mb-6 ">
           <div className="flex-1"></div>
           <motion.div
             whileInView={{ x: -100 }}

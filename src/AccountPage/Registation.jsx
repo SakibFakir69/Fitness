@@ -242,6 +242,7 @@ function Registation() {
         <ToastContainer/>
 
         <section class="bg-white dark:bg-gray-900 flex-1 ">
+          
           <div class="container flex items-center justify-center min-h-screen px-6 mx-auto flex-col">
             <form
               class="w-full max-w-md"

@@ -27,8 +27,12 @@ function Navbar() {
     
   }
 
-
   console.log(user);
+
+  let isAdmin = true;
+
+
+
 
   const links = (
     <>
@@ -36,13 +40,17 @@ function Navbar() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink>All Trainer</NavLink>
+        <NavLink to={'/alltrainer'}>All Trainer</NavLink>
       </li>
       <li>
         <NavLink to={'/allclass'}>All classes</NavLink>
       </li>
       <li>
-        <NavLink>DashBoard</NavLink>
+
+     {
+      isAdmin &&    <NavLink to={'/admindashboard'}>DashBoard</NavLink>
+     }
+
       </li>
       <li>
         <NavLink>Form</NavLink>

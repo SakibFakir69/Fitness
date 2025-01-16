@@ -6,6 +6,12 @@ import Banner from '../Home/Banner'
 import FeaturedSection from '../Home/FeaturedSection'
 import AboutSection from '@/Home/AboutSection'
 import ScrollProgress from '@/components/ui/scroll-progress'
+import FeautredClasses from '@/Home/FeautredClasses'
+import Reviews from '@/Home/Reviews'
+import ForumPage from '@/Home/ForumPage'
+import Newsletter from '@/Home/Newsletter'
+import TeamSection from '@/Home/TeamSection'
+
 function HomeLayoutes() {
   return (
     <div>
@@ -14,6 +20,11 @@ function HomeLayoutes() {
       <Banner/>
       <FeaturedSection/>
       <AboutSection/>
+      < FeautredClasses/>
+      <Reviews/>
+      <ForumPage/>
+      <Newsletter/>
+      <TeamSection/>
 
      
 
