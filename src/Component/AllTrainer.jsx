@@ -1,38 +1,34 @@
+import ShowTrainerAll from "@/AllTrainerPage/ShowTrainerAll";
+import UseAllTrainer from "@/Hooks/UseAllTrainer";
+import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 
-
-import ShowTrainerAll from '@/AllTrainerPage/ShowTrainerAll';
-import UseAllTrainer from '@/Hooks/UseAllTrainer'
-import UseAxiosPublic from '@/Hooks/UseAxiosPublic'
-
-import React from 'react'
+import React from "react";
 
 function AllTrainer() {
+  const { isLoading, error, isError, TrainerData } = UseAllTrainer();
 
-    const {isLoading, error,isError,TrainerData} = UseAllTrainer();
-
-
-    if(isLoading)
-    {
-        return <p>Loadin...</p>
-    }
-    console.log(TrainerData);
-
-
+  if (isLoading) {
+    return <p>Loadin...</p>;
+  }
+  console.log(TrainerData);
 
   return (
-    <div>
-  
-        <p>Trainer  {TrainerData.length} </p>
+    <div className="mt-6 px-4">
+      <div className="flex justify-center items-center mb-6 flex-col space-y-3 bg-violet-500 p-4 rounded-md">
+        <h2 className="sm:text-4xl sm:font-semibold text-xl text-white">Meet Our Trainers</h2>
+        <p className="text-gray-200">Our trainers are here to inspire, guide, and support you on your journey. Browse their profiles to find the perfect match for your learning needs.</p>
+      </div>
 
 
-        {
-            TrainerData.map((item)=><ShowTrainerAll trainers={item} key={item._id}/>)
-        }
+      <div className="grid md:grid-cols-3 gap-4 bg-gradient-to-b from-violet-300 p-4 to-indigo-500">
+      {TrainerData.map((item) => (
+        <ShowTrainerAll trainers={item} key={item._id} />
+      ))}
 
-
+      </div>
 
     </div>
-  )
+  );
 }
 
-export default AllTrainer
+export default AllTrainer;

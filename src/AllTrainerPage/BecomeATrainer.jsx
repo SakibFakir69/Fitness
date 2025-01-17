@@ -151,6 +151,7 @@ function BecomeATrainer() {
       Skill:skill,
       Availabledays:days,
       Availabletime:time,
+      Status:'pending'
 
     }
     

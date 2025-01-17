@@ -8,7 +8,7 @@ function AdminDashboard() {
   const {user} = UseAuth();
   
   return (
-    <div>
+    <div className="w-full">
 
       <section className="border flex gap-6">
 
@@ -16,7 +16,7 @@ function AdminDashboard() {
 
             <div>
                 {/* simple profile */}
-                <p>Admin {user.email}</p>
+                <p>Admin {user?.email}</p>
 
             </div>
 
@@ -44,7 +44,7 @@ function AdminDashboard() {
 
 
         {/* outlet  */}
-        <aside>
+        <aside className="border w-4/5">
           <Outlet />
         </aside>
       </section>

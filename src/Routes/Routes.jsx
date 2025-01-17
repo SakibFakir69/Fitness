@@ -16,6 +16,7 @@ import AddnewClass from "@/Admin/AddnewClass";
 import TrainerDeatilsPage from "@/AllTrainerPage/TrainerDeatilsPage";
 import BecomeATrainer from "@/AllTrainerPage/BecomeATrainer";
 import TrainerBooked from "@/AllTrainerPage/TrainerBooked";
+import AppliedTrainerDetailsPage from "@/Admin/AppliedTrainerDetailsPage";
 
 export const route = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const route = createBrowserRouter([
       {
         path:'/admindashboard/addnewclass',
         element : <AddnewClass/>
+      },
+      {
+        path:'/admindashboard/appliedTrainerdetails/:id',
+        element: <AppliedTrainerDetailsPage/>
       }
     ]
 

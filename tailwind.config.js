@@ -7,12 +7,12 @@ export default {
 	],
 	theme: {
     	extend: {
-
-			fontFamily:{
-				exo2:['Exo 2', 'serif']
-
-			}
-			,
+    		fontFamily: {
+    			exo2: [
+    				'Exo 2',
+    				'serif'
+    			]
+    		},
     		borderRadius: {
     			lg: 'var(--radius)',
     			md: 'calc(var(--radius) - 2px)',
