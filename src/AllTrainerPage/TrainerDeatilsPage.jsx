@@ -62,7 +62,7 @@ function TrainerDeatilsPage() {
       {/* deatils */}
 
       <section className=" w-full md:flex md:justify-around mt-4 border-dashed border-2 shadow-sm rounded-md hover:bg-indigo-400 duration-200 gap-4   ">
-        <div>
+        <div className="w-10/11">
           <div className="text-center">
             <h2>Trainer info</h2>
           </div>
@@ -110,7 +110,7 @@ function TrainerDeatilsPage() {
         </div>
 
         {/* slot */}
-        <div className="md:mt-14">
+        <div className="md:mt-14 w-10/11">
           <div className="border flex flex-col justify-center items-center w-full">
             <div>
               <h2>Available slots</h2>

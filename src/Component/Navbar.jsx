@@ -46,6 +46,7 @@ function Navbar() {
         <NavLink to={'/allclass'}>All classes</NavLink>
       </li>
       <li>
+        {/* show trainer and admin dashboard  */}
 
      {
       isAdmin &&    <NavLink to={'/admindashboard'}>DashBoard</NavLink>

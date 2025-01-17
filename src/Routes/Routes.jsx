@@ -17,6 +17,7 @@ import TrainerDeatilsPage from "@/AllTrainerPage/TrainerDeatilsPage";
 import BecomeATrainer from "@/AllTrainerPage/BecomeATrainer";
 import TrainerBooked from "@/AllTrainerPage/TrainerBooked";
 import AppliedTrainerDetailsPage from "@/Admin/AppliedTrainerDetailsPage";
+import AllUser from "@/Admin/AllUser";
 
 export const route = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ export const route = createBrowserRouter([
       {
         path:'/admindashboard/appliedTrainerdetails/:id',
         element: <AppliedTrainerDetailsPage/>
+      },
+      {
+        path :'/admindashboard/alluser',
+        element: <AllUser/>
       }
     ]
 

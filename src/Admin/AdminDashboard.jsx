@@ -40,6 +40,11 @@ function AdminDashboard() {
           <li>
             <NavLink to={'/admindashboard/addnewclass'}>Add New class</NavLink>
           </li>
+          <li>
+            <NavLink to={'/admindashboard/alluser'}>All user</NavLink>
+          </li>
+          
+
         </aside>
 
 
