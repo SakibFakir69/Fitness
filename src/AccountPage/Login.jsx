@@ -7,7 +7,7 @@ import UseAuth from "../Hooks/UseAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Login() {
-  const [ error , seterror ] = useState('')
+  const [ error , seterror ] = useState('');
 
   const goHome = useNavigate();
   const {
@@ -18,22 +18,29 @@ function Login() {
   } = UseAuth();
 
   const LogInWithEmail_Password_Button = (event) => {
+
     event.preventDefault();
 
     const Data_form = new FormData(event.target);
+
     const Data = Object.fromEntries(Data_form);
     const { email, password } = Data;
+    console.log(Data)
+    console.log(email,"email");
 
-    LoginWithemailAndPassword(email, password).then((result) => {
+    LoginWithemailAndPassword(email, password)
+    .then((result) => {
       setloading(false);
       const users = result.user;
       setuser(users);
+      goHome('/')
 
       toast.success('login sucessfully')
       
     })
     .catch((error)=>{
       toast.error(`${error.message}`);
+      console.log(error.code)
     })
   };
 
@@ -53,7 +60,7 @@ function Login() {
       .catch((error) => {
         console.log(`this error from ${error.code}`);
         seterror(error.message)
-        toast.error(`${error.message}`);
+        toast.error(`${error.code}`);
       });
   };
 
@@ -119,6 +126,7 @@ function Login() {
 
                 <input
                   type="email"
+                  name="email"
                   class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Email address"
                 />
@@ -144,6 +152,7 @@ function Login() {
 
                 <input
                   type="password"
+                  name="password"
                   class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Password"
                 />

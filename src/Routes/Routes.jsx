@@ -18,6 +18,7 @@ import BecomeATrainer from "@/AllTrainerPage/BecomeATrainer";
 import TrainerBooked from "@/AllTrainerPage/TrainerBooked";
 import AppliedTrainerDetailsPage from "@/Admin/AppliedTrainerDetailsPage";
 import AllUser from "@/Admin/AllUser";
+import Payment from "@/PaymentPage/Payment";
 
 export const route = createBrowserRouter([
   {
@@ -47,8 +48,14 @@ export const route = createBrowserRouter([
 
       },
       {
-        path :'/trainerbook',
+        path :'/trainerbook/:id',
         element: <TrainerBooked/>
+      },
+
+      // payment page 
+      {
+        path:'/payment',
+        element: <Payment/>
       }
     ],
   },

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
@@ -37,6 +37,7 @@ function TrainerDeatilsPage() {
     Email,
     Skill,
     Availabletime,
+    _id
   } = Trainer[0];
   console.log(fullName);
 
@@ -120,9 +121,9 @@ function TrainerDeatilsPage() {
             <p>
               <span className="text-xl">Availabledays :</span>
               {Availabledays.map((item, key) => (
-                <span className="ml-2 border p-1 rounded-md bg-lime-500">
+                <Link to={`/trainerbook/${_id}`} className="ml-2 border p-1 rounded-md bg-lime-500">
                   {item}
-                </span>
+                </Link>
               ))}
             </p>
             {/* time */}

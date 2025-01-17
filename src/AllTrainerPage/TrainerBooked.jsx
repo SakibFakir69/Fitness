@@ -1,12 +1,157 @@
-
-
-
-import React from 'react'
+import UseAxiosSecure from "@/Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 
 function TrainerBooked() {
+  // jai time select korba oi time akta post kort ahobba tr por daka ta hobba
+
+  // Selected slot
+  // Classes
+  // packages: (ex: Basic, Standard, Premium)
+  // Join now button
+  const { id } = useParams();
+  const useaxiosSecure = UseAxiosSecure();
+
+  const { data: trainerBookedData = [] } = useQuery({
+    queryKey: ["data"],
+    queryFn: async () => {
+      const res = await useaxiosSecure.get(`/trainerBooked/${id}`);
+      return res.data;
+    },
+  });
+  console.log(trainerBookedData, "booked");
+
+  const { Name } = trainerBookedData[0] || {};
+
+  const [ selectedSlot , setselectedSlot  ] = useState([]);
+  const [ packageName , setpackageName ] = useState('');
+  const [ price , setprice ] = useState('');
+
+  const handelPackage = (packege , price)=>{
+    setpackageName(packege);
+    setprice(price);
+    console.log("cliekd")
+  }
+  console.log(packageName,"name");
+  console.log(price,"price");
+
+
+
+
+
+
+
   return (
-    <div>TrainerBooked</div>
-  )
+    <div>
+      <p>Namae :{Name}</p>
+
+      {/* pricing  */}
+
+      <section>
+        <div class="bg-white dark:bg-gray-900">
+          <div class="container px-6 py-8 mx-auto">
+            <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+              Pricing Plan
+            </h1>
+
+            <p class="max-w-2xl mx-auto mt-4 text-center text-gray-500 xl:mt-6 dark:text-gray-300">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+              quas magni libero consequuntur voluptatum velit amet id
+              repudiandae ea, deleniti laborum in neque eveniet.
+            </p>
+
+            <div class="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3">
+
+              <div class="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 hover:bg-violet-400">
+                <p class="font-medium text-gray-500 uppercase dark:text-gray-300">
+                  Basic
+                </p>
+
+                <h2 class="text-4xl font-semibold text-gray-800 uppercase dark:text-gray-100">
+                  $10
+                </h2>
+                
+
+                <p class="font-medium text-gray-500 dark:text-gray-300">
+                  1 Month
+                </p>
+                <div>
+                  <p className="text-xl font-semibold">1. Access to gym facilities during regular operating hours.</p>
+                  <p className="text-xl font-semibold">2. Use of cardio and strength training equipment.</p>
+                  <p className="text-xl font-semibold">3. Access to locker rooms and showers.</p>
+                </div>
+
+                <NavLink
+                onClick={()=> handelPackage("Basic",10)}
+                state={{ packageName: "Basic", price: 10 ,TrainerName : Name}}
+                
+                
+                to={'/payment'} className={'btn w-full btn-primary'} class="w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                  Join Now
+                </NavLink>
+              </div>
+
+              <div class="w-full p-8 space-y-8 text-center bg-blue-600 rounded-lg">
+                <p class="font-medium text-gray-200 uppercase">Premium</p>
+
+                <h2 class="text-5xl font-bold text-white uppercase dark:text-gray-100">
+                  $50
+                </h2>
+
+                <p class="font-medium text-gray-200">Per month</p>
+                <div>
+                  <p className="text-xl">1.All benefits of the basic membership.</p>
+                  <p className="text-xl">2.Access to group fitness classes such as yoga, spinning, and Zumba.</p>
+                  <p className="text-xl">3. Use of additional amenities like a sauna or steam room.</p>
+                </div>
+
+                <NavLink
+                onClick={()=> handelPackage("Premium",50)}
+                state={{ packageName: "Premium", price: 50 ,TrainerName : Name}}
+                
+                to={'/payment'} className={'btn w-full'} class=" w-full px-4 py-2 mt-10 tracking-wide text-blue-500 capitalize transition-colors duration-300 transform bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:ring focus:ring-gray-200 focus:ring-opacity-80">
+                  Join Now
+                </NavLink>
+              </div>
+
+              <div class="w-full p-8 space-y-8 text-center border border-gray-200 bg-transparent backdrop-blur-xl rounded-lg dark:border-gray-700 hover:bg-purple-300">
+                <p class="font-medium text-gray-500 uppercase dark:text-gray-300">
+                  Enterprise
+                </p>
+
+                <h2 class="text-4xl font-semibold text-gray-800 uppercase dark:text-gray-100">
+                  $100
+                </h2>
+
+                <p class="font-medium text-gray-500 dark:text-gray-300">
+                  Life time
+                </p>
+                <div>
+                  <p>1. All benefits of the standard membership.</p>
+                  <p>2. Access to personal training sessions with certified trainers. </p>
+                  <p>3.Discounts on additional services such as massage therapy or nutrition counseling </p>
+
+                </div>
+
+                <NavLink  onClick={()=>
+                 
+                  
+                  
+                  handelPackage("Pro",100)} to={'/payment'}
+                  state={{ packageName: "Enterprise", price: 100 ,TrainerName : Name}}
+                  
+                  className={'btn w-full btn-success'} class="btn w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                  Join Now 
+                </NavLink>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default TrainerBooked
+export default TrainerBooked;

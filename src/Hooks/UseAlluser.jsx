@@ -11,7 +11,10 @@ function UseAlluser() {
     const {isLoading , error  ,refetch, data: allUser=[]} = useQuery({
         queryKey:['data'],
         queryFn: async ()=>{
-            const res =await useaxiosPublic.get('/users')
+            const res =await useaxiosPublic.get('/users',{
+                // authozation
+                authorization:`Bearer ${localStorage.getItem('access-token')}`
+            })
             return res.data;
         }
     })

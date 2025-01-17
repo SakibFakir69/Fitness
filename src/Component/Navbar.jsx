@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import { use } from "react";
+import UseAdminHooks from "@/Hooks/UseAdminHooks";
 
 function Navbar() {
   const [isclosed, setisclosed] = useState(!true);
@@ -29,7 +30,14 @@ function Navbar() {
 
   console.log(user);
 
-  let isAdmin = true;
+  // review user admin 
+  // then payment 
+  /// complelte admin page today 
+  
+
+
+  let isAdmin = UseAdminHooks();
+  console.log(isAdmin);
 
 
 
