@@ -31,19 +31,22 @@ function TrainerDeatilsPage() {
   const {
     fullName,
     photo,
-    Availabledays,
+    Availabledays=[],
     Name,
     Image,
     Email,
-    Skill,
-    Availabletime,
-    _id
+    Skill=[],
+    Availabletime=[],
+    _id,
   } = Trainer[0];
   console.log(fullName);
 
   // about me
   // dmatrial status
   /// education
+  //// Trainer name
+  ///Selected slot
+  ///Classes
 
   return (
     <div className="w-full mt-10 r px-1">
@@ -121,9 +124,14 @@ function TrainerDeatilsPage() {
             <p>
               <span className="text-xl">Availabledays :</span>
               {Availabledays.map((item, key) => (
-                <Link to={`/trainerbook/${_id}`} className="ml-2 border p-1 rounded-md bg-lime-500">
+                <NavLink 
+                // data pasing using state 
+                state={{Class:Skill ,Slot:item }}
+                  to={`/trainerbook/${_id}`}
+                  className="ml-2 border p-1 rounded-md bg-lime-500"
+                >
                   {item}
-                </Link>
+                </NavLink>
               ))}
             </p>
             {/* time */}
