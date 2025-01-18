@@ -22,13 +22,21 @@ function Payment() {
   /// state ={{"name",price}}
 
   return (
-    <div>
-      <div>
+
+    // server -> paymentintents-> secert_key 
+    ///client -> payment method , confirme method ,
+    /// api fetch ,
+    // serect key , publish key 
+
+
+
+    <div className="w-full flex flex-col gap-4 px-4">
+      <div className="border text-center mt-4 bg-violet-300 rounded-md">
         <p>TrainerName : {TrainerName}</p>
         <p>Package Name : {packageName}</p>
         <p>Price : {price}</p>
-        <p>My info :</p>
-        <p>Name : {user?.displayName || "not founed"}</p>
+        <p>My info </p>
+        <p>Name : {user?.displayName || user.name }</p>
         <p>Email : {user?.email}</p>
       </div>
 
