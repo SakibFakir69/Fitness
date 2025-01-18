@@ -2,20 +2,46 @@
 
 
 import UseAllTrainer from '@/Hooks/UseAllTrainer'
+import UseAxiosSecure, { useaxiosSecure } from '@/Hooks/UseAxiosSecure';
 import React from 'react'
 
 function AllTrainersAdmin() {
 
-  const {isLoading, error,isError,TrainerData} = UseAllTrainer();
+  const {isLoading, error,isError,TrainerData,refetch} = UseAllTrainer();
 
   // make a button for trainer to memebr 
   // demote 
   // role replace with ""
 
+  const useaxiosSecure =UseAxiosSecure();
+
 
   const demoetButton = (id,index)=>{
-    console.log(id[index]._id);
+    console.log(id[index]);
+
     // perform put opration for trainer 
+
+    // query 
+    const idMain = id[index]._id;
+
+    useaxiosSecure.put(`/alltrainerAdmindemote/${idMain}`)
+    .then((res)=>{
+      if(res.data.modifiedCount >0)
+      {
+        alert("done")
+      }
+      refetch();
+    })
+    .catch((error)=>{
+      console.log("got error on alltrainer admin",error.name);
+    })
+
+
+
+
+    
+
+
     
 
 
@@ -40,7 +66,8 @@ function AllTrainersAdmin() {
         <th>Number</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Favorite Color</th>
+        <th>Role</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -50,6 +77,7 @@ function AllTrainersAdmin() {
         <th>{key+1}</th>
         <td>{item.Name || item.fullName}</td>
         <td>{item.Email}</td>
+        <td>{item.role}</td>
         <td>
           <button onClick={()=>demoetButton(TrainerData,key)} className='btn btn-warning'>Demote</button>
 

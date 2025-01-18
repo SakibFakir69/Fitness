@@ -8,7 +8,7 @@ function UseAllTrainer() {
 
     const useaxiosPublic= UseAxiosPublic();
 
-    const {isLoading, error,isError , data: TrainerData=[]}= useQuery({
+    const {isLoading, error,isError , data: TrainerData=[],refetch}= useQuery({
         queryKey: ['trainer'],
         queryFn: async ()=>{
             const response =await useaxiosPublic.get('/alltrainers')
@@ -19,7 +19,7 @@ function UseAllTrainer() {
     })
 
 
-    return {isLoading, error,isError,TrainerData};
+    return {isLoading, error,isError,TrainerData,refetch};
 
 
 

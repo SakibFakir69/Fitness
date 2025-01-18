@@ -115,6 +115,8 @@ function Checkoutform({pkprice}) {
                 Name : user?.name,
                 Email : user?.email ,
                 TransictionID : transitionId,
+                amount:pkprice,
+                Time : new Date()
             }
             useaxiosPublic.post('/paymentOfuser', infoOfUser)
             .then((res)=>{
