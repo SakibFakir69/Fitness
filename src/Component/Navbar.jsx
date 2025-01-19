@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import UseAuth from "../Hooks/UseAuth";
 import { use } from "react";
 import UseAdminHooks from "@/Hooks/UseAdminHooks";
+import UseTrainer from "@/Hooks/UseTrainer";
 
 function Navbar() {
   const [isclosed, setisclosed] = useState(!true);
@@ -33,11 +34,23 @@ function Navbar() {
   // review user admin 
   // then payment 
   /// complelte admin page today 
+
+
+
   
 
 
-  let isAdmin = UseAdminHooks();
-  console.log(isAdmin);
+  const {isAdmin} = UseAdminHooks();
+
+
+  // trainer 
+  const {TrainerIstrainer} = UseTrainer();
+
+  console.log(isAdmin.admin , TrainerIstrainer.Trainer)
+
+  
+
+
 
 
 
@@ -57,13 +70,29 @@ function Navbar() {
         {/* show trainer and admin dashboard  */}
 
      {
-      isAdmin &&    <NavLink to={'/admindashboard'}>DashBoard</NavLink>
+      isAdmin.admin &&   <NavLink to={'/admindashboard'}>DashBoard</NavLink> 
+    
      }
+    
 
       </li>
       <li>
+        {
+          TrainerIstrainer.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
+        }
+      </li>
+
+   
+      <li>
         <NavLink>Form</NavLink>
       </li>
+
+
+      {/* admin */}
+
+
+
+
     </>
   );
 

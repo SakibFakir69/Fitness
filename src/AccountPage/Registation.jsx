@@ -195,21 +195,23 @@ function Registation() {
       // send data to DB
       const userData = {
         Name : users.displayName,
-        email : users.email,
+        Email : users.email,
         photoURL: users.photoURL,
       }
+      console.log(userData,"google reg");
 
-      if(users)
-      {
+   
+    
       useaxiosPublic.post('/users', userData)
       .then((res)=>{
-        console.log("data done to google")
+        console.log("data done to google");
+        alert("get data form google reg")
       })
       .catch((error)=>{
         console.log(`error founded ${error.name}`)
       })
 
-      }
+  
 
     })
     .catch((error)=>{

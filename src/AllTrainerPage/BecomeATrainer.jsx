@@ -1,3 +1,4 @@
+import UseAuth from "@/Hooks/UseAuth";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import React, { useState } from "react";
 import Select from "react-select";
@@ -10,6 +11,8 @@ const Image_hostin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key
 
 
 function BecomeATrainer() {
+
+  const {user} = UseAuth();
 
 
 
@@ -145,7 +148,7 @@ function BecomeATrainer() {
 
     const appliedUser={
       Name : Name,
-      Email: email,
+      Email:user?.email,
       Experience:Experience,
       Image:res.data?.data?.display_url,
       Skill:skill,
@@ -263,9 +266,10 @@ function BecomeATrainer() {
 
                   <input
                     type="email"
-                    name="email"
+                  
                     class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="Email address"
+                    value={user?.email}
                   />
                 </div>
                 {/* age */}

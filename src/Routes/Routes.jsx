@@ -19,6 +19,10 @@ import TrainerBooked from "@/AllTrainerPage/TrainerBooked";
 import AppliedTrainerDetailsPage from "@/Admin/AppliedTrainerDetailsPage";
 import AllUser from "@/Admin/AllUser";
 import Payment from "@/PaymentPage/Payment";
+import TrainerDashboard from "@/Trainer/TrainerDashboard";
+import ManageSlot from "@/Trainer/ManageSlot";
+import AddNewSlot from "@/Trainer/AddNewSlot";
+import AddNewform from "@/Trainer/AddNewform";
 
 export const route = createBrowserRouter([
   {
@@ -114,6 +118,34 @@ export const route = createBrowserRouter([
     ]
 
   },
+
+
+  {
+    path : 'trainerdashboard',
+    element: <TrainerDashboard/>,
+    children:[
+      {
+        path :'/trainerdashboard/manageslot',
+        element : <ManageSlot/>
+      },
+      {
+        path :'/trainerdashboard/addnewslot',
+        element: <AddNewSlot/>
+
+      },
+      {
+        path : '/trainerdashboard/addnewform',
+        element: <AddNewform/>
+      }
+    ]
+  }
+
+  ,
+
+
+
+
+
   {
     path:'*',
     element: <ErrorPage/>

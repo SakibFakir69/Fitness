@@ -8,7 +8,7 @@ function AllTrainer() {
   const { isLoading, error, isError, TrainerData } = UseAllTrainer();
 
   if (isLoading) {
-    return <p>Loadin...</p>;
+    return <p>Loading...</p>;
   }
   console.log(TrainerData);
 
