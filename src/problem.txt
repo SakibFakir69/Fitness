@@ -1,3 +1,6 @@
 
 
 
+1.registation page 
+2.all user
+3.avaiable day add new slot 

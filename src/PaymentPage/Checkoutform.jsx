@@ -12,7 +12,7 @@ import UseAxiosPublic from '@/Hooks/UseAxiosPublic';
 import { Link } from 'react-router-dom';
 import { CoolMode } from '@/components/ui/cool-mode';
 import { Button } from '@/components/ui/button';
-function Checkoutform({pkprice}) {
+function Checkoutform({pkprice,Slot , TrainerName}) {
     const {user} = UseAuth();
 
     // client screct get form backend 
@@ -116,7 +116,7 @@ function Checkoutform({pkprice}) {
                 Email : user?.email ,
                 TransictionID : transitionId,
                 amount:pkprice,
-                Time : new Date()
+                Time : new Date(),
             }
             useaxiosPublic.post('/paymentOfuser', infoOfUser)
             .then((res)=>{
@@ -127,6 +127,27 @@ function Checkoutform({pkprice}) {
             })
 
             // create c post for 
+
+
+            // here use post req for get user who booked class 
+
+            const info={
+                Name : user?.displayName || user?.name,
+                Email: user?.email,
+                Time : new Date(),
+                Slot : Slot ,
+                TrainerName: TrainerName,
+
+            }
+
+            useaxiosPublic.post('/bookedslotBtuser',info)
+            .then((res)=>{
+                console.log("booked user info done")
+            })
+            .catch((error)=>{
+                console.log('we founed error on ', error.message)
+
+            })
         }
 
 

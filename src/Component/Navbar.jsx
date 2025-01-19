@@ -46,7 +46,7 @@ function Navbar() {
   // trainer 
   const {TrainerIstrainer} = UseTrainer();
 
-  console.log(isAdmin.admin , TrainerIstrainer.Trainer)
+  console.log(isAdmin?.admin , TrainerIstrainer?.Trainer)
 
   
 
@@ -70,7 +70,7 @@ function Navbar() {
         {/* show trainer and admin dashboard  */}
 
      {
-      isAdmin.admin &&   <NavLink to={'/admindashboard'}>DashBoard</NavLink> 
+      isAdmin?.admin &&   <NavLink to={'/admindashboard'}>DashBoard</NavLink> 
     
      }
     
@@ -78,7 +78,7 @@ function Navbar() {
       </li>
       <li>
         {
-          TrainerIstrainer.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
+          TrainerIstrainer?.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
         }
       </li>
 
