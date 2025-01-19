@@ -23,6 +23,7 @@ import TrainerDashboard from "@/Trainer/TrainerDashboard";
 import ManageSlot from "@/Trainer/ManageSlot";
 import AddNewSlot from "@/Trainer/AddNewSlot";
 import AddNewform from "@/Trainer/AddNewform";
+import FormCommunity from "@/Component/FormCommunity";
 
 export const route = createBrowserRouter([
   {
@@ -141,6 +142,12 @@ export const route = createBrowserRouter([
   }
 
   ,
+  // form couminity 
+
+  {
+    path :"/formcomunity",
+    element: <FormCommunity/>
+  },
 
 
 

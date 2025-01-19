@@ -84,7 +84,7 @@ function Navbar() {
 
    
       <li>
-        <NavLink>Form</NavLink>
+        <NavLink to={'/formcomunity'}>Form</NavLink>
       </li>
 
 

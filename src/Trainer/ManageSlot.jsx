@@ -14,7 +14,7 @@ function ManageSlot() {
 
   return (
     <div>
-      <h2>Total : booked</h2>
+      <h2>Total  booked  : {booked.length}</h2>
     </div>
 
   );
