@@ -17,9 +17,10 @@ function Payment() {
   console.log(user);
 
   const location = useLocation();
-  const { packageName, price, TrainerName,Slot  } = location.state || {};
+  const { packageName, price, TrainerName,Slot,id  } = location.state || {};
   // get use state
   /// state ={{"name",price}}
+  
 
   return (
 
@@ -32,17 +33,18 @@ function Payment() {
 
     <div className="w-full flex flex-col gap-4 px-4">
       <div className="border text-center mt-4 bg-violet-300 rounded-md">
+        <p>Id{id}</p>
         <p>TrainerName : {TrainerName}</p>
         <p>Package Name : {packageName}</p>
         <p>Price : {price}</p>
-        <p>Slot : {Slot}</p>
+        <p>Slot : {Slot} </p>
         <p>My info </p>
-        <p>Name : {user?.displayName || user.name }</p>
+        <p>Name : {user?.displayName  }</p>
         <p>Email : {user?.email}</p>
       </div>
 
       <Elements stripe={stripePromise}>
-        <Checkoutform pkprice={price}  TrainerName={TrainerName} Slot ={Slot }/>
+        <Checkoutform pkprice={price}  TrainerName={TrainerName} id={id} />
       </Elements>
     </div>
   );

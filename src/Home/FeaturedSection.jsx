@@ -74,6 +74,7 @@ function FeaturedSection() {
           <ShineBorder
             className="p-4 shadow-lg "
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+            key={key}
           >
             <motion.div className="md:flex gap-4 " whileHover={{scale:1.10}} transition={{duration:2,}}>
 

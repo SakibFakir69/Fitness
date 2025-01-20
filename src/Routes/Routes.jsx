@@ -24,6 +24,8 @@ import ManageSlot from "@/Trainer/ManageSlot";
 import AddNewSlot from "@/Trainer/AddNewSlot";
 import AddNewform from "@/Trainer/AddNewform";
 import FormCommunity from "@/Component/FormCommunity";
+import ProfilePage from "@/Component/ProfilePage";
+import UserBookedTrainer from "@/Component/UserBookedTrainer";
 
 export const route = createBrowserRouter([
   {
@@ -61,6 +63,10 @@ export const route = createBrowserRouter([
       {
         path:'/payment',
         element: <Payment/>
+      },
+      {
+        path:'/userbookedtrainer',
+        element: <UserBookedTrainer/>
       }
     ],
   },
@@ -152,6 +158,13 @@ export const route = createBrowserRouter([
     path :"/formcomunity",
     element: <FormCommunity/>
   },
+
+  {
+    path:'/profile',
+    element :<ProfilePage/>
+
+  },
+  
 
 
 

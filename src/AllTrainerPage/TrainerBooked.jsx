@@ -23,7 +23,7 @@ function TrainerBooked() {
   });
   console.log(trainerBookedData, "booked");
 
-  const { Name, Availabledays = [], Skill = [] } = trainerBookedData[0] || {};
+  const { Name, Availabledays = [], Skill = [] ,} = trainerBookedData[0] || {};
 
   const [selectedSlot, setselectedSlot] = useState([]);
   const [packageName, setpackageName] = useState("");
@@ -40,7 +40,7 @@ function TrainerBooked() {
   // recive state from deatils page
 
   const location = useLocation();
-  const { Class, Slot } = location.state || {};
+  const { Class ,Slot} = location.state || {};
 
   return (
     <div className="bg-gradient-to-t from-indigo-400 to-pink-500 px-6   ">
@@ -123,6 +123,8 @@ function TrainerBooked() {
                     packageName: "Basic",
                     price: 10,
                     TrainerName: Name,
+                    Slot:Slot,
+                    id:id
                   }}
                   to={"/payment"}
                   className={"btn w-full btn-primary"}
@@ -159,6 +161,8 @@ function TrainerBooked() {
                     packageName: "Premium",
                     price: 50,
                     TrainerName: Name,
+                    id:id,
+                    Slot:Slot,
                   }}
                   to={"/payment"}
                   className={"btn w-full"}
@@ -202,6 +206,8 @@ function TrainerBooked() {
                     packageName: "Enterprise",
                     price: 100,
                     TrainerName: Name,
+                    id:id,
+                    Slot:Slot,
                   }}
                   className={"btn w-full btn-success"}
                   class="btn w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"

@@ -64,12 +64,12 @@ function AddNewSlot() {
       Slot: name,
     };
 
-    if(!name.length==0 || !select.length==0 || !time.length==0){
-      toast.error("fill the input")
+    // if( !select.length==0 || !time.length==0){
+    //   toast.error("fill the input")
 
      
-      return ;
-    }
+    //   return ;
+    // }
 
     useaxiosSecure.put(`/addnewslot/${_id}`,trainerUpdateData)
     .then((res)=>{

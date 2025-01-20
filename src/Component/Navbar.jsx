@@ -6,6 +6,8 @@ import UseAdminHooks from "@/Hooks/UseAdminHooks";
 import UseTrainer from "@/Hooks/UseTrainer";
 
 function Navbar() {
+
+  
   const [isclosed, setisclosed] = useState(!true);
   console.log(isclosed);
   const loc = useLocation();
@@ -66,6 +68,10 @@ function Navbar() {
       <li>
         <NavLink to={'/allclass'}>All classes</NavLink>
       </li>
+      <li>
+        <NavLink to={'/userbookedtrainer'}>User Booked</NavLink>
+      </li>
+
       <li>
         {/* show trainer and admin dashboard  */}
 
@@ -133,10 +139,10 @@ function Navbar() {
                   {/* conditional profile */}
                   <li className="flex flex-row justify-around">
                     <div className="w-14 rounded-full">
-                      <img
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                        className="rounded-full"
-                      />
+                      <NavLink to={'/profile'}>
+                      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                      </NavLink>
+                    
                     </div>
 
                     {/* close button */}
@@ -163,7 +169,9 @@ function Navbar() {
               <div className="flex gap-4">
                 <div className="avatar online lg:visible invisible">
                   <div className="w-14 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                   <NavLink to={'/profile'}>
+                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                   </NavLink>
                   </div>
                 </div>
 

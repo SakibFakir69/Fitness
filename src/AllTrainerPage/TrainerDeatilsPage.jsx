@@ -5,6 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 
 function TrainerDeatilsPage() {
+
+  /// booking onujay user add 
+  // booking collection 
+  // filter and show user trainer 
+  /// user.email === trainer.booked.email 
+  /// send trainer and details 
+
   const { id } = useParams();
   const useaxiosPublic = UseAxiosPublic();
 
@@ -38,8 +45,10 @@ function TrainerDeatilsPage() {
     Skill=[],
     Availabletime=[],
     _id,
+    Slot=[]
   } = Trainer[0];
   console.log(fullName);
+  console.log(Slot,"thisis slot");
 
   // about me
   // dmatrial status
@@ -94,7 +103,7 @@ function TrainerDeatilsPage() {
                       className="border p-1 bg-black text-white rounded-md hover:bg-transparent backdrop-blur-xl cursor-pointer"
                       key={key}
                     >
-                      {" " + item}{" "}
+                      {" " + item?.label ||  item?.value}{" "}
                     </span>
                   ))}
                 </p>
@@ -116,22 +125,35 @@ function TrainerDeatilsPage() {
         {/* slot */}
         <div className="md:mt-14 w-10/11">
           <div className="border flex flex-col justify-center items-center w-full">
-            <div>
-              <h2>Available slots</h2>
+            <div className="flex p-2 cursor-pointer">
+              <h2>Slot:</h2>
+              {
+                 Slot?.map((item,key)=>(  <NavLink 
+                  key={key}
+                  // data pasing using state 
+                  state={{Class:Skill ,Slot:item ,TrainerName:Name,id:_id}}
+                    to={`/trainerbook/${_id}`}
+                    className="ml-2 border p-1 rounded-md bg-lime-500"
+                  >
+                    {item}
+                  </NavLink>))
+              }
             </div>
             <hr className="mb-4" />
             {/* time  */}
             <p>
               <span className="text-xl">Availabledays :</span>
               {Availabledays.map((item, key) => (
-                <NavLink 
-                // data pasing using state 
-                state={{Class:Skill ,Slot:item }}
-                  to={`/trainerbook/${_id}`}
-                  className="ml-2 border p-1 rounded-md bg-lime-500"
-                >
-                  {item}
-                </NavLink>
+                 <NavLink 
+          
+                 // data pasing using state 
+              
+                   className="ml-2 border p-1 rounded-md bg-lime-500"
+                 >
+                   {item?.value || item?.label}
+                 </NavLink>
+               
+
               ))}
             </p>
             {/* time */}
@@ -146,9 +168,7 @@ function TrainerDeatilsPage() {
             </p>
 
             {/* available slot */}
-            <p className="mt-4">
-              <span>Available slot :</span>
-            </p>
+         
           </div>
         </div>
       </section>

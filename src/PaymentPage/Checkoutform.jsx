@@ -12,9 +12,13 @@ import UseAxiosPublic from '@/Hooks/UseAxiosPublic';
 import { Link } from 'react-router-dom';
 import { CoolMode } from '@/components/ui/cool-mode';
 import { Button } from '@/components/ui/button';
-function Checkoutform({pkprice,Slot , TrainerName}) {
+function Checkoutform({pkprice,Slot , TrainerName,id}) {
+
+    
+
     const {user} = UseAuth();
 
+    console.log(Slot,"check out",id)
     // client screct get form backend 
     // backend api , front 2 method 
 
@@ -53,6 +57,7 @@ function Checkoutform({pkprice,Slot , TrainerName}) {
     // post api 
 
     const paymentButton = async (event)=>{
+        console.log("payment button clcked")
         event.preventDefault();
         const card = element.getElement(CardElement);
 
@@ -148,6 +153,17 @@ function Checkoutform({pkprice,Slot , TrainerName}) {
                 console.log('we founed error on ', error.message)
 
             })
+
+            // trainer update
+
+            useaxiosPublic.put(`/bookedcollection/${id}`,{email:user?.email})
+            .then((res)=>{
+                alert("done")
+            })
+            .catch((error)=>{
+                alert(error.message)
+            })
+
         }
 
 
