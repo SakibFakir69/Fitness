@@ -6,3 +6,5 @@
 3.avaiable day add new slot 
 4.Manage slot 
 5. form admin and trainer 
+6. form admin text
+6. class details views all class 

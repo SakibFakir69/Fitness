@@ -115,6 +115,10 @@ export const route = createBrowserRouter([
       {
         path :'/admindashboard/alluser',
         element: <AllUser/>
+      },
+      {
+        path : '/admindashboard/addnewform',
+        element: <AddNewform/>
       }
     ]
 

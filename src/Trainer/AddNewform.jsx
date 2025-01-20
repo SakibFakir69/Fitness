@@ -13,6 +13,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const Image_hostin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 import UseTrainer from "@/Hooks/UseTrainer";
+import UseAdminHooks from "@/Hooks/UseAdminHooks";
 function AddNewform() {
   // add from page
   // set user role admin or  trainer
@@ -35,6 +36,11 @@ function AddNewform() {
     Role="trainer"
 
 
+  }
+  const {isAdmin} = UseAdminHooks();
+  if(isAdmin)
+  {
+    Role="Admin";
   }
   console.log(Role,"df");
 

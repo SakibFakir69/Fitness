@@ -34,19 +34,25 @@ function FormCommunity() {
   }, [paginationForm]);
   console.log(totalpage);
 
-  const { result } = paginationForm;
+//   const { result } = paginationForm || [];
+
+  const result = paginationForm?.result || [];
   console.log(result);
 
-  const hadnelPageChange = (page) => {
-    setcurrentPage(page);
-  };
+
   const prevButton = () => {
     alert("prev");
-    setcurrentPage((prev) => prev - 1);
+    if(currentPage>1)
+    {
+        setcurrentPage((prev)=> prev-1);
+    }
   };
   const nextButton = () => {
     alert("next");
-    setcurrentPage((prev) => prev + 1);
+    if(currentPage<totalpage)
+    {
+        setcurrentPage((prev)=> prev+1);
+    }
   };
   //   select page
   const selectPage = (num) => {
@@ -54,7 +60,7 @@ function FormCommunity() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-violet-400">
       <div className="text-center md:text-3xl font-semibold">
         <h2>Our community tabs</h2>
       </div>
@@ -64,14 +70,14 @@ function FormCommunity() {
         <p>{item.Name}</p>
       ))} */}
 
-      <section className="grid grid-cols-2 gap-6 justify-center items-center w-full mx-auto mt-8 px-6">
+      <section className="grid sm:grid-cols-2 gap-6 justify-center items-center w-full mx-auto mt-8 px-6">
         {result.map((item, key) => (
           <div
             key={key}
             class=""
           >
-            <div class="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent justify-center items-center">
-              <div class="flex flex-col sm:-mx-4 sm:flex-row ">
+            <div class="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group bg-blue-600 dark:hover:border-transparent justify-center items-center">
+              <div class="flex flex-col sm:-mx-4 sm:flex-row  ">
                 <img
                   class="flex-shrink-0 object-cover w-24 h-24 rounded-full sm:mx-4 ring-4 ring-gray-300"
                   src={item.Image}
@@ -79,18 +85,19 @@ function FormCommunity() {
                 />
 
                 <div class="mt-4 sm:mx-4 sm:mt-0">
-                  <h1 class="text-xl font-semibold text-gray-700 capitalize md:text-2xl dark:text-white group-hover:text-white">
+                  <h1 class="text-xl font-semibold text-gray-200 capitalize md:text-2xl dark:text-white group-hover:text-white">
                     {item.Name}
                   </h1>
 
                   <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
                     {item.role==='trainer' && <p>Trainer</p>}
+                    {item.role==='admin' && <p>Admin</p>}
                   </p>
                 </div>
               </div>
               
 
-              <p class="mt-4 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p class="mt-4  capitalize text-gray-200 group-hover:text-gray-300">
               <p>{item.Title}</p>
                {item.Message}
               </p>
@@ -169,7 +176,7 @@ function FormCommunity() {
               />
             </svg>
 
-            <span class="mx-1" onClick={prevButton}>
+            <span class="mx-1 cursor-pointer" onClick={prevButton}>
               previous
             </span>
           </div>
@@ -208,7 +215,10 @@ function FormCommunity() {
             </svg>
           </div>
         </a>
+
+      
       </div>
+      <div className=" w-full flex justify-end mr-6 -mt-10">Current Page : {currentPage}</div>
     </div>
   );
 }

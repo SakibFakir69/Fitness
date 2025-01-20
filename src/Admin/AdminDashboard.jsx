@@ -43,6 +43,9 @@ function AdminDashboard() {
           <li>
             <NavLink to={'/admindashboard/alluser'}>All user <i class="ri-id-card-fill"></i></NavLink>
           </li>
+          <li>
+            <NavLink to={'/admindashboard/addnewform'}>Form/Community</NavLink>
+          </li>
           
 
         </aside>

@@ -58,7 +58,7 @@ function AddnewClass() {
 
     }
 
-    useaxiosSecure.post('/class',{Classdetails})
+    useaxiosSecure.post('/class',Classdetails)
     .then((result)=>{
       
       toast.success("New class added Done!")
