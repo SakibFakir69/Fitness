@@ -20,11 +20,24 @@ function AllClass() {
   const [currentPage, setcurrentPage] = useState(0);
   const [totalPage, settotalPage] = useState(1);
 
+  const [ queryx , setqueryx ] = useState('');
+
+  const haddelSearch = (event)=>{
+    event.prevenrDefault()
+    setqueryx(queryx);
+    alert(queryx);
+  }
+
+  
+
+
+
+
   const { isLoading, data: allClass } = useQuery({
-    queryKey: ["data", currentPage],
+    queryKey: ["data", currentPage,queryx],
     queryFn: async () => {
       const res = await useaxiosSecure.get(
-        `/classpagination?page=${currentPage}?limit=${limit}`
+        `/classpagination?page=${currentPage}&limit=${limit}&Name=${queryx}`
       );
       return res.data;
     },
@@ -67,17 +80,40 @@ function AllClass() {
   }
   console.log(allClass);
 
+
+  // serach button
+
+ 
+
+
   return (
     <div className="bg-lime-100">
+
+
+
       <div className="text-center">
         <h1>Find the Perfect Class for You</h1>
       </div>
       {/* add pagination */}
 
       <section>
-        <h2>Top 5 Trainer </h2>
+        <h2 className="md:text-3xl text-center mb-4">Top 5 Trainer </h2>
         <Five />
       </section>
+
+      <section>
+        <h2 className="md:text-3xl text-center ">Our all class </h2>
+      </section>
+
+      <section className="flex justify-center mt-4">
+
+      
+        <input placeholder="Enter your searching name"  value={queryx} onChange={(e)=> setqueryx(e.target.value)} type="search.."  className="border px-8 py-2 focus:bg-black focus:text-white rounded-md "/>
+     
+   
+
+      </section>
+
 
       <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-6">
         {result.map((item, key) => (

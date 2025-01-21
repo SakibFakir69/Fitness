@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 // icons
 import { RxCross1 } from "react-icons/rx";
+import { toast, ToastContainer } from "react-toastify";
 function UserBookedTrainer() {
   // show booked trainer
 
@@ -32,6 +33,11 @@ function UserBookedTrainer() {
 
   const reviewButton = (name, email , image) => {
     alert("review button pressed");
+
+    if(!reviewref.current.value){
+      toast.error("Enter your review")
+      return ;
+    }
 
     const reviewbyuser={
       Name :name,
@@ -63,6 +69,7 @@ function UserBookedTrainer() {
       <div>
         <h2 className="text-4xl text-center mb-4">Your booked trainer</h2>
       </div>
+      <ToastContainer/>
 
       <section className="flex justify-center">
         {trainerList.map((item, key) => (

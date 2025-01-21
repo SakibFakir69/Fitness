@@ -9,7 +9,7 @@ function Usebooked() {
 
     const useaxiosPublic = UseAxiosPublic();
 
-    const {data:booked}=useQuery({
+    const {data:booked,refetch}=useQuery({
         queryKey:['data'],
         queryFn: async () =>{
             const res = await useaxiosPublic.get('/bookbyUser')
@@ -19,7 +19,7 @@ function Usebooked() {
 
 
 
-  return {booked}
+  return {booked,refetch}
 }
 
 export default Usebooked

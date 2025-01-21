@@ -38,7 +38,7 @@ function AdminDashboard() {
             <NavLink to={"/admindashboard/balanceall"}>Balance <i class="ri-money-dollar-circle-line"></i></NavLink>
           </li>
           <li>
-            <NavLink to={'/admindashboard/addnewclass'}>Add New clas <i class="ri-artboard-line"></i></NavLink>
+            <NavLink to={'/admindashboard/addnewclass'}>Add New class <i class="ri-artboard-line"></i></NavLink>
           </li>
           <li>
             <NavLink to={'/admindashboard/alluser'}>All user <i class="ri-id-card-fill"></i></NavLink>

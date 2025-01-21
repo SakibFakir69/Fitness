@@ -15,6 +15,7 @@ function ShowTrainerAll({ trainers }) {
     Email,
     Image,
     Experience,
+    Slot
   } = trainers;
   // card degsine
 
@@ -33,7 +34,7 @@ function ShowTrainerAll({ trainers }) {
 
             <div>
               <p>Experience : {Experience || "0"} Year</p>
-              <p>Avivable solot : </p>
+              <p>Slot :{Slot} </p>
               <p>Email: {Email}</p>
               <p>
                 Skill:

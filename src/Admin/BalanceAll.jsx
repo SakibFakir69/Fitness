@@ -4,34 +4,45 @@ import UsetrnsHIstory from "@/Hooks/UsetrnsHIstory";
 import { all } from "axios";
 import { PieChart } from "lucide-react";
 import React from "react";
-import { Pie, ResponsiveContainer,BarChart,CartesianGrid ,Bar,ReferenceLine,Legend,Tooltip,YAxis,XAxis,} from "recharts";
+import {
+  Pie,
+  ResponsiveContainer,
+  BarChart,
+  CartesianGrid,
+  Bar,
+  ReferenceLine,
+  Legend,
+  Tooltip,
+  YAxis,
+  XAxis,
+} from "recharts";
 import Vschart from "./Vschart";
 
 function BalanceAll() {
   const { allPayment } = UsePayment();
   console.log(allPayment);
 
-  const totalRevenu = allPayment.reduce(
-    (taka, payment) => taka + payment.amount,
-    0
-  );
-  console.log(totalRevenu);
+  const totalRevenu = allPayment.reduce((pay, item) => {
+    return pay + (parseFloat(item?.amount) || 0); // Use parseFloat and default to 0 if invalid
+  }, 0);
+  
+
+  console.log(totalRevenu.amount, "rev");
   const { history } = UsetrnsHIstory();
   console.log(history, "history");
-  const {allnewsletter}= UseallNewsLetter();
+  const { allnewsletter } = UseallNewsLetter();
 
   return (
     <div className="bg-gradient-to-t from-violet-400 to-indigo-950 h-screen px-6">
       {allPayment.length}
 
       <section className="w-full md:flex  items-center gap-4 justify-center">
-
         <section className="flex-1">
           <div>
             <div className="stats shadow border">
               <div className="stat place-items-center">
                 <div className="stat-title">Total Payment</div>
-                <div className="stat-value">{totalRevenu}</div>
+                <div className="stat-value">{ totalRevenu} $</div>
               </div>
             </div>
           </div>
@@ -39,7 +50,6 @@ function BalanceAll() {
 
         {/* history */}
         <section className="flex-1 border-1">
-
           <h2 className="text-2xl text-white font-semibold text-center">
             Latest 6 item payment hoistory
           </h2>
@@ -77,17 +87,9 @@ function BalanceAll() {
       {/* add pie cart here */}
       {/* total newsletter subscribers vs total paid members.  */}
 
- 
-
-
       <section className=" bg-white flex justify-center px-4 mb-10 md:mt-4">
-
-        <Vschart/>
-        
+        <Vschart />
       </section>
-
-  
-      
     </div>
   );
 }

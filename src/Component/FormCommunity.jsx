@@ -71,7 +71,7 @@ function FormCommunity() {
       ))} */}
 
       <section className="grid sm:grid-cols-2 gap-6 justify-center items-center w-full mx-auto mt-8 px-6">
-        {result.map((item, key) => (
+        {result?.map((item, key) => (
           <div
             key={key}
             class=""

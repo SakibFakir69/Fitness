@@ -1,9 +1,11 @@
 import UseAuth from "@/Hooks/UseAuth";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 import makeAnimated from "react-select/animated";
+import { toast } from "react-toastify";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -13,6 +15,8 @@ const Image_hostin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key
 function BecomeATrainer() {
 
   const {user} = UseAuth();
+
+  const goHome = useNavigate();
 
 
 
@@ -146,6 +150,12 @@ function BecomeATrainer() {
     // insert obj
     const {Name , email ,Experience } = data;
 
+    if(!Name || !Experience || !time ||  !days || !skill )
+    {
+      toast.success("Fill the gap");
+      return ;
+    }
+
     const appliedUser={
       Name : Name,
       Email:user?.email,
@@ -154,6 +164,7 @@ function BecomeATrainer() {
       Skill:skill,
       Availabledays:days,
       Availabletime:time,
+
       Status:'pending'
 
     }
@@ -163,6 +174,7 @@ function BecomeATrainer() {
       console.log(appliedUser);
       useaxioPublic.post('/applied',appliedUser)
       .then((result)=>{
+        toast.success("Your application succesfullt submited")
 
       })
       .catch((error)=>{
@@ -182,7 +194,8 @@ function BecomeATrainer() {
 
   return (
     <div className="">
-      <section class="bg-white dark:bg-gray-900">
+      <section class="bg-green-300">
+
         <div class="container flex items-center justify-center min-h-screen px-6 mx-auto ">
           <form class="  " onSubmit={clickedForApply}>
             <div className="flex gap-4 justify-center p-4 w-full">

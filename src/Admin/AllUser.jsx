@@ -61,7 +61,7 @@ function AllUser() {
             <tbody>
 
               {
-                allUser.map((item,key)=>
+                allUser?.map((item,key)=>
                     <tr key={key}>
                 <th>{key+1}</th>
                 <td>{item.Name}</td>

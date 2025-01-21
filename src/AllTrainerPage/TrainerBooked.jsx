@@ -23,7 +23,7 @@ function TrainerBooked() {
   });
   console.log(trainerBookedData, "booked");
 
-  const { Name, Availabledays = [], Skill = [] ,} = trainerBookedData[0] || {};
+  const { Name,Email, Availabledays = [], Skill = [] ,} = trainerBookedData[0] || {};
 
   const [selectedSlot, setselectedSlot] = useState([]);
   const [packageName, setpackageName] = useState("");
@@ -124,7 +124,8 @@ function TrainerBooked() {
                     price: 10,
                     TrainerName: Name,
                     Slot:Slot,
-                    id:id
+                    id:id,
+                    TrainerEmail:Email
                   }}
                   to={"/payment"}
                   className={"btn w-full btn-primary"}
@@ -163,6 +164,7 @@ function TrainerBooked() {
                     TrainerName: Name,
                     id:id,
                     Slot:Slot,
+                    TrainerEmail:Email
                   }}
                   to={"/payment"}
                   className={"btn w-full"}
@@ -208,6 +210,7 @@ function TrainerBooked() {
                     TrainerName: Name,
                     id:id,
                     Slot:Slot,
+                    TrainerEmail:Email
                   }}
                   className={"btn w-full btn-success"}
                   class="btn w-full px-4 py-2 mt-10 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80"

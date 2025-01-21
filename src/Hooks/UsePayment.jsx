@@ -18,6 +18,8 @@ function UsePayment() {
         }
     })
 
+    console.log(allPayment,"payment");
+
 
 
   return {allPayment};

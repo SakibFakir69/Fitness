@@ -131,7 +131,7 @@ function TrainerDeatilsPage() {
                  Slot?.map((item,key)=>(  <NavLink 
                   key={key}
                   // data pasing using state 
-                  state={{Class:Skill ,Slot:item ,TrainerName:Name,id:_id}}
+                  state={{Class:Skill ,Slot:item ,TrainerName:Name,id:_id,TrainerEmail:Email}}
                     to={`/trainerbook/${_id}`}
                     className="ml-2 border p-1 rounded-md bg-lime-500"
                   >

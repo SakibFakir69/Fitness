@@ -12,7 +12,7 @@ import UseAxiosPublic from '@/Hooks/UseAxiosPublic';
 import { Link } from 'react-router-dom';
 import { CoolMode } from '@/components/ui/cool-mode';
 import { Button } from '@/components/ui/button';
-function Checkoutform({pkprice,Slot , TrainerName,id}) {
+function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
 
     
 
@@ -117,11 +117,12 @@ function Checkoutform({pkprice,Slot , TrainerName,id}) {
             // save info on data base 
 
             const infoOfUser ={
-                Name : user?.name,
+                Name : user?.displayName,
                 Email : user?.email ,
                 TransictionID : transitionId,
                 amount:pkprice,
                 Time : new Date(),
+                Slot: Slot,
             }
             useaxiosPublic.post('/paymentOfuser', infoOfUser)
             .then((res)=>{
@@ -137,16 +138,20 @@ function Checkoutform({pkprice,Slot , TrainerName,id}) {
             // here use post req for get user who booked class 
 
             const info={
-                Name : user?.displayName || user?.name,
+                Name : user?.displayName,
                 Email: user?.email,
                 Time : new Date(),
                 Slot : Slot ,
                 TrainerName: TrainerName,
+                TrainerEmail:TrainerEmail,
+                id:id,
 
             }
 
-            useaxiosPublic.post('/bookedslotBtuser',info)
+            useaxiosPublic.post('/bookedslotByuser',info)
             .then((res)=>{
+                console.log(info);
+                alert("slot")
                 console.log("booked user info done")
             })
             .catch((error)=>{
