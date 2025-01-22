@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import UserData from "@/Hooks/UserData";
+import { Helmet } from "react-helmet";
+
 function ProfilePage() {
 
     const {userData} = UserData();
@@ -42,7 +44,7 @@ function ProfilePage() {
 
         }
 
-        useaxiosPublic.put(`/userupdate/${_id}`,userUpdateinfo)
+        useaxiosPublic.put(`/userupdate/${userData._id}`,userUpdateinfo)
         .then((res)=>{
             alert("succesfully added to database")
         })
@@ -64,6 +66,9 @@ function ProfilePage() {
 
   return (
     <div className="w-full border h-screen bg-red-200">
+          <Helmet>
+        <title>Profile</title>
+      </Helmet>
       <section className="flex justify-center  mt-10 ">
         <ToastContainer />
         <div className="bg-white rounded-md shadow-md min-w-[60%] px-4 py-8 flex items-center justify-center flex-col">

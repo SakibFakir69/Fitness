@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import Five from "./Five";
 import { IterationCcw } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 function AllClass() {
   // TODO :
@@ -57,13 +58,13 @@ function AllClass() {
   }, [allClass, currentPage]);
 
   const nextPage = () => {
-    alert("next page clicked");
+
     if (currentPage < totalPage) {
       setcurrentPage((prev) => prev + 1);
     }
   };
   const prevPage = () => {
-    alert("prev page clicked");
+  
     if (currentPage > 1) {
       setcurrentPage((prev) => prev - 1);
     }
@@ -88,6 +89,9 @@ function AllClass() {
 
   return (
     <div className="bg-lime-100">
+      <Helmet>
+        <title>All Class</title>
+      </Helmet>
 
 
 

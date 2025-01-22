@@ -4,7 +4,11 @@ import UseMangeslotUserData from "@/Hooks/UseMangeslotUserData";
 import React, { useState } from "react";
 
 import Select from "react-select";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from 
+
+"react-toastify";
+
+import { Helmet } from "react-helmet";
 function AddNewSlot() {
   const { MangeUserData } = UseMangeslotUserData();
   console.log(MangeUserData, "mange slot");
@@ -60,7 +64,7 @@ function AddNewSlot() {
 
     const trainerUpdateData = {
       slotTime : time,
-      Availabledays: Days,
+      Availabledays: select,
       Slot: name,
     };
 
@@ -73,15 +77,20 @@ function AddNewSlot() {
 
     useaxiosSecure.put(`/addnewslot/${_id}`,trainerUpdateData)
     .then((res)=>{
-      alert("don updated")
+    toast.success("New slot added done!")
     })
     .catch((error)=>{
       console.log("error founede")
     })
   };
 
+  // work on days
+
   return (
     <div className="bg-indigo-400 h-screen px-4">
+          <Helmet>
+        <title>Add new slot </title>
+      </Helmet>
       <di className="h-36 invisible">asd</di>
       <ToastContainer/>
 
@@ -89,7 +98,7 @@ function AddNewSlot() {
 
       <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 ">
         <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">
-          Account settings
+          Manage slot
         </h2>
 
         <form className="" onSubmit={handelNewSlotButton}>

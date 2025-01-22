@@ -1,11 +1,12 @@
 import UseAuth from "@/Hooks/UseAuth";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 import makeAnimated from "react-select/animated";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -130,6 +131,7 @@ function BecomeATrainer() {
 
 
   const clickedForApply =async (event)=>{
+   toast.success("application sent")
 
     event.preventDefault();
 
@@ -152,7 +154,7 @@ function BecomeATrainer() {
 
     if(!Name || !Experience || !time ||  !days || !skill )
     {
-      toast.success("Fill the gap");
+      toast.error("Fill the gap");
       return ;
     }
 
@@ -174,6 +176,7 @@ function BecomeATrainer() {
       console.log(appliedUser);
       useaxioPublic.post('/applied',appliedUser)
       .then((result)=>{
+
         toast.success("Your application succesfullt submited")
 
       })
@@ -194,7 +197,12 @@ function BecomeATrainer() {
 
   return (
     <div className="">
+
+      <Helmet>
+        <title>Become a Trainer </title>
+      </Helmet>
       <section class="bg-green-300">
+      <ToastContainer/>
 
         <div class="container flex items-center justify-center min-h-screen px-6 mx-auto ">
           <form class="  " onSubmit={clickedForApply}>

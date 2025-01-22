@@ -8,6 +8,7 @@ import UseAuth from "../Hooks/UseAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+import { Helmet } from "react-helmet";
 // problem google reg 
 // google sign ar time kivava db ta rakbo
 
@@ -230,6 +231,9 @@ function Registation() {
   };
   return (
     <div>
+      <Helmet>
+        <title>Regisation</title>
+      </Helmet>
       <div className="flex flex-col lg:flex-row">
         <section className="flex-1 justify-center  flex flex-col bg-sky-600">
           <h1 className="text-center text-5xl lg:font-bold lg:text-6xl font-semibold text-white">

@@ -1,12 +1,14 @@
 import UseTop6communityPost from "@/Hooks/UseTop6communityPost";
 import React from "react";
 
+
 function ForumPage() {
   const { communityPost } = UseTop6communityPost();
   console.log(communityPost);
 
   return (
     <div>
+    
       <h2 className="text-3xl font-semibold text-center">Most recent post</h2>
       <div className="mt-6 px-4 grid sm:grid-cols-2 gap-4">
         {communityPost?.map((item, key) => (

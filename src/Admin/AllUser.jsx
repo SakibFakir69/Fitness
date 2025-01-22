@@ -1,7 +1,7 @@
 import UseAlluser from "@/Hooks/UseAlluser";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import React from "react";
-
+import { Helmet } from "react-helmet";
 function AllUser() {
   const { isLoading, error,refetch, allUser } = UseAlluser();
 
@@ -31,6 +31,10 @@ function AllUser() {
 
   return (
     <div>
+      
+      <Helmet>
+        <title>All User</title>
+      </Helmet>
       <div>
         <h2 className="text-4xl font-semibold text-center">
           List of All Users

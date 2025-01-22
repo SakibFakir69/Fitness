@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 function AppliedTrainerDetailsPage() {
 
@@ -49,9 +50,10 @@ function AppliedTrainerDetailsPage() {
   const AccpectButton = useMutation({
     mutationFn : async ()=>{
         await useaxiosSecure.put(`/accpecttrainer/${id}`)
+
     },
     onSuccess: ()=>{
-        alert('trainer accpected')
+        toast.success("Trainer added Done")
         goAlltrainer('/admindashboard/appliedtrainer')
     },
     onError: (error)=>{
@@ -94,6 +96,7 @@ function AppliedTrainerDetailsPage() {
           Trainer Application Details
         </h2>
       </div>
+      <ToastContainer/>
 
       {/* show details */}
 
@@ -109,7 +112,10 @@ function AppliedTrainerDetailsPage() {
             <div class="px-5 pb-5">
              
 
-              <div class="flex items-center mt-2.5 mb-5">
+              <div class="flex items-center mt-2.5 mb-5" className="flex flex-col">
+                <p>Name:{Name}</p>
+                <p>Experience:{Experience}</p>
+                <p>Email: {Email}</p>
               
 
               

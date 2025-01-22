@@ -4,6 +4,7 @@
 
 import UseallNewsLetter from '@/Hooks/UseallNewsLetter'
 import React from 'react'
+import { Helmet } from 'react-helmet';
 
 function AllNewsletter() {
 
@@ -22,6 +23,9 @@ function AllNewsletter() {
 
   return (
     <div className='bg-indigo-200 h-screen'>
+      <Helmet>
+        <title>All NewsLetter</title>
+      </Helmet>
       <div>
         <h2 className='sm:text-4xl font-semibold text-center '>Complete List of Newsletter Subscribers</h2>
         <p className='text-center'>Total : {allnewsletter.length}</p>

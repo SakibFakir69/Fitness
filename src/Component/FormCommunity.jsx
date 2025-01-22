@@ -3,7 +3,7 @@ import Useform from "@/Hooks/Useform";
 import { useQuery } from "@tanstack/react-query";
 
 import React, { useEffect, useState } from "react";
-
+import { Helmet } from "react-helmet";
 function FormCommunity() {
   const useaxiosSecure = UseAxiosSecure();
 
@@ -61,6 +61,9 @@ function FormCommunity() {
 
   return (
     <div className="w-full bg-violet-400">
+          <Helmet>
+        <title>Community</title>
+      </Helmet>
       <div className="text-center md:text-3xl font-semibold">
         <h2>Our community tabs</h2>
       </div>
@@ -90,8 +93,11 @@ function FormCommunity() {
                   </h1>
 
                   <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-                    {item.role==='trainer' && <p>Trainer</p>}
-                    {item.role==='admin' && <p>Admin</p>}
+
+                    {item.role==='trainer' ? <i class="ri-trophy-line text-white"></i> :<i class="ri-admin-fill text-white"></i>}
+                 
+
+
                   </p>
                 </div>
               </div>

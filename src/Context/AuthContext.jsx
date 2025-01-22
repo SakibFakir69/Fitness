@@ -74,12 +74,23 @@ function AuthContext({children}) {
 
                 useaxiosPublic.post('/signin',userInfo)
                 .then((result)=>{
-                    if(result.data.token)
-                    {
-                        localStorage.setItem('access-token',result.data.token)
 
+                    console.log(result)
+                    const Token = result.data.Token;
+                    console.log(Token)
+
+
+                    if(Token)
+                    {
+                        localStorage.setItem('access-token',Token)
+
+                    }else{
+                        
                     }
 
+                })
+                .catch((error)=>{
+                    console.log(`error fin form`,error.code)
                 })
 
 
@@ -91,17 +102,22 @@ function AuthContext({children}) {
 
                 // remove token 
                 localStorage.removeItem('access-token')
+               
+                setuser(null);
 
 
-                setloading(false);
+
+               
 
             }
+            setloading(false);
+   
 
         })
 
         return unsubcribe;
 
-    },[useaxiosPublic])
+    },[])
 
 
 

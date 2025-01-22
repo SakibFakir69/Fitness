@@ -1,6 +1,7 @@
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import UseAxiosSecure from "@/Hooks/UseAxiosSecure";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 const image_key =import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -85,6 +86,11 @@ function AddnewClass() {
 
   return (
     <div className="w-full  bg-violet-400 h-screen ">
+      <Helmet>
+        <title>Admin add class</title>
+      </Helmet>
+
+
       <div className="mb-6 invisible">d</div>
       <ToastContainer/>
 

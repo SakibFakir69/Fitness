@@ -21,7 +21,11 @@ function UseAxiosSecure() {
         // all user inside authoraztion
 
         const token = localStorage.getItem('access-token');
-        config.headers.authorization=`Bearer ${token}`
+        console.log(token,"secure");
+       if(token)
+       {
+         config.headers.authorization=`Bearer ${token}`
+       }
 
 
 
@@ -40,13 +44,15 @@ function UseAxiosSecure() {
 
     useaxiosSecure.interceptors.response.use((response)=>{
 
-        // const status = error.response.status ;
-
-        // if(status===401 || status===403)
-        // {
-        //     loginpage('account/login')
-
+       
         // }
+        const status = response?.status;
+
+        // Redirect to login on 401 or 403
+        if (status === 401 || status === 403) {
+          localStorage.removeItem('access-token'); // Clear token
+          navigate('/account/login'); // Redirect to login page
+        }
 
 
 

@@ -3,6 +3,7 @@ import UsePayment from "@/Hooks/UsePayment";
 import UsetrnsHIstory from "@/Hooks/UsetrnsHIstory";
 import { all } from "axios";
 import { PieChart } from "lucide-react";
+import { Helmet } from "react-helmet";
 import React from "react";
 import {
   Pie,
@@ -22,18 +23,23 @@ function BalanceAll() {
   const { allPayment } = UsePayment();
   console.log(allPayment);
 
-  const totalRevenu = allPayment.reduce((pay, item) => {
-    return pay + (parseFloat(item?.amount) || 0); // Use parseFloat and default to 0 if invalid
-  }, 0);
-  
+  const totalRevenu = Array.isArray(allPayment)
+  ? allPayment.reduce((pay, item) => {
+      return pay + (parseFloat(item?.amount) || 0); 
+    }, 0)
+  : 0;
 
   console.log(totalRevenu.amount, "rev");
   const { history } = UsetrnsHIstory();
+  
   console.log(history, "history");
   const { allnewsletter } = UseallNewsLetter();
 
   return (
     <div className="bg-gradient-to-t from-violet-400 to-indigo-950 h-screen px-6">
+          <Helmet>
+        <title>Balance</title>
+      </Helmet>
       {allPayment.length}
 
       <section className="w-full md:flex  items-center gap-4 justify-center">
@@ -51,7 +57,7 @@ function BalanceAll() {
         {/* history */}
         <section className="flex-1 border-1">
           <h2 className="text-2xl text-white font-semibold text-center">
-            Latest 6 item payment hoistory
+            Latest 6 item payment history
           </h2>
 
           <div className="text-white border">
@@ -68,12 +74,12 @@ function BalanceAll() {
                   </tr>
                 </thead>
                 <tbody>
-                  {history.map((item, key) => (
+                  {history?.map((item, key) => (
                     <tr>
                       <th>{key + 0}</th>
                       <td>{item.Name}</td>
                       <td>{item.Email}</td>
-                      <td>{item.TransictionID}</td>
+                      <td>{item?.TransictionID}</td>
                       <td>{item.Time}</td>
                     </tr>
                   ))}

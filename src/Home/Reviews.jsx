@@ -24,7 +24,7 @@ function Reviews() {
         className="mySwiper  h-1/2 flex "
       >
         {allreviews.map((item, key) => (
-          <SwiperSlide className="w-full flex justify-items-center mt-12">
+          <SwiperSlide  key={key} className="w-full flex justify-items-center mt-12">
             <p> <i class="ri-double-quotes-l"></i> Trainer name : {item.Name}</p>
             <p>{item.Review} <i class="ri-double-quotes-r"></i> </p>
           </SwiperSlide>

@@ -2,6 +2,7 @@ import { AuroraText } from "@/components/ui/aurora-text";
 import UseAxiosSecure from "@/Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 
 function TrainerBooked() {
@@ -44,6 +45,9 @@ function TrainerBooked() {
 
   return (
     <div className="bg-gradient-to-t from-indigo-400 to-pink-500 px-6   ">
+      <Helmet>
+        <title>Trainer booked</title>
+      </Helmet>
 
 
       <section className="text-center  ">

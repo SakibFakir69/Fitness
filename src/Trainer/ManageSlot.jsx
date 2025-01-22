@@ -3,6 +3,7 @@ import UseAxiosSecure, { useaxiosSecure } from "@/Hooks/UseAxiosSecure";
 import Usebooked from "@/Hooks/Usebooked";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 function ManageSlot() {
   // slot jokon add korba oi time , user data store kora rakbo
   // tr por show korabo
@@ -16,11 +17,17 @@ function ManageSlot() {
   const [bookeduser, setbookeduser] = useState([]);
 
   useEffect(() => {
-    const filterBooked = booked?.filter((item) =>
-      item?.TrainerEmail?.includes(user?.email)
-    );
-    setbookeduser(filterBooked);
-  }, [booked, user?.email]);
+    if (booked && user?.email) {
+        const filterBooked = booked.filter((item) =>
+            item?.TrainerEmail?.includes(user.email)
+        );
+        setbookeduser(filterBooked);
+    } else {
+        setbookeduser([]); 
+    }
+}, [booked, user?.email]);
+
+
   console.log(booked);
   const useaxiosSecure = UseAxiosSecure();
 
@@ -62,6 +69,9 @@ function ManageSlot() {
 
   return (
     <div className="px-3">
+          <Helmet>
+        <title>Manage slot</title>
+      </Helmet>
       <h2 className="md:text-3xl font-semibold">
         Total booked : {bookeduser?.length}
       </h2>

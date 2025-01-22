@@ -3,10 +3,11 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import UseAxiosPublic from './UseAxiosPublic'
+import UseAxiosSecure from './UseAxiosSecure';
 
 function UseAllTrainer() {
 
-    const useaxiosPublic= UseAxiosPublic();
+    const useaxiosPublic= UseAxiosSecure();
 
     const {isLoading, error,isError , data: TrainerData=[],refetch}= useQuery({
         queryKey: ['trainer'],

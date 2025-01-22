@@ -8,6 +8,7 @@ const stripePromise = loadStripe(
 import { Elements } from "@stripe/react-stripe-js";
 import { useLocation } from "react-router-dom";
 import UseAuth from "@/Hooks/UseAuth";
+import { Helmet } from "react-helmet";
 
 function Payment() {
   // incrase class booking
@@ -32,6 +33,9 @@ function Payment() {
 
 
     <div className="w-full flex flex-col gap-4 px-4">
+      <Helmet>
+        <title>Payment </title>
+      </Helmet>
       <div className="border text-center mt-4 bg-violet-300 rounded-md">
         <p>Id{id}</p>
         <p>TrainerName : {TrainerName}</p>

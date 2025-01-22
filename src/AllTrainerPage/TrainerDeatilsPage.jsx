@@ -3,6 +3,7 @@ import { Link, NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
+import { Helmet } from "react-helmet";
 
 function TrainerDeatilsPage() {
 
@@ -59,6 +60,9 @@ function TrainerDeatilsPage() {
 
   return (
     <div className="w-full mt-10 r px-1">
+      <Helmet>
+        <title>Trainer Details page</title>
+      </Helmet>
       <section
         className="w-10/12  flex flex-col justify-center md:ml-20 ml-16 
        bg-gradient-to-r from-violet-500 to-violet-400 
@@ -103,20 +107,11 @@ function TrainerDeatilsPage() {
                       className="border p-1 bg-black text-white rounded-md hover:bg-transparent backdrop-blur-xl cursor-pointer"
                       key={key}
                     >
-                      {" " + item?.label ||  item?.value}{" "}
+                      {" " + item}
                     </span>
                   ))}
                 </p>
-                <p>
-                  <span className="text-xl">Education : </span>
-                </p>
-                <p>
-                  <span className="text-xl">About Me : </span>
-                </p>
-                {/*  */}
-                <p>
-                  <span className="text-xl">Matrial Status : </span>
-                </p>
+               
               </div>
             </div>
           </div>

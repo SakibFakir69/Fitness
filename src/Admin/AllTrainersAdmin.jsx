@@ -4,7 +4,8 @@
 import UseAllTrainer from '@/Hooks/UseAllTrainer'
 import UseAxiosSecure, { useaxiosSecure } from '@/Hooks/UseAxiosSecure';
 import React from 'react'
-
+import { Helmet } from 'react-helmet';
+import { toast } from 'react-toastify';
 function AllTrainersAdmin() {
 
   const {isLoading, error,isError,TrainerData,refetch} = UseAllTrainer();
@@ -18,6 +19,7 @@ function AllTrainersAdmin() {
 
   const demoetButton = (id,index)=>{
     console.log(id[index]);
+    toast.success("demoted done")
 
     // perform put opration for trainer 
 
@@ -47,10 +49,15 @@ function AllTrainersAdmin() {
 
   }
 
+  // delete trainer 
+
 
 
   return (
     <div className='bg-violet-300 h-screen'>
+          <Helmet>
+        <title>All trainer dashboard</title>
+      </Helmet>
       <div className='text-center'>
         <h2 className='sm:text-4xl font-semibold'>Manage All Trainers</h2>
         <span>Toal Trainer : {TrainerData.length}</span>

@@ -12,7 +12,15 @@ function UseTrainer() {
     const useaxiosSecure =UseAxiosSecure();
 
     const {data: TrainerIstrainer } = useQuery({
-        queryKey:['data'],
+
+        enabled: !!user?.email,
+
+
+
+
+
+        queryKey:['data',user?.email],
+
         queryFn: async ()=>{
             const res = await useaxiosSecure.get(`/trainersOrNOt/${user?.email}`)
             return res.data;

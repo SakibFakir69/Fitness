@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 function ShowTrainerAll({ trainers }) {
   const {
     availableTime,
@@ -21,6 +21,9 @@ function ShowTrainerAll({ trainers }) {
 
   return (
     <div className="">
+          <Helmet>
+        <title>Show Trainer</title>
+      </Helmet>
       <div class="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 mx-auto">
 
         <section class="bg-white dark:bg-gray-900">

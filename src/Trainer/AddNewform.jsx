@@ -7,7 +7,7 @@ import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import { toast, ToastContainer } from "react-toastify";
 
 
-
+import { Helmet } from "react-helmet";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
 const Image_hostin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -70,7 +70,7 @@ function AddNewform() {
     const {image,title,Message,name} = data;
     if(name.length<=5)
     {
-      toast.error("must be 5 word")
+      toast.error("Name length must be 5 word")
       return;
     };
 
@@ -124,6 +124,9 @@ function AddNewform() {
 
   return (
     <div className="w-full h-screen  bg-violet-400">
+          <Helmet>
+        <title>Add new form</title>
+      </Helmet>
       <ToastContainer/>
      
       <section className="bg-violet-400">

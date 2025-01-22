@@ -6,6 +6,7 @@ import { useRef } from "react";
 // icons
 import { RxCross1 } from "react-icons/rx";
 import { toast, ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet";
 function UserBookedTrainer() {
   // show booked trainer
 
@@ -22,7 +23,7 @@ function UserBookedTrainer() {
 
     console.log(filterData, "f");
     settrainerList(filterData);
-  }, [user, TrainerData]);
+  }, []);
 
   console.log(trainerList, "user booked");
 
@@ -32,7 +33,7 @@ function UserBookedTrainer() {
   const {Image, Name, Email } = TrainerData;
 
   const reviewButton = (name, email , image) => {
-    alert("review button pressed");
+   
 
     if(!reviewref.current.value){
       toast.error("Enter your review")
@@ -55,7 +56,7 @@ function UserBookedTrainer() {
     useaxiosPublic.post("/reviews",reviewbyuser)
     .then((res)=>{
       console.log(res)
-      alert("done")
+      toast.success("Review Done!")
 
     })
     .catch((error)=>{
@@ -66,6 +67,9 @@ function UserBookedTrainer() {
  
   return (
     <div className="px-4 w-full">
+          <Helmet>
+        <title>User booked</title>
+      </Helmet>
       <div>
         <h2 className="text-4xl text-center mb-4">Your booked trainer</h2>
       </div>

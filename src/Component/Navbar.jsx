@@ -69,7 +69,10 @@ function Navbar() {
         <NavLink to={'/allclass'}>All classes</NavLink>
       </li>
       <li>
-        <NavLink to={'/userbookedtrainer'}>User Booked</NavLink>
+       
+       {!TrainerIstrainer?.Trainer && !isAdmin?.admin &&  <NavLink to={'/userbookedtrainer'}>Booked</NavLink>}
+
+
       </li>
 
       <li>
@@ -140,7 +143,7 @@ function Navbar() {
                   <li className="flex flex-row justify-around">
                     <div className="w-14 rounded-full">
                       <NavLink to={'/profile'}>
-                      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                      <img src={user?.photoURL}/>
                       </NavLink>
                     
                     </div>
@@ -170,7 +173,7 @@ function Navbar() {
                 <div className="avatar online lg:visible invisible">
                   <div className="w-14 rounded-full">
                    <NavLink to={'/profile'}>
-                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                   <img src={user?.photoURL} />
                    </NavLink>
                   </div>
                 </div>

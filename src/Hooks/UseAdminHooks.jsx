@@ -13,7 +13,11 @@ function UseAdminHooks() {
     const useaxiosSecure = UseAxiosSecure();
 
     const {data : isAdmin}=useQuery({
-        queryKey:['user'],
+
+        enabled: !!user?.email,
+
+
+        queryKey:['user',user?.email],
         queryFn : async ()=>{
             const res = await useaxiosSecure.get(`/useradmin/${user?.email}`)
             return res.data;

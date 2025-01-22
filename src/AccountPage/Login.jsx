@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 import Lottie from "react-lottie";
 import animLogin from "../../public/Animation - 1736851204044.json";
 import UseAuth from "../Hooks/UseAuth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 function Login() {
   const [ error , seterror ] = useState('');
 
@@ -72,6 +73,9 @@ function Login() {
 
   return (
     <div className="border-2">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="flex flex-col lg:flex-row">
         <section className="flex-1 justify-center bg-green-200  ">
           <h1 className="text-center text-2xl md:text-6xl lg:text-6xl md:font-bold font-semibold text-black px-5">

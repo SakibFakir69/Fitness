@@ -2,6 +2,7 @@ import UseAuth from "@/Hooks/UseAuth";
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { BiNews } from "react-icons/bi";
+import { Helmet } from "react-helmet";
 function AdminDashboard() {
   // '/admindashboard/addnewclass' ,  "/admindashboard/balanceall",'/admindashboard/appliedtrainer','/admindashboard/alltrainer',
 
@@ -9,6 +10,9 @@ function AdminDashboard() {
   
   return (
     <div className="w-full">
+      <Helmet>
+        <title>Admin Dashboard</title>
+      </Helmet>
 
       <section className="border flex gap-6">
 
@@ -21,7 +25,7 @@ function AdminDashboard() {
             </div>
 
           <li className=" ">
-            <NavLink to={"/admindashboard/allnewsletter"}>
+            <NavLink to={"/admindashboard"}>
               All Newsletter <i class="ri-article-line"></i> 
             </NavLink>
           </li>
@@ -45,6 +49,9 @@ function AdminDashboard() {
           </li>
           <li>
             <NavLink to={'/admindashboard/addnewform'}>Form/Community</NavLink>
+          </li>
+          <li>
+            <NavLink to={'/'}>Home</NavLink>
           </li>
           
 

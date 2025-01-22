@@ -26,6 +26,9 @@ import AddNewform from "@/Trainer/AddNewform";
 import FormCommunity from "@/Component/FormCommunity";
 import ProfilePage from "@/Component/ProfilePage";
 import UserBookedTrainer from "@/Component/UserBookedTrainer";
+import PrivateRoutes from "@/private/PrivateRoutes";
+import AdminPrivateRoute from "@/Component/AdminPrivateRoute";
+import TrainerPrivateRoute from "@/Component/TrainerPrivateRoute";
 
 export const route = createBrowserRouter([
   {
@@ -51,23 +54,34 @@ export const route = createBrowserRouter([
       // become a trainer
       {
         path: '/becomeatrainer',
-        element : <BecomeATrainer/>
+        element :<PrivateRoutes> <BecomeATrainer/></PrivateRoutes>
 
       },
       {
         path :'/trainerbook/:id',
-        element: <TrainerBooked/>
+        element: <PrivateRoutes><TrainerBooked/></PrivateRoutes>
       },
 
       // payment page 
       {
         path:'/payment',
-        element: <Payment/>
+        element: <PrivateRoutes><Payment/></PrivateRoutes>
       },
       {
         path:'/userbookedtrainer',
         element: <UserBookedTrainer/>
-      }
+      },
+      {
+        path :"/formcomunity",
+        element: <FormCommunity/>
+      },
+    
+      {
+        path:'/profile',
+        element :<ProfilePage/>
+    
+      },
+      
     ],
   },
   // account page
@@ -91,10 +105,10 @@ export const route = createBrowserRouter([
 
   {
     path:'admindashboard',
-    element: <AdminDashboard/>,
+    element:  <AdminDashboard/>,
     children:[
       {
-        path:'/admindashboard/allnewsletter',
+        path:'/admindashboard',
         element : <AllNewsletter/>
 
       },
@@ -104,7 +118,8 @@ export const route = createBrowserRouter([
       },
       {
         path :'/admindashboard/appliedtrainer',
-        element: <AppliedTrainer/>
+        element: <PrivateRoutes><AppliedTrainer/></PrivateRoutes>
+        // private 
       },
       {
         path : "/admindashboard/balanceall",
@@ -133,7 +148,7 @@ export const route = createBrowserRouter([
 
   {
     path : 'trainerdashboard',
-    element: <TrainerDashboard/>,
+    element: <TrainerPrivateRoute> <TrainerDashboard/></TrainerPrivateRoute>,
     children:[
       {
         path :'/trainerdashboard/manageslot',
@@ -154,16 +169,16 @@ export const route = createBrowserRouter([
   ,
   // form couminity 
 
-  {
-    path :"/formcomunity",
-    element: <FormCommunity/>
-  },
+  // {
+  //   path :"/formcomunity",
+  //   element: <FormCommunity/>
+  // },
 
-  {
-    path:'/profile',
-    element :<ProfilePage/>
+  // {
+  //   path:'/profile',
+  //   element :<ProfilePage/>
 
-  },
+  // },
   
 
 

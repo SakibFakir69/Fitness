@@ -1,16 +1,17 @@
 
 
-** incrase shadow
 
-1
-1.registation page 
-2.all user
-3.avaiable day add new slot 
-4.Manage slot 
-5. form admin and trainer 
-6. form admin text
-6. class details views all class 
-7.trainer details page 
-8.payment page ,trsn id 
 
-👉 Voting System: Implement an up-vote and down-vote system similar to Quora's. Users need to log in to vote for forum posts, 
+
+
+*** booked 
+*** vote 
+
+
+
+1. admin / trainer dashboard refressh log out 
+
+
+2.booked filter 
+3. all user 
+4. responsive test
