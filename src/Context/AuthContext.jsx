@@ -104,13 +104,14 @@ function AuthContext({children}) {
                 localStorage.removeItem('access-token')
                
                 setuser(null);
+                setloading(false);
 
 
 
                
 
             }
-            setloading(false);
+           
    
 
         })

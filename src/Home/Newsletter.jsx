@@ -35,7 +35,7 @@ function Newsletter() {
 
   
   return (
-    <div className="px-10">
+    <div className="px-10 mb-6">
       <div className="px-10 rounded-md border  flex-col bg-gradient-to-b from-fuchsia-700  to-blue-600 ">
         <div className="text-center p-4">
           <h1 className="text-4xl font-semibold text-white ">

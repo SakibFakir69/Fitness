@@ -15,13 +15,13 @@ function AppliedTrainer() {
   /// accpect or reject button
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return <p>loading app...</p>;
   }
 
   const onlyPendingTrainer = appliedTrainer.filter(
     (trainer) => trainer.Status === "pending"
   );
-  console.log(onlyPendingTrainer<"appliewd");
+  console.log(onlyPendingTrainer,"appliewd");
 
   // add pagination
 

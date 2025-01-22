@@ -7,7 +7,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 export const useaxiosSecure = axios.create({
-    baseURL:'http://localhost:5000'
+    baseURL:'https://server-vert-two-78.vercel.app'
 })
 
 function UseAxiosSecure() {

@@ -122,7 +122,7 @@ function AllClass() {
       <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-6">
         {result.map((item, key) => (
 
-          <div class="flex justify-center mx-auto  items-center max-w-md overflow-hidden bg-white rounded-lg shadow-sl dark:bg-gray-800 border p-4 hover:bg-violet-300 border-red-500">
+          <div key={key} class="flex justify-center mx-auto  items-center max-w-md overflow-hidden bg-white rounded-lg shadow-sl dark:bg-gray-800 border p-4 hover:bg-violet-300 border-red-500">
 
             <div class="w-1/3 bg-cover">
               <img src={item.Image} />

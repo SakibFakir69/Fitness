@@ -37,7 +37,7 @@ function Payment() {
         <title>Payment </title>
       </Helmet>
       <div className="border text-center mt-4 bg-violet-300 rounded-md">
-        <p>Id{id}</p>
+
         <p>TrainerName : {TrainerName}</p>
         <p>TrainerEmail:{TrainerEmail}</p>
         <p>Package Name : {packageName}</p>

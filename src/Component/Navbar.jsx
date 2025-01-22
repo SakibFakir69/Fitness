@@ -4,6 +4,7 @@ import UseAuth from "../Hooks/UseAuth";
 import { use } from "react";
 import UseAdminHooks from "@/Hooks/UseAdminHooks";
 import UseTrainer from "@/Hooks/UseTrainer";
+import { toast } from "react-toastify";
 
 function Navbar() {
 
@@ -17,11 +18,14 @@ function Navbar() {
 
 
   const logoutHandleButton = ()=>{
-    setloading(false);
+
+    setloading(true);
     logoutButton()
     .then((result)=>{
+      toast.success("Log out")
+
       setuser(null);
-      setloading(true);
+      setloading(false);
     })
     .cathc((error)=>{
       console.log(`this error from navbar ${error.message}`)
@@ -63,7 +67,12 @@ function Navbar() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={'/alltrainer'}>All Trainer</NavLink>
+     {
+      !TrainerIstrainer?.Trainer &&    <NavLink to={'/alltrainer'}>All Trainer</NavLink>
+      
+     }
+
+
       </li>
       <li>
         <NavLink to={'/allclass'}>All classes</NavLink>
@@ -79,7 +88,7 @@ function Navbar() {
         {/* show trainer and admin dashboard  */}
 
      {
-      isAdmin?.admin &&   <NavLink to={'/admindashboard'}>DashBoard</NavLink> 
+      isAdmin?.admin &&   <NavLink to={'/admindashboard'}>Admin DashBoard</NavLink> 
     
      }
     
@@ -87,7 +96,7 @@ function Navbar() {
       </li>
       <li>
         {
-          TrainerIstrainer?.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
+         !isAdmin?.admin&& TrainerIstrainer?.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
         }
       </li>
 

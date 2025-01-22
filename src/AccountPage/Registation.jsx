@@ -58,7 +58,7 @@ function Registation() {
 
 
 
-    setloading(true);
+    setloading(false);
 
     // 
     if(!name || !email  || !password || !photoURL)
@@ -142,7 +142,7 @@ function Registation() {
     CreateAccountWithEmailAndPassword(email,password)
     .then((result)=>{
       const users = result.user;
-      setloading(false);
+      setloading(true);
       setuser(users);
       goHome('/');
 
@@ -185,12 +185,12 @@ function Registation() {
   const Create_user_Google_Handle_Button = (event) => {
 
     event.preventDefault();
-    setloading(true);
+    setloading(false);
     CreateAccountWIthGoole()
     .then((result)=>{
       const users = result.user;
       setuser(users);
-      setloading(false);
+      setloading(true);
       goHome('/');
       toast.success('Successfully Registation!')
       // send data to DB

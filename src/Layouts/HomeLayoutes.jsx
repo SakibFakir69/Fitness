@@ -24,7 +24,7 @@ function HomeLayoutes() {
       <FeautredClasses />
       <Reviews />
       <ForumPage />
-      <Newsletter />
+      <Newsletter  />
       <TeamSection />
     </div>
   );

@@ -118,7 +118,7 @@ export const route = createBrowserRouter([
       },
       {
         path :'/admindashboard/appliedtrainer',
-        element: <PrivateRoutes><AppliedTrainer/></PrivateRoutes>
+        element: <AppliedTrainer/>
         // private 
       },
       {

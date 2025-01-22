@@ -14,9 +14,12 @@ function UseAppliedTrainer() {
         queryKey:['appliedData'],
         queryFn : async ()=>{
             const res = await useaxiosSecure.get('/applied')
+            console.log(res.data);
             return res.data;
         }
     })
+
+    console.log(appliedTrainer,"applied")
 
 
 

@@ -28,10 +28,11 @@ function Login() {
     const { email, password } = Data;
     console.log(Data)
     console.log(email,"email");
+    setloading(false);
 
     LoginWithemailAndPassword(email, password)
     .then((result) => {
-      setloading(false);
+      setloading(true);
       const users = result.user;
       setuser(users);
       goHome('/')
@@ -47,13 +48,13 @@ function Login() {
 
   const Googlepop_Login_Button = () => {
   
-    setloading(true);
+    setloading(false);
 
     loginWithgoogleprovider()
       .then((result) => {
         const users = result.user;
         setuser(users);
-        setloading(false);
+        setloading(true);
         goHome('/')
         toast.success('login sucessfully')
 
