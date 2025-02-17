@@ -56,39 +56,52 @@ function FeaturedSection() {
   ];
 
   return (
-    <div className="px-4">
+    <div className="px-4 bg-stone-200/40  border-2 border-green-400 ">
+
       <div className="text-center mt-4">
         {/* title */}
 
-        <TextAnimate
-          animation="slideLeft"
-          by="character"
-          className={"md:text-6xl md:font-semibold sm:text-2xl font-bold "}
-        >
-          The Ultimate Reasons to Choose Our Website
-        </TextAnimate>
+        
       </div>
 
-      <section className="grid md:grid-cols-3 gap-4 mt-6 grid-cols-1">
+      <section className="grid md:grid-cols-3 gap-4 mt-6 grid-cols-1 p-2 ">
+
         {section.map((item, key) => (
-          <ShineBorder
-            className="p-4 shadow-lg "
-            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            key={key}
-          >
-            <motion.div className="md:flex gap-4 " whileHover={{scale:1.10}} transition={{duration:2,}}>
+          <div className="w-full border flex justify-center items-center">
 
-              <div className="flex-1 space-y-2 p-2">
-                <h3 className="text-2xl font-semibold">👉 {item.Title}</h3>
+            <ShineBorder
+              className="p-4 shadow-lg "
+              color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+              key={key}
+            >
+              <motion.div
+                className="flex gap-4 "
+             
+           
+              >
 
-                <p className="text-base  ">{item.description}</p>
-              </div>
 
-              <div className="flex-1  flex justify-center items-center">
-                <img src={item.image} className="rounded-md" />
-              </div>
-            </motion.div>
-          </ShineBorder>
+                <div className="p-2 flex flex-col space-y-2 h-80">
+
+                  {/* font 16 12 */}
+                  <p className="text-xl font-semibold">{item.Title}</p>
+                  <p className="text-sm ">{item.description}</p>
+
+                  <div className="h-52 flex justify-start items-center">
+                    <img src={item.image} className="h-48 rounded-md"/>
+                  </div>
+                </div>
+
+
+
+
+              </motion.div>
+            </ShineBorder>
+
+
+
+
+          </div>
         ))}
       </section>
     </div>

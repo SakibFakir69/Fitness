@@ -73,7 +73,7 @@ function Banner() {
 
                 <div className="mt-6">
                 <NavLink
-                  className={"px-8 border py-2 rounded bg-black text-xl border-white/10"}
+                  className={"px-8 border py-2 rounded  text-xl border-white/10 bg-blue-400 hover:bg-blue-300"}
                   to={item.btn}
                 >
                   Go class
