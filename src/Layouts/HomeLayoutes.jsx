@@ -23,6 +23,7 @@ function HomeLayoutes() {
       <FeaturedSection />
       <AboutSection />
       
+
       <FeautredClasses />
       <Reviews />
       <ForumPage />
