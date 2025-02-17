@@ -22,6 +22,7 @@ function HomeLayoutes() {
       <Banner />
       <FeaturedSection />
       <AboutSection />
+      
       <FeautredClasses />
       <Reviews />
       <ForumPage />

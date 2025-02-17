@@ -5,16 +5,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 function AboutSection() {
   return (
-    <div className="mt-10 px-10 bg-BgCustome">
+    <div className="mt-10 px-10 ">
 
-      <div>
-        <h2 className="text-4xl text-center font-bold mb-5">
-          {" "}
-          About Our Organization
-        </h2>
-      </div>
 
-      <section className="grid">
+      <section className="grid py-6">
 
         <div className="flex">
           <motion.div
@@ -23,8 +17,8 @@ function AboutSection() {
             transition={{ duration: 1 }}
             className="rounded-md border flex-1 p-4 bg-white"
           >
-            <h2 className="text-2xl font-bold">Our Mission</h2>
-            <p>
+            <h2 className="text-xl font-bold">Our Mission</h2>
+            <p className="text-sm">
               Our mission is to create an inclusive, innovative, and efficient
               fitness ecosystem. We believe in optimizing every aspect of the
               fitness experience, from tracking progress to offering
@@ -65,13 +59,13 @@ function AboutSection() {
             initial={{ x: -300 }}
             whileInView={{ x: 10 }}
             transition={{ duration: 1 }}
-            className="border flex-1 p-4 bg-red-200 rounded-md shadow-lg"
+            className="border flex-1 p-4  rounded-md shadow-lg  bg-slate-900"
           >
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl font-bold text-white ">
               {" "}
               Empowering Individuals, Transforming Lives
             </h2>
-            <p>
+            <p className="text-sm text-slate-200">
               Our organization is dedicated to empowering individuals with the
               tools and resources they need to achieve their fitness goals. By
               combining advanced technology, expert guidance, and a user-centric
@@ -92,10 +86,10 @@ function AboutSection() {
             initial={{ x: 900 }}
             animate={{ x: 0 }}
             transition={{ duration: 1.5 }}
-            className="flex-1 border p-4 bg-emerald-200 rounded-md "
+            className="flex-1 border p-4  rounded-md  bg-violet-600"
           >
-            <h2 className="text-2xl font-bold">Making Wellness Simple and Smart</h2>
-            <p>
+            <h2 className="text-xl font-bold text-white">Making Wellness Simple and Smart</h2>
+            <p className="text-sm text-white ">
             Our goal is to make living healthy easy and accessible for all. We combine technology with practical solutions to help people improve their physical and mental well-being. By offering personalized workouts and tracking progress, we make it simple for anyone to live a healthier, happier life every day
             </p>
           </motion.div>
