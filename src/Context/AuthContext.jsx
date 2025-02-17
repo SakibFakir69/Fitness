@@ -12,7 +12,7 @@ export const MyContext = createContext();
 
 function AuthContext({children}) {
 
-    const [ loading , setloading ] =useState (true);
+    const [ loading , setloading ] =useState(true);
     const [ user , setuser ] = useState(null);
 
     const useaxiosPublic =UseAxiosPublic();
@@ -71,6 +71,7 @@ function AuthContext({children}) {
                 /// store token locastroage 
                 const userInfo = {email: currentUser.email};
                 // decode jwt 
+                
 
                 useaxiosPublic.post('/signin',userInfo)
                 .then((result)=>{
@@ -78,6 +79,7 @@ function AuthContext({children}) {
                     console.log(result)
                     const Token = result.data.Token;
                     console.log(Token)
+
 
 
                     if(Token)
@@ -98,19 +100,21 @@ function AuthContext({children}) {
 
 
                 setuser(currentUser);
+                setloading(false);
             }else{
 
                 // remove token 
                 localStorage.removeItem('access-token')
                
                 setuser(null);
-                setloading(false);
+                setloading(false); // loading 
 
 
 
                
 
             }
+            setloading(false); /// loading
            
    
 

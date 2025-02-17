@@ -18,6 +18,7 @@ function AllClass() {
   const useaxiosSecure = UseAxiosSecure();
 
   const limit = 6;
+
   const [currentPage, setcurrentPage] = useState(0);
   const [totalPage, settotalPage] = useState(1);
 
@@ -35,6 +36,7 @@ function AllClass() {
 
 
   const { isLoading, data: allClass } = useQuery({
+
     queryKey: ["data", currentPage,queryx],
     queryFn: async () => {
       const res = await useaxiosSecure.get(
@@ -44,6 +46,7 @@ function AllClass() {
     },
     keepPreviousData: true,
   });
+
   console.log(allClass, "pagi");
 
   const result = allClass?.result || [];
@@ -51,6 +54,7 @@ function AllClass() {
   console.log(result, totalCount);
 
   useEffect(() => {
+
     const count = Math.ceil(totalCount / limit);
     const ans = parseInt(count);
 
@@ -69,6 +73,7 @@ function AllClass() {
       setcurrentPage((prev) => prev - 1);
     }
   };
+  
 
   const selectPage = (num) => {
     setcurrentPage(num);

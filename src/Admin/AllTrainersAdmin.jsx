@@ -30,7 +30,7 @@ function AllTrainersAdmin() {
     .then((res)=>{
       if(res.data.modifiedCount >0)
       {
-        alert("done")
+        toast.success("Demoted")
       }
       refetch();
     })

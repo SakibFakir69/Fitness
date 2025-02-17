@@ -21,7 +21,7 @@ import Vschart from "./Vschart";
 
 function BalanceAll() {
   const { allPayment } = UsePayment();
-  console.log(allPayment);
+  console.log(allPayment,"taka");
 
   const totalRevenu = Array.isArray(allPayment)
   ? allPayment.reduce((pay, item) => {
@@ -76,7 +76,7 @@ function BalanceAll() {
                 <tbody>
                   {history?.map((item, key) => (
                     <tr>
-                      <th>{key + 0}</th>
+                      <th>{key + 1}</th>
                       <td>{item.Name}</td>
                       <td>{item.Email}</td>
                       <td>{item?.TransictionID}</td>

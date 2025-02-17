@@ -170,7 +170,7 @@ function TrainerDeatilsPage() {
 
       {/* Share your expertise and help others by becoming a certified trainer today! Want to Become a Trainer? */}
 
-      <section className="flex justify-center items-center mt-60  border">
+      <section className="flex justify-center items-center mt-60  ">
         <div className="border-black px-4 flex flex-col text-center bg-red-200 p-10 space-y-5">
           <h2 className="lg:text-4xl font-semibold sm:text-2xl">
             Want to Become a Trainer?

@@ -18,6 +18,7 @@ function HomeLayoutes() {
         <title>Home</title>
       </Helmet>
 
+      <section className="py-16">
       <Banner />
       <FeaturedSection />
       <AboutSection />
@@ -26,6 +27,12 @@ function HomeLayoutes() {
       <ForumPage />
       <Newsletter  />
       <TeamSection />
+      </section>
+
+
+
+
+
     </div>
   );
 }

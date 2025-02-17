@@ -8,7 +8,7 @@ import UseAuth from '../Hooks/UseAuth'
 import { Navigate } from 'react-router-dom';
 function PrivateRoutes({children}) {
 
-    const {  user} = UseAuth();
+    const { user} = UseAuth();
     const {loading} = UseAuth();
 
     console.log(loading,user ,"navbar");

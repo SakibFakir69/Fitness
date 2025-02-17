@@ -5,11 +5,11 @@ import Lottie from "react-lottie";
 
 import RegAnimtion from "../../public/Animation - 1736852299839.json";
 import UseAuth from "../Hooks/UseAuth";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 import { Helmet } from "react-helmet";
-// problem google reg 
+// problem google reg
 // google sign ar time kivava db ta rakbo
 
 function Registation() {
@@ -21,26 +21,13 @@ function Registation() {
   } = UseAuth();
   const goHome = useNavigate();
 
-  // eror catching 
+  // eror catching
 
-  const [Error , setError ] = useState('');
+  const [Error, setError] = useState("");
 
-  const useaxiosPublic=UseAxiosPublic();
-
-
-  
-
-
-
-
-
-
-
-
-
+  const useaxiosPublic = UseAxiosPublic();
 
   const CreateAccountwithEmailand_password_handle = (event) => {
-
     event.preventDefault();
     console.log("account email");
 
@@ -48,65 +35,48 @@ function Registation() {
     const Data = Object.fromEntries(Data_Form);
     // also added data to database
 
-    const { name, email, photoURL, password,ConfirmPassword } = Data;
-    console.log(Data)
+    const { name, email, photoURL, password, ConfirmPassword } = Data;
+    console.log(Data);
 
-    
+    setloading(true);
+    /// nav true false 
+    /// true
+    // false 
 
-
-
-
-
-
-    setloading(false);
-
-    // 
-    if(!name || !email  || !password || !photoURL)
-    {
-      setError('All fields are required');
-      // setloading(false);
-      return ;
-    }
-    if(password!==ConfirmPassword)
-    {
-      setError('Password do not match');
+    //
+    if (!name || !email || !password || !photoURL) {
+      setError("All fields are required");
       // setloading(false);
       return;
-
     }
-    const cKpassword = (pass)=>
-    {
-      const passlength = pass.length>=6;
+    if (password !== ConfirmPassword) {
+      setError("Password do not match");
+      // setloading(false);
+      return;
+    }
+    const cKpassword = (pass) => {
+      const passlength = pass.length >= 6;
       const Uppercase = /[A-Z]/.test(pass);
       const lowercase = /[a-z]/.test(pass);
       const number = /[0-9]/.test(pass);
 
-
-      if(!passlength)
-      {
-        setError('password must be minmum 6 length')
+      if (!passlength) {
+        setError("password must be minmum 6 length");
         return;
       }
-      if(!Uppercase)
-      {
-        setError('Password must be one uppercase');
-        return ;
-      }
-      if(!lowercase)
-      {
-        setError('Password must be one lowercase');
+      if (!Uppercase) {
+        setError("Password must be one uppercase");
         return;
       }
-      if(!number)
-      {
-        setError('Password must be one number');
+      if (!lowercase) {
+        setError("Password must be one lowercase");
         return;
       }
-
-    }
-   
-
-
+      if (!number) {
+        setError("Password must be one number");
+        return;
+      }
+    };
 
     // email
     // const EmailValidation = (email)=>{
@@ -120,108 +90,89 @@ function Registation() {
     // }
 
     const passwordChceker = cKpassword(password);
-    if(passwordChceker)
-    {
+    if (passwordChceker) {
       setError(passwordChceker);
-      return ;
+      return;
     }
 
-    // error end 
-    
+    // error end
+
     const usersGetformRegData = {
       Name: name,
       Email: email,
       PhotoUrl: photoURL,
       Password: password,
-
     };
 
+    CreateAccountWithEmailAndPassword(email, password)
+      .then((result) => {
+        const users = result.user;
 
+        setloading(false); /// loading
 
+        setuser(users);
+        goHome("/");
 
-    CreateAccountWithEmailAndPassword(email,password)
-    .then((result)=>{
-      const users = result.user;
-      setloading(true);
-      setuser(users);
-      goHome('/');
+        toast.success("Successfully Registation!");
+        // add data to DB
 
-      toast.success('Successfully Registation!');
-      // add data to DB
-
-      if(users)
-      {
-        useaxiosPublic.post('/users',usersGetformRegData)
-        .then((res)=>{
-          console.log("data added done")
-        })
-        .catch((error)=>{
-          console.log("error get to db")
-        })
-      }
-
-     
-
-
-
-
-
-      
-
-    })
-    .catch((error)=>{
-      console.log(`this erorr from  reg page com create user  ${error.code}`);
-      toast.error("Failed to registation")
-    })
-
-
-
-
-
-
+        if (users) {
+          useaxiosPublic
+            .post("/users", usersGetformRegData)
+            .then((res) => {
+              console.log("data added done");
+            })
+            .catch((error) => {
+              console.log("error get to db");
+            });
+        }
+      })
+      .catch((error) => {
+        console.log(`this erorr from  reg page com create user  ${error.code}`);
+        toast.error("Failed to registation");
+      });
   };
   // createuser with google login
 
   const Create_user_Google_Handle_Button = (event) => {
-
     event.preventDefault();
-    setloading(false);
+
+    setloading(true); /// loading 
+
+
+
     CreateAccountWIthGoole()
-    .then((result)=>{
-      const users = result.user;
-      setuser(users);
-      setloading(true);
-      goHome('/');
-      toast.success('Successfully Registation!')
-      // send data to DB
-      const userData = {
-        Name : users.displayName,
-        Email : users.email,
-        photoURL: users.photoURL,
-      }
-      console.log(userData,"google reg");
+      .then((result) => {
+        const users = result.user;
+        setuser(users);
+        setloading(false); // loading
+        goHome("/");
+        toast.success("Successfully Registation!");
+        // send data to DB
+        const userData = {
+          Name: users.displayName,
+          Email: users.email,
+          photoURL: users.photoURL,
+        };
+        console.log(userData, "google reg");
 
-   
-    
-      useaxiosPublic.post('/users', userData)
-      .then((res)=>{
-        console.log("data done to google");
-        alert("get data form google reg")
+        useaxiosPublic
+          .post("/users", userData)
+          .then((res) => {
+            console.log("data done to google");
+            alert("get data form google reg");
+          })
+          .catch((error) => {
+            console.log(`error founded ${error.name}`);
+          });
       })
-      .catch((error)=>{
-        console.log(`error founded ${error.name}`)
-      })
+      .catch((error) => {
+        console.log(`error founed on reg page ${error.code}`);
+        setError(error.message);
+        toast.error(`${error.message}`);
+      });
 
-  
-
-    })
-    .catch((error)=>{
-      console.log(`error founed on reg page ${error.code}`)
-      setError(error.message);
-      toast.error(`${error.message}`)
-    })
-
-    console.log('google button clickled')
+    console.log("google button clickled");
   };
 
   const options = {
@@ -245,10 +196,9 @@ function Registation() {
           </div>
         </section>
         {/* toast container */}
-        <ToastContainer/>
+        <ToastContainer />
 
         <section class="bg-white dark:bg-gray-900 flex-1 ">
-          
           <div class="container flex items-center justify-center min-h-screen px-6 mx-auto flex-col">
             <form
               class="w-full max-w-md"
@@ -289,7 +239,7 @@ function Registation() {
                 <input
                   type="text"
                   minLength={3}
-                  min={'3'}
+                  min={"3"}
                   name="name"
                   class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Username"
@@ -399,12 +349,7 @@ function Registation() {
                   placeholder="Confirm Password"
                 />
               </div>
-              <div>
-               {
-                Error && <p className="text-red-500">{Error}</p>
-
-               }
-              </div>
+              <div>{Error && <p className="text-red-500">{Error}</p>}</div>
               <div class="mt-6">
                 <button
                   type="submit"
@@ -419,7 +364,10 @@ function Registation() {
             <div className="divider divider-accent text-white">or</div>
             {/* google button */}
 
-            <button onClick={Create_user_Google_Handle_Button} class="bg-white flex items-center text-gray-700 dark:text-gray-300 justify-center gap-x-3 text-sm sm:text-base  dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border px-8 py-2.5">
+            <button
+              onClick={Create_user_Google_Handle_Button}
+              class="bg-white flex items-center text-gray-700 dark:text-gray-300 justify-center gap-x-3 text-sm sm:text-base  dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border px-8 py-2.5"
+            >
               <svg
                 class="w-5 h-5 sm:h-6 sm:w-6"
                 viewBox="0 0 24 24"

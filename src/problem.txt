@@ -4,14 +4,21 @@
 
 
 
-*** booked 
-*** vote 
+1.. On successful payment, data will store in the DB and show a toast/sweet alert message -> okay
+
+2.11. Payment page - show some info along with the following → Payment page - show some info - okay 
 
 
+3.9. Show some relevant info along with the following → Show some relevant info along with the following -  okay 
 
-1. admin / trainer dashboard refressh log out 
+4. 
+  → Clicking the join now button will redirect the user to the payment Page -  okay 
 
+5.8.
+  → Clicking the Apply button will store the info into DB - okay
 
-2.booked filter 
-3. all user 
-4. responsive test
+6.5. Trainer info section with all required info mentioned in requirements
+ → Clicking on a slot will redirect the user to the booking page -> okay
+
+7.24. Profile Page: Show user info mentioned in the requirements
+  → Profile Page content - okay

@@ -60,6 +60,7 @@ export const route = createBrowserRouter([
       {
         path :'/trainerbook/:id',
         element: <PrivateRoutes><TrainerBooked/></PrivateRoutes>
+        // 
       },
 
       // payment page 
@@ -105,7 +106,7 @@ export const route = createBrowserRouter([
 
   {
     path:'admindashboard',
-    element:  <AdminDashboard/>,
+    element: <PrivateRoutes> <AdminDashboard/></PrivateRoutes>,
     children:[
       {
         path:'/admindashboard',
@@ -119,7 +120,7 @@ export const route = createBrowserRouter([
       {
         path :'/admindashboard/appliedtrainer',
         element: <AppliedTrainer/>
-        // private 
+        
       },
       {
         path : "/admindashboard/balanceall",
@@ -148,10 +149,10 @@ export const route = createBrowserRouter([
 
   {
     path : 'trainerdashboard',
-    element: <TrainerPrivateRoute> <TrainerDashboard/></TrainerPrivateRoute>,
+    element: <PrivateRoutes><TrainerDashboard/></PrivateRoutes>,
     children:[
       {
-        path :'/trainerdashboard/manageslot',
+        path :'/trainerdashboard',
         element : <ManageSlot/>
       },
       {

@@ -7,59 +7,42 @@ import UseTrainer from "@/Hooks/UseTrainer";
 import { toast } from "react-toastify";
 
 function Navbar() {
-
-  
   const [isclosed, setisclosed] = useState(!true);
   console.log(isclosed);
   const loc = useLocation();
   console.log(loc);
 
-  const { user,logoutButton ,setloading,setuser } = UseAuth();
+  const { user, logoutButton, setloading, setuser } = UseAuth();
 
-
-  const logoutHandleButton = ()=>{
-
+  const logoutHandleButton = () => {
     setloading(true);
+
     logoutButton()
-    .then((result)=>{
-      toast.success("Log out")
+      .then((result) => {
+        toast.success("Log out");
 
-      setuser(null);
-      setloading(false);
-    })
-    .cathc((error)=>{
-      console.log(`this error from navbar ${error.message}`)
-    });
+        setuser(null);
+        setloading(false);
+      })
+      .cathc((error) => {
+        console.log(`this error from navbar ${error.message}`);
+      });
 
-    console.log('log out button cliced')
-    
-  }
+    console.log("log out button cliced");
+  };
 
   console.log(user);
 
-  // review user admin 
-  // then payment 
-  /// complelte admin page today 
+  // review user admin
+  // then payment
+  /// complelte admin page today
 
+  const { isAdmin } = UseAdminHooks();
 
+  // trainer
+  const { TrainerIstrainer } = UseTrainer();
 
-  
-
-
-  const {isAdmin} = UseAdminHooks();
-
-
-  // trainer 
-  const {TrainerIstrainer} = UseTrainer();
-
-  console.log(isAdmin?.admin , TrainerIstrainer?.Trainer)
-
-  
-
-
-
-
-
+  console.log(isAdmin?.admin, TrainerIstrainer?.Trainer);
 
   const links = (
     <>
@@ -67,57 +50,48 @@ function Navbar() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-     {
-      !TrainerIstrainer?.Trainer &&    <NavLink to={'/alltrainer'}>All Trainer</NavLink>
-      
-     }
-
-
+        {!TrainerIstrainer?.Trainer && !isAdmin?.admin && (
+          <NavLink to={"/alltrainer"}>All Trainer</NavLink>
+        )}
       </li>
       <li>
-        <NavLink to={'/allclass'}>All classes</NavLink>
+        <NavLink to={"/allclass"}>All classes</NavLink>
       </li>
       <li>
-       
-       {!TrainerIstrainer?.Trainer && !isAdmin?.admin &&  <NavLink to={'/userbookedtrainer'}>Booked</NavLink>}
-
-
+        {!TrainerIstrainer?.Trainer && !isAdmin?.admin && (
+          <NavLink to={"/userbookedtrainer"}>Booked</NavLink>
+        )}
       </li>
 
       <li>
         {/* show trainer and admin dashboard  */}
 
-     {
-      isAdmin?.admin &&   <NavLink to={'/admindashboard'}>Admin DashBoard</NavLink> 
-    
-     }
-    
-
+        {isAdmin?.admin && (
+          <NavLink to={"/admindashboard"}>Admin DashBoard</NavLink>
+        )}
       </li>
       <li>
-        {
-         !isAdmin?.admin&& TrainerIstrainer?.Trainer &&  <NavLink to={'trainerdashboard'}>Trainer dashboard</NavLink>
-        }
+        {TrainerIstrainer?.Trainer && (
+          <NavLink to={"trainerdashboard"}>Trainer dashboard</NavLink>
+        )}
       </li>
 
-   
       <li>
-        <NavLink to={'/formcomunity'}>Form</NavLink>
+        <NavLink to={"/formcomunity"}>Form</NavLink>
       </li>
-
 
       {/* admin */}
-
-
-
-
     </>
   );
 
   return (
-    <div className="border ">
-      <div className="navbar bg-base-100">
+    <div className="">
+
+      <div className="navbar  bg-stone-950 text-white fixed z-50 rounded backdrop-blur-md">
+
+
         <div className="navbar-start">
+
           <div className="dropdown">
             <div
               tabIndex={0}
@@ -144,17 +118,16 @@ function Navbar() {
               {isclosed && (
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52  shadow p-4 bg-black"
                 >
                   {links}
 
                   {/* conditional profile */}
                   <li className="flex flex-row justify-around">
                     <div className="w-14 rounded-full">
-                      <NavLink to={'/profile'}>
-                      <img src={user?.photoURL}/>
+                      <NavLink to={"/profile"}>
+                        <img src={user?.photoURL} />
                       </NavLink>
-                    
                     </div>
 
                     {/* close button */}
@@ -168,11 +141,12 @@ function Navbar() {
               )}
             </div>
           </div>
-          <a className="btn btn-ghost text-xl">Fitnesss</a>
+         <NavLink to={'/'} className={'md:text-4xl text-2xl font-semibold'}>Fitness</NavLink>
+         {/* add logo */}
           {/* make color  on motion */}
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="menu menu-horizontal ">{links}</ul>
         </div>
 
         <div className="navbar-end">
@@ -181,27 +155,23 @@ function Navbar() {
               <div className="flex gap-4">
                 <div className="avatar online lg:visible invisible">
                   <div className="w-14 rounded-full">
-                   <NavLink to={'/profile'}>
-                   <img src={user?.photoURL} />
-                   </NavLink>
+                    <NavLink to={"/profile"}>
+                      <img src={user?.photoURL} />
+                      {/* chnage this only text mid device */}
+                    </NavLink>
                   </div>
                 </div>
 
-                <button className="btn" onClick={logoutHandleButton}>
-                  Log out 
-
+                <button className="btn text-white lg:px-9 border rounded  md:px-7 px-5 bg-violet-500 sm:text-xl border-white/10 " onClick={logoutHandleButton}>
+                  Log out
                 </button>
-
               </div>
             </div>
           ) : (
-
-
-
             <div>
-              <Link to={'/accountpage/login'} className="btn">Log in </Link>
-
-
+              <Link to={"/accountpage/login"} className="btn lg:px-9 border rounded  md:px-7 px-5 sm:text-xl text-white">
+                Log in{" "}
+              </Link>
             </div>
           )}
         </div>

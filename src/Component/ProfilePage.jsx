@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet";
 function ProfilePage() {
 
     const {userData} = UserData();
-    const {_id} = userData;
+    // const {_id} = userData;
     console.log(userData,"pro")
 
 
@@ -44,7 +44,7 @@ function ProfilePage() {
 
         }
 
-        useaxiosPublic.put(`/userupdate/${userData._id}`,userUpdateinfo)
+        useaxiosPublic.put(`/userupdate/${userData?._id}`,userUpdateinfo)
         .then((res)=>{
             alert("succesfully added to database")
         })
@@ -79,10 +79,10 @@ function ProfilePage() {
           />
 
           <h1 className="text-[1.3rem] font-[500] leading-[24px] mt-4">
-            {user?.displayName || "not founeded"}
+           Name: {user?.displayName || "not founeded"}
           </h1>
           <p className="text-[0.9rem] text-gray-500 font-[400]">
-            {user?.email}
+           Email: {user?.email}
           </p>
           <p>Last Login : {user?.metadata?.lastSignInTime}</p>
 

@@ -17,7 +17,8 @@ function FormCommunity() {
     queryKey: ["data", currentPage],
     queryFn: async () => {
       const res = await useaxiosSecure.get(
-        `http://localhost:5000/addnewform?page=${currentPage}&limit=${limit}`
+
+        `https://server-vert-two-78.vercel.app/addnewform?page=${currentPage}&limit=${limit}`
       );
 
       return res.data;

@@ -51,11 +51,7 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
         return 
     }
 
-    // need 
-    // create payment method
-    // confirm method 
-    /// client secrect 
-    // post api 
+
 
     const paymentButton = async (event)=>{
         console.log("payment button clcked")
@@ -88,7 +84,9 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
 
         // confirm payment method
 
-        const {error , paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+
+        const {error , paymentIntent
+             } = await stripe.confirmCardPayment(clientSecret, {
 
             payment_method:{
                 card:card,
@@ -102,6 +100,8 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
 
         })
         // get error 
+        // paymentIntent
+        console.log(paymentIntent ," pay")
 
         if(error)
         {
@@ -111,33 +111,10 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
         }
         if(paymentIntent &&  paymentIntent.status==='succeeded')
         {
+            console.log(paymentIntent,"payment")
             
       
             settransitionId(paymentIntent.id)
-
-            // save info on data base 
-
-            const infoOfUser ={
-                Name : user?.displayName,
-                Email : user?.email ,
-                TransictionID : transitionId,
-                amount:pkprice,
-                Time : new Date(),
-                Slot: Slot,
-            }
-            useaxiosPublic.post('/paymentOfuser', infoOfUser)
-            .then((res)=>{
-                toast.success("Payment done!")
-            })
-            .catch((error)=>{
-                console.log("error from ck from",error.name)
-            })
-
-            // create c post for 
-
-
-            // here use post req for get user who booked class 
-
             const info={
                 Name : user?.displayName,
                 Email: user?.email,
@@ -146,12 +123,14 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
                 TrainerName: TrainerName,
                 TrainerEmail:TrainerEmail,
                 id:id,
+                TransictionID :paymentIntent?.id,
 
             }
 
             useaxiosPublic.post('/bookedslotByuser',info)
             .then((res)=>{
                 console.log(info);
+                toast.success("Payment Done!")
           
                 console.log("booked user info done")
             })
@@ -170,12 +149,37 @@ function Checkoutform({pkprice,Slot , TrainerName,id,TrainerEmail}) {
                 alert(error.message)
             })
 
+
+
+
+            // histoy
+
+            
+            const infoOfUser ={
+                Name : user?.displayName,
+                Email : user?.email,
+                TransictionID :paymentIntent?.id,
+                amount:pkprice,
+                Time : new Date(),
+                Slot: Slot,
+            }
+            useaxiosPublic.post('/paymentOfuser', infoOfUser)
+            .then((res)=>{
+                toast.success("Payment done!");
+                console.log(infoOfUser,"trns id")
+            })
+            .catch((error)=>{
+                console.log("error from ck from",error.name)
+            })
+
         }
 
 
 
 
     }
+
+    console.log("trns id", transitionId)
 
 
 

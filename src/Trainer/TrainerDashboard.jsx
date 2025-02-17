@@ -14,7 +14,7 @@ function TrainerDashboard() {
 
         <section className='bg-black text-white flex space-y-6 flex-col list-none h-screen px-4 '>
             <li className='mt-10'>
-                <NavLink to={'/trainerdashboard/manageslot'}>Manage Slot </NavLink>
+                <NavLink to={'/trainerdashboard'}>Manage Slot </NavLink>
             </li>
             <li>
                 <NavLink to={'/trainerdashboard/addnewslot'}>Add New slot  </NavLink>

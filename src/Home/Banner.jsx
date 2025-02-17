@@ -7,75 +7,84 @@ import "swiper/css/scrollbar";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import Typewriter from 'typewriter-effect';
-import {Link} from 'react-router-dom'
+import Typewriter from "typewriter-effect";
+import { Link, NavLink } from "react-router-dom";
+
 function Banner() {
+  const data = [
+    {
+      id: 1,
+      image: "https://i.ibb.co.com/0RJ4YVTf/pexels-pixabay-260447.jpg",
+      text: " Every rep, every step, every drop of sweat brings you closer to your best self. Keep moving forward!",
+      btn: "/allclass",
+      title: "Push Your Limits, Achieve Your Goals!",
+    },
 
+    {
+      id: 1,
+      image: "https://i.ibb.co.com/9mXd88x5/pexels-leonardho-1552242.jpg",
+      text: " Progress isn't about perfection—it's about persistence. Stay consistent, stay committed!",
+      btn: "/allclass",
+      title: "Stronger Every Day!",
+    },
 
+    {
+      id: 1,
+      image:
+        "https://i.ibb.co.com/hFjnj00t/pexels-cesar-galeao-1673528-3253498.jpg",
+      text: "Stop doubting, start doing. Crush your excuses and chase your fitness dreams!",
+      btn: "/allclass",
+      title: "Your Only Competition Is YOU!",
+    },
 
+    {
+      id: 1,
+      image: "https://i.ibb.co.com/5xcSqQY9/pexels-brunogobofoto-2204196.jpg",
+      text: " The hardest part is starting. Once you begin, the only way is up!",
+      btn: "/allclass",
+      title: "Train Hard, Stay Strong, Keep Going!",
+    },
+  ];
 
-
-  
   return (
-    <div className=" w-full flex  items-center mx-auto flex-col space-y-8   bg-green-300 p-4">
-
-      <div className="text-4xl font-bold text-white text-center">
-        {/* text Push Your Limits, Redefine Your Strength*/}
-        <h2>Push Your Limits, Redefine Your Strength</h2>
-
-      </div>
-
+    <div className="w-full  flex  items-center mx-auto flex-col space-y-8  py-2">
       <Swiper
-      className="rounded   md:h-[250px] w-10/12 flex space-y-5 h-[180px] p-10"
+        className="rounded p-10 md:h-[500px] sm:h-[400px] h-[400px] w-full border-2 border-red-500 flex items-center"
         spaceBetween={40}
         slidesPerView={1}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
         navigation
       >
-        <SwiperSlide>
-          <div className="flex flex-col text-center mt-3 space-y-4 md:space-y-14">
+        {data.map((item, key) => (
+          <SwiperSlide
+            key={key}
+            className="border-2 border-black flex items-center justify-center h-full w-11/12"
+          >
+            <div className="border-2 p-4">
+              <img src={item.image} className="relative object-cover blur-sm " />
+            </div>
 
-            <h2 className="md:text-2xl text-xl md:font-semibold font-bold">Transform Your Body, Transform Your Life</h2>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold z-50  text-center w-11/12">
+              <div className="flex flex-col">
+                <p className="md:text-2xl sm:text-xl text-white">{item.title}</p>
 
-            <p>Discover personalized fitness plans and expert guidance to help you achieve your goals. Start your journey today!</p>
+                <p className="md:text-xl text-sm text-stone-200">{item.text}</p>
 
-            <Link to={'/allclass'} className="btn">Go Class</Link>
+                <div className="mt-6">
+                <NavLink
+                  className={"px-8 border py-2 rounded bg-black text-xl border-white/10"}
+                  to={item.btn}
+                >
+                  Go class
+                </NavLink>
 
-          </div>
-        </SwiperSlide>
+                </div>
 
-        <SwiperSlide>
-
-          <div className="text-center flex flex-col  mt-3 space-y-2 md:space-y-14 ">
-
-            <h2 className="md:text-2xl md:font-semibold text-xl font-bold">Stronger, Healthier, Happier You</h2>
-
-            <p>From weight loss to muscle building, our programs are tailored to suit every fitness level. Let’s make it happen!</p>
-            <Link to={'/allclass'} className="btn btn-success">Go class</Link>
-          </div>
-        
-
-
-
-        </SwiperSlide>
-
-
-
-
-        <SwiperSlide>
-          <div className="flex flex-col text-center mt-6 space-y-2 md:space-y-14">
-
-            <h2 className="md:text-2xl text-xl md:font-semibold font-bold">Your Fitness Journey Starts Here</h2>
-            <p>Take the first step toward a healthier you. Explore our programs and join us today!</p>
-            <Link to={'/allclass'} className="btn btn-warning">Go class</Link>
-
-          </div>
-
-
-
-        </SwiperSlide>
-
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

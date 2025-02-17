@@ -65,7 +65,7 @@ function ManageSlot() {
     })
   };
 
-  console.log(bookeduser);
+  console.log(bookeduser,"booked manage slot");
 
   return (
     <div className="px-3">

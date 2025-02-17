@@ -12,7 +12,7 @@ function Top6bookingClass() {
 
     const {isLoading,data:top6class=[] } = useQuery({
 
-        queryKey:['data'],
+        queryKey:['datax'],
         queryFn: async ()=>{
             const res = await useaxiosPublic.get('/topbooking')
             console.log( res.data ," res.data");
