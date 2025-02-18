@@ -77,19 +77,21 @@ function Login() {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className="flex flex-col lg:flex-row">
+
+      <div className="flex flex-col lg:flex-row w-10/11 p-10 bg-black">
+
         <section className="flex-1 justify-center bg-green-200  ">
           <h1 className="text-center text-2xl md:text-6xl lg:text-6xl md:font-bold font-semibold text-black px-5">
-            Log In to Unlock Your Fitness Potential
+         
           </h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center h-68">
             <Lottie options={options} />
           </div>
         </section>
         {/* bg-white dark:bg-gray-900 */}
         <ToastContainer/>
 
-        <section class=" flex-1 -mt-2  bg-white dark:bg-gray-900  text-white">
+        <section class=" flex-1 -mt-1ml-2  bg-white dark:bg-gray-900  text-white border border-white/10 rounded">
 
           <div class="container flex items-center justify-center min-h-screen px-6 mx-auto  flex-col">
             <form
@@ -97,12 +99,7 @@ function Login() {
               onSubmit={LogInWithEmail_Password_Button}
             >
               <div class="flex justify-center mx-auto">
-                {/* logo */}
-                <img
-                  class="w-auto h-7 sm:h-8"
-                  src="https://merakiui.com/images/logo.svg"
-                  alt=""
-                />
+               
               </div>
 
               <div class="flex items-center justify-center mt-6">
