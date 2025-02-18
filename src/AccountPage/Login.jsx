@@ -90,8 +90,12 @@ function Login() {
         </section>
         {/* bg-white dark:bg-gray-900 */}
         <ToastContainer/>
+        
 
         <section class=" flex-1 -mt-1ml-2  bg-white dark:bg-gray-900  text-white border border-white/10 rounded">
+
+       
+
 
           <div class="container flex items-center justify-center min-h-screen px-6 mx-auto  flex-col">
             <form
@@ -224,6 +228,13 @@ function Login() {
 
             {/*  */}
           </div>
+          <div className="text-xl text-black">
+          Login as admin
+          sakib@gmail.com
+          Sakibfakir69
+
+          <p></p>
+        </div>
         </section>
       </div>
     </div>

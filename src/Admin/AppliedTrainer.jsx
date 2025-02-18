@@ -73,7 +73,7 @@ function AppliedTrainer() {
                     <td class="px-6 py-4">{item.Email}</td>
                     <td class="px-6 py-4">{item.Experience}</td>
                     <td>
-                      <NavLink to={`/admindashboard/appliedTrainerdetails/${item._id}`}>View</NavLink>
+                      <NavLink to={`/admindashboard/appliedTrainerdetails/${item._id}`} className={'px-4 py-2 border rounded'}>View</NavLink>
                     </td>
                   </tr>
                 ))}

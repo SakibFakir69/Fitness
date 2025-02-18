@@ -26,10 +26,8 @@ function AllNewsletter() {
       <Helmet>
         <title>All NewsLetter</title>
       </Helmet>
-      <div>
-        <h2 className='sm:text-4xl font-semibold text-center '>Complete List of Newsletter Subscribers</h2>
-        <p className='text-center'>Total : {allnewsletter.length}</p>
-      </div>
+
+
       <div className="overflow-x-auto">
   <table className="table mt-4">
     <hr/>

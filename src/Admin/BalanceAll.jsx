@@ -42,8 +42,9 @@ function BalanceAll() {
       </Helmet>
       {allPayment.length}
 
-      <section className="w-full md:flex  items-center gap-4 justify-center">
-        <section className="flex-1">
+      <section className=" flex  items-center gap-4 justify-center flex-col">
+
+        <section className="">
           <div>
             <div className="stats shadow border">
               <div className="stat place-items-center">
@@ -55,7 +56,7 @@ function BalanceAll() {
         </section>
 
         {/* history */}
-        <section className="flex-1 border-1">
+        <section className=" border-1 w-10/12">
           <h2 className="text-2xl text-white font-semibold text-center">
             Latest 6 item payment history
           </h2>

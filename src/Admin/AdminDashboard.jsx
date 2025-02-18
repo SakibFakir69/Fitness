@@ -4,62 +4,80 @@ import { NavLink, Outlet } from "react-router-dom";
 import { BiNews } from "react-icons/bi";
 import { Helmet } from "react-helmet";
 function AdminDashboard() {
+
+
   // '/admindashboard/addnewclass' ,  "/admindashboard/balanceall",'/admindashboard/appliedtrainer','/admindashboard/alltrainer',
 
-  const {user} = UseAuth();
-  
+  const { user } = UseAuth();
+
+  console.log(user);
+
   return (
     <div className="w-full">
       <Helmet>
         <title>Admin Dashboard</title>
       </Helmet>
 
-      <section className="border flex gap-6">
+      <section className="border grid grid-cols-12">
 
-        <aside className="bg-red-400 h-screen flex flex-col space-y-10 list-none sm:px-2 md:p-6 ">
+        <aside className=" h-screen flex flex-col space-y-8 list-none sm:px-2 md:p-6 py-4 bg-black min-h-screen col-span-3">
 
-            <div>
-                {/* simple profile */}
-                <p>Admin {user?.email} </p>
+          <div className="flex flex-col justify-center items-center">
 
-            </div>
+            <img src={user?.photoURL || "not founed"} className="h-16 w-16 rounded-full border "/>
+            {/* simple profile */}
+            <p className="text-white">Admin {user?.email} </p>
+          </div>
 
-          <li className=" ">
+          <li className="text-white ">
             <NavLink to={"/admindashboard"}>
-              All Newsletter <i class="ri-article-line"></i> 
+            <i class="ri-article-line text-red-400"></i> All Newsletter 
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/admindashboard/alltrainer"}>All Trainer <i class="ri-presentation-fill"></i></NavLink>
+
+            <NavLink to={"/admindashboard/alltrainer"} className={"text-white"}>
+            <i class="ri-presentation-fill text-green-500"></i> All Trainer 
+            </NavLink>
           </li>
-          
-          <li>
+          <li className="text-white">
             <NavLink to={"/admindashboard/appliedtrainer"}>
-              Applied Trainer <i class="ri-mail-add-line"></i>
+            <i class="ri-mail-add-line text-blue-600"></i>  Applied Trainer 
             </NavLink>
           </li>{" "}
-          <li>
-            <NavLink to={"/admindashboard/balanceall"}>Balance <i class="ri-money-dollar-circle-line"></i></NavLink>
+          <li className="text-white">
+            <NavLink to={"/admindashboard/balanceall"}>
+            <i class="ri-money-dollar-circle-line text-yellow-400"></i> Balance 
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={'/admindashboard/addnewclass'}>Add New class <i class="ri-artboard-line"></i></NavLink>
+          <li className="text-white">
+            <NavLink to={"/admindashboard/addnewclass"}>
+            <i class="ri-artboard-line text-blue-500"></i> Add New class 
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={'/admindashboard/alluser'}>All user <i class="ri-id-card-fill"></i></NavLink>
+          <li className="text-white">
+            <NavLink to={"/admindashboard/alluser"}>
+            <i class="ri-id-card-fill text-violet-600"></i> All user 
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={'/admindashboard/addnewform'}>Form/Community</NavLink>
+          <li className="text-white flex">
+            <NavLink to={"/admindashboard/addnewform"}><i class="ri-p2p-fill text-green-500 "></i> Community</NavLink>
           </li>
-          <li>
-            <NavLink to={'/'}>Home</NavLink>
-          </li>
-          
 
+
+
+          <div className="">
+          <li className="text-white">
+            <NavLink to={"/"}><i class="ri-home-4-line"></i>  Home</NavLink>
+          </li>
+          </div>
+
+         
         </aside>
-
+        
 
         {/* outlet  */}
-        <aside className="border w-4/5">
+        <aside className="border col-span-9">
           <Outlet />
         </aside>
       </section>

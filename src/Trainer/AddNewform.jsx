@@ -132,27 +132,10 @@ function AddNewform() {
       <section className="bg-violet-400">
         <section class="">
           <div class="container px-6 py-12 mx-auto">
-            <div>
-              <p class="font-medium text-white">
-                Connection
-              </p>
+          
 
-              <h1 class="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">
-              Stay Connected: Create a New Forum
-              </h1>
-
-              <p class="mt-4 text-gray-300">
-              This title reflects the shared access for both Admin and Trainer while emphasizing the purpose of adding forums for community collaboration and discussions
-              </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
-              <div>
-                {/* ani */}
-                <Lottie options={aniOptois}/>
-                
-              </div>
-
+            <div class="flex w-full justify-center items-center">
+            
               <div class="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
                 <form onSubmit={formAddtoComunity}>
                   <div class="-mx-2 md:items-center md:flex">
