@@ -3,18 +3,14 @@ import React from "react";
 function TeamSection() {
   return (
     <div className="w-full border">
-      <section class="bg-white dark:bg-gray-900 flex justify-center items-center md:ml-44">
+      <section class="bg-white dark:bg-gray-900 flex justify-center items-center">
+        <div class="container  py-10 mx-auto  ">
+          
 
-        <div class="container  py-10 mx-auto ">
-          <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
-            Our  Trainer
-          </h1>
-
+          <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1   gap-5 p-4">
 
 
-          <div class="grid grid-cols-1 gap-8 mt-4 xl:mt-8 md:grid-cols-2 xl:grid-cols-4 items-center ml-10">
-
-            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent border bg-stone-100 shadow-2xl">
               <img
                 class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -22,21 +18,20 @@ function TeamSection() {
               />
 
               <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              Sarah Johnson
+                Sarah Johnson
               </h1>
 
               <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-             <span> Sarah is a certified personal trainer with over 10 years of experience in fitness coaching. She specializes in helping clients achieve sustainable weight loss and improve overall strength and endurance</span>
+                <span>
+                  {" "}
+                  Sarah is a certified personal trainer with over 10 years of
+                  experience in fitness coaching. She specializes in helping
+                  clients achieve sustainable weight loss and improve overall
+                  strength and endurance
+                </span>
               </p>
 
-              <div className="md:flex mt-4">
-                <p className="text-xl"> Expertise :</p>
-                <div className="flex md:flex-row gap-4 ml-2">
-                   
-                    <p className="border bg-green-300 rounded-md p-2">Cardio </p>
-                </div>
-              </div>
-
+            
 
               <div class="flex mt-3 -mx-2">
                 <a
@@ -86,29 +81,26 @@ function TeamSection() {
               </div>
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent ml-6">
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent bg-stone-100 shadow-2xl">
               <img
                 class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                 src="https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt=""
               />
 
-              <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              Priya Sharma
+              <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white ">
+                Priya Sharma
               </h1>
 
               <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              Michael is a passionate yoga instructor and mindfulness coach with a focus on improving flexibility, posture, and mental well-being. He has conducted workshops worldwide and worked with clients of all skill levels
+                Michael is a passionate yoga instructor and mindfulness coach
+                with a focus on improving flexibility, posture, and mental
+                well-being. He has conducted workshops worldwide and worked with
+                clients of all skill levels
               </p>
 
               {/* exp */}
-              <div className="md:flex mt-4">
-                <p className="text-xl"> Expertise :</p>
-                <div className="flex md:flex-row gap-4 ml-2">
-                   
-                    <p className="border bg-green-300 rounded-md p-2">Yoga </p>
-                </div>
-              </div>
+          
 
               <div class="flex mt-3 -mx-2">
                 <a
@@ -158,7 +150,7 @@ function TeamSection() {
               </div>
             </div>
 
-            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent ">
+            <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent bg-stone-100 shadow-2xl">
               <img
                 class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
                 src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -166,20 +158,17 @@ function TeamSection() {
               />
 
               <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-              Michael Rodriguez
+                Michael Rodriguez
               </h1>
 
               <p class="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-              Michael is a passionate yoga instructor and mindfulness coach with a focus on improving flexibility, posture, and mental well-being. He has conducted workshops worldwide and worked with clients of all skill levels
+                Michael is a passionate yoga instructor and mindfulness coach
+                with a focus on improving flexibility, posture, and mental
+                well-being. He has conducted workshops worldwide and worked with
+                clients of all skill levels
               </p>
 
-              <div className="md:flex mt-4">
-                <p className="text-xl"> Expertise :</p>
-                <div className="flex md:flex-row gap-4 ml-2">
-                   
-                    <p className="border bg-green-300 rounded-md p-2">Meditation </p>
-                </div>
-              </div>
+            
 
               <div class="flex mt-3 -mx-2">
                 <a

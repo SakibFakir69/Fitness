@@ -35,7 +35,7 @@ function Newsletter() {
 
   
   return (
-    <div className="px-10 mb-6">
+    <div className="px-6 mb-6">
       <div className="px-10 rounded-md    bg-gradient-to-b from-fuchsia-700  to-blue-600 flex  md:flex-row flex-col">
 
         <div className="text-center  flex-1 flex items-center flex-col">
@@ -52,7 +52,7 @@ function Newsletter() {
 
         <form className="flex gap-1 justify-center items-center flex-col flex-1 w-full " onSubmit={handelSubmitNewesLetter}>
 
-         <div className=" w-10/12 flex flex-col space-y-6 py-8 md:mt-6">
+         <div className=" w-10/12 flex flex-col md:space-y-6 py-8 md:mt-6 space-y-3">
          <input
             type="text"
             name="name"
@@ -68,7 +68,7 @@ function Newsletter() {
             className="text-center rounded md:py-3 py-2"
           />
          </div>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full -mt-4">
             <button type="submit" className="btn w-1/2  text-xl mb-6  bg-teal-200/10
             
             text-white border-white/30 hover:bg-black">
