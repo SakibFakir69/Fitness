@@ -6,12 +6,11 @@ import UseAxiosPublic from "@/Hooks/UseAxiosPublic";
 import { Helmet } from "react-helmet";
 
 function TrainerDeatilsPage() {
-
-  /// booking onujay user add 
-  // booking collection 
-  // filter and show user trainer 
-  /// user.email === trainer.booked.email 
-  /// send trainer and details 
+  /// booking onujay user add
+  // booking collection
+  // filter and show user trainer
+  /// user.email === trainer.booked.email
+  /// send trainer and details
 
   const { id } = useParams();
   const useaxiosPublic = UseAxiosPublic();
@@ -39,17 +38,17 @@ function TrainerDeatilsPage() {
   const {
     fullName,
     photo,
-    Availabledays=[],
+    Availabledays = [],
     Name,
     Image,
     Email,
-    Skill=[],
-    Availabletime=[],
+    Skill = [],
+    Availabletime = [],
     _id,
-    Slot=[]
+    Slot = [],
   } = Trainer[0];
   console.log(fullName);
-  console.log(Slot,"thisis slot");
+  console.log(Slot, "thisis slot");
 
   // about me
   // dmatrial status
@@ -59,115 +58,114 @@ function TrainerDeatilsPage() {
   ///Classes
 
   return (
-    <div className="w-full mt-10 r px-1">
+    <div className="w-full  r px-1 py-24 bg-stone-200 justify-center items-center mx-auto ">
+
       <Helmet>
         <title>Trainer Details page</title>
       </Helmet>
-      <section
-        className="w-10/12  flex flex-col justify-center md:ml-20 ml-16 
-       bg-gradient-to-r from-violet-500 to-violet-400 
-      
-      
-      
-       rounded-md p-4 h-[100px] "
-      >
-        <h2 className="md:text-4xl sm:font-semibold text-center text-2xl font-semibold">
-          Trainer Information and Schedule
-        </h2>
-      </section>
 
-      {/* deatils */}
 
-      <section className=" w-full md:flex md:justify-around mt-4 border-dashed border-2 shadow-sm rounded-md hover:bg-indigo-400 duration-200 gap-4   ">
-        <div className="w-10/11">
-          <div className="text-center">
-            <h2>Trainer info</h2>
-          </div>
+    
 
-          <div className="border w-full flex items-center justify-center ">
-            <hr className="mb-4" />
-            <div>
-              <div>
-                {/* info  */}
-                <img src={Image} className="w-20 rounded-md" />
-                <p>
-                  {" "}
-                  <span className="text-xl">Name </span>: {Name}
-                </p>
+      <section className="p-2 rounded-md flex w-full justify-center ">
 
-                <p>
-                  <span>Email : {Email}</span>
-                </p>
+        <section className=" md:w-3/5 w-4/5 md:justify-around mt-4  border-2 shadow-sm rounded-md  duration-200 gap-4  bg-white  flex  ">
 
-                <p className="flex gap-2 ">
-                  {" "}
-                  <p className="text-2xl">Skill</p>
-                  {Skill.map((item, key) => (
-                    <span
-                      className="border p-1 bg-black text-white rounded-md hover:bg-transparent backdrop-blur-xl cursor-pointer"
-                      key={key}
-                    >
-                      {" " + item}
-                    </span>
-                  ))}
-                </p>
-               
+          <div className="w-full rounded ">
+
+         
+
+            <div className="border w-full flex items-center justify-center flex-col p-6 ">
+              <div className="flex justify-start border w-full">
+                <div className="">
+                  {/* info  */}
+                  <img src={Image} className=" rounded-md h-52" />
+
+                  <p className="mt-2">
+                    {" "}
+                    <span className="text-xl">Name </span>: {Name}
+                  </p>
+
+                  <p>
+                    <span className="text-xl">Email : {Email}</span>
+                  </p>
+
+                  <p className="flex gap-2 ">
+                    {" "}
+                    <p className="text-2xl">Skill</p>
+                    {Skill.map((item, key) => (
+                      <span
+                        className="border p-1 bg-black text-white rounded-md  backdrop-blur-xl cursor-pointer"
+                        key={key}
+                      >
+                        {" " + item}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
+
+              <div className="md:mt-6 w-full">
+                <div className="border flex flex-col justify-start w-full">
+                  <div className="flex p-2 cursor-pointer">
+                    {Slot?.map((item, key) => (
+                      <div key={key} className="flex flex-col">
+                        <div className="">{item + ""}, </div>
+                        <NavLink
+                          key={key}
+                          // data pasing using state
+                          state={{
+                            Class: Skill,
+                            Slot: item,
+                            TrainerName: Name,
+                            id: _id,
+                            TrainerEmail: Email,
+                          }}
+                          to={`/trainerbook/${_id}`}
+                          className="ml-2 border p-1 rounded-md text-center mt-2"
+                        >
+                          Join
+                        </NavLink>
+                      </div>
+                    ))}
+                  </div>
+                  <hr className="mb-4" />
+
+                  <p className=" w-full">
+                    <span className="text-xl ">Availabledays </span>
+
+                    <div className="grid grid-cols-3 gap-2 mt-2">
+                      {Availabledays.map((item, key) => (
+                        <button
+                          // data pasing using state
+
+                          className="ml-2 border p-1 rounded-md bg-violet-500 text-white "
+                        >
+                          {item?.value || item?.label}
+                        </button>
+                      ))}
+                    </div>
+                  </p>
+                  {/* time */}
+
+                  <p className="mt-4">
+                    <span className="text-xl">Time :</span>
+                    {Availabletime.map((item, key) => (
+                      <span className="border ml-2 p-1 rounded-md bg-stone-950 text-white ">
+                        {item}
+                      </span>
+                    ))}
+                  </p>
+
+                  {/* available slot */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* slot */}
-        <div className="md:mt-14 w-10/11">
-          <div className="border flex flex-col justify-center items-center w-full">
-            <div className="flex p-2 cursor-pointer">
-              <h2>Slot:</h2>
-              {
-                 Slot?.map((item,key)=>(  <NavLink 
-                  key={key}
-                  // data pasing using state 
-                  state={{Class:Skill ,Slot:item ,TrainerName:Name,id:_id,TrainerEmail:Email}}
-                    to={`/trainerbook/${_id}`}
-                    className="ml-2 border p-1 rounded-md bg-lime-500"
-                  >
-                    {item}
-                  </NavLink>))
-              }
-            </div>
-            <hr className="mb-4" />
-            {/* time  */}
-            <p>
-              <span className="text-xl">Availabledays :</span>
-              {Availabledays.map((item, key) => (
-                 <NavLink 
-          
-                 // data pasing using state 
-              
-                   className="ml-2 border p-1 rounded-md bg-lime-500"
-                 >
-                   {item?.value || item?.label}
-                 </NavLink>
-               
-
-              ))}
-            </p>
-            {/* time */}
-
-            <p className="mt-4">
-              <span className="text-xl">Time :</span>
-              {Availabletime.map((item, key) => (
-                <span className="border ml-2 p-1 rounded-md bg-purple-300 ">
-                  {item}
-                </span>
-              ))}
-            </p>
-
-            {/* available slot */}
-         
-          </div>
-        </div>
+          {/* slot */}
+        </section>
       </section>
-
       {/* Share your expertise and help others by becoming a certified trainer today! Want to Become a Trainer? */}
 
       <section className="flex justify-center items-center mt-60  ">
