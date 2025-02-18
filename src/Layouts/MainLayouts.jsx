@@ -15,30 +15,30 @@ function MainLayouts() {
       </main>
 
       <footer>
-        <footer class=" border mt-4 shadow-md rounded-md bg-gradient-to-t from-green-300 to-violet-300">
+        <footer class=" border mt-4 shadow-md rounded-md  bg-black ">
           <div class="container px-6 py-12 mx-auto">
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
               <div class="sm:col-span-2">
-                <h1 class="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">
-                  Subscribe our newsletter to get update.
+                <h1 class="max-w-lg text-xl font-semibold tracking-tight  xl:text-2xl dark:text-white text-white">
+                Stay updated! Get fitness tips
                 </h1>
 
                 <div class="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
                   <input
                     id="email"
                     type="text"
-                    class="px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
+                    class="px-4 py-2 text-gray-700  border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300 bg-blu"
                     placeholder="Email Address"
                   />
 
-                  <button class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                  <button class="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80 bg-blue-600">
                     Subscribe
                   </button>
                 </div>
               </div>
 
               <div>
-                <p class="font-semibold text-gray-800 dark:text-white">
+                <p class="font-semibold text-stone-100 text-xl dark:text-white">
                   Quick Link
                 </p>
 
@@ -46,20 +46,20 @@ function MainLayouts() {
                   <NavLink 
                   to={'/'}
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-stone-200 text-sm"
                   >
                     Home
                   </NavLink>
 
                   <a
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-sm text-stone-200"
                   >
                     About More
                   </a>
                   <a
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-sm text-stone-200"
                   >
                     Our Philosophy
                   </a>
@@ -67,26 +67,26 @@ function MainLayouts() {
               </div>
 
               <div>
-                <p class="font-semibold text-gray-800 dark:text-white">
+                <p class="font-semibold  dark:text-white text-xl text-white">
                   Club
                 </p>
 
                 <div class="flex flex-col items-start mt-5 space-y-2">
                   <a
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="text-stone-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-xm"
                   >
                     Our shop
                   </a>
                   <a
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="text-stone-200 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-sm"
                   >
                     Tools
                   </a>
                   <a
                     href="#"
-                    class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                    class="transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500 text-sm text-stone-200"
                   >
                     Support
                   </a>
@@ -107,11 +107,11 @@ function MainLayouts() {
                 
                 <a
                   href="#"
-                  class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  class="mx-2 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 text-green-400"
                   aria-label="Reddit"
                 >
                   <svg
-                    class="w-5 h-5 fill-current"
+                    class="w-6 h-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -122,11 +122,11 @@ function MainLayouts() {
 
                 <a
                   href="#"
-                  class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  class="mx-2 text-blue-300 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Facebook"
                 >
                   <svg
-                    class="w-5 h-5 fill-current"
+                    class="w-6 h-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -137,11 +137,11 @@ function MainLayouts() {
 
                 <a
                   href="#"
-                  class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  class="mx-2 text-white transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Github"
                 >
                   <svg
-                    class="w-5 h-5 fill-current"
+                    class="w-6 h-6 fill-current"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
