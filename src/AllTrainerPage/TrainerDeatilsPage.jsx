@@ -106,11 +106,18 @@ function TrainerDeatilsPage() {
               </div>
 
               <div className="md:mt-6 w-full">
-                <div className="border flex flex-col justify-start w-full">
+                <div className=" flex flex-col justify-start w-full">
                   <div className="flex p-2 cursor-pointer">
                     {Slot?.map((item, key) => (
                       <div key={key} className="flex flex-col">
-                        <div className="">{item + ""}, </div>
+
+
+                        <div className="border m-2 p-2 rounded-sm text-white bg-indigo-600
+                        
+                        
+                        ">{item + ""} </div>
+
+
                         <NavLink
                           key={key}
                           // data pasing using state
@@ -122,7 +129,7 @@ function TrainerDeatilsPage() {
                             TrainerEmail: Email,
                           }}
                           to={`/trainerbook/${_id}`}
-                          className="ml-2 border p-1 rounded-md text-center mt-2"
+                          className="ml-2 border p-1 rounded-md text-center mt-2 bg-lime-600 text-white"
                         >
                           Join
                         </NavLink>

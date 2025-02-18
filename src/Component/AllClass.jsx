@@ -22,22 +22,16 @@ function AllClass() {
   const [currentPage, setcurrentPage] = useState(0);
   const [totalPage, settotalPage] = useState(1);
 
-  const [ queryx , setqueryx ] = useState('');
+  const [queryx, setqueryx] = useState("");
 
-  const haddelSearch = (event)=>{
-    event.prevenrDefault()
+  const haddelSearch = (event) => {
+    event.prevenrDefault();
     setqueryx(queryx);
     alert(queryx);
-  }
-
-  
-
-
-
+  };
 
   const { isLoading, data: allClass } = useQuery({
-
-    queryKey: ["data", currentPage,queryx],
+    queryKey: ["data", currentPage, queryx],
     queryFn: async () => {
       const res = await useaxiosSecure.get(
         `/classpagination?page=${currentPage}&limit=${limit}&Name=${queryx}`
@@ -54,7 +48,6 @@ function AllClass() {
   console.log(result, totalCount);
 
   useEffect(() => {
-
     const count = Math.ceil(totalCount / limit);
     const ans = parseInt(count);
 
@@ -62,18 +55,15 @@ function AllClass() {
   }, [allClass, currentPage]);
 
   const nextPage = () => {
-
     if (currentPage < totalPage) {
       setcurrentPage((prev) => prev + 1);
     }
   };
   const prevPage = () => {
-  
     if (currentPage > 1) {
       setcurrentPage((prev) => prev - 1);
     }
   };
-  
 
   const selectPage = (num) => {
     setcurrentPage(num);
@@ -86,73 +76,80 @@ function AllClass() {
   }
   console.log(allClass);
 
-
   // serach button
 
- 
-
-
   return (
-    <div className="bg-lime-100">
+    <div className="bg-stone-200 py-24">
       <Helmet>
         <title>All Class</title>
       </Helmet>
 
+      <div className="w-full p-3 fixed bg-transparent backdrop-blur-md flex justify-center items-center mx-auto -mt-6">
 
+        <label
+          for="default-search"
+          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        >
+          Search
+        </label>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg
+              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </div>
 
-      <div className="text-center">
-        <h1>Find the Perfect Class for You</h1>
+          <input
+            type="search"
+            onChange={(e) => setqueryx(e.target.value)}
+            id="default-search"
+            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Mockups, Logos..."
+            required
+          />
+        </div>
       </div>
-      {/* add pagination */}
 
-      <section>
-        <h2 className="md:text-3xl text-center mb-4">Top 5 Trainer </h2>
-        <Five />
-      </section>
-
-      <section>
-        <h2 className="md:text-3xl text-center ">Our all class </h2>
-      </section>
-
-      <section className="flex justify-center mt-4">
-
-      
-        <input placeholder="Enter your searching name"  value={queryx} onChange={(e)=> setqueryx(e.target.value)} type="search.."  className="border px-8 py-2 focus:bg-black focus:text-white rounded-md "/>
-     
-   
-
-      </section>
-
-
-      <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-6">
-        {result.map((item, key) => (
-
-          <div key={key} class="flex justify-center mx-auto  items-center max-w-md overflow-hidden bg-white rounded-lg shadow-sl dark:bg-gray-800 border p-4 hover:bg-violet-300 border-red-500">
-
-            <div class="w-1/3 bg-cover">
-              <img src={item.Image} />
-            </div>
-
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                <p>{item.Name}</p>
-              </h1>
-
-              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                {item.Description}
-              </p>
-
-              <div class="flex justify-between mt-3 item-center">
-                <button class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
-                  View
-                </button>
+      {isLoading ? (
+        <div className="w-full flex justify-center py-32">
+          <span className="loading loading-ring loading-lg"></span>
+        </div>
+      ) : (
+        <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-6 py-16 cursor-pointer ">
+          {result.map((item, key) => (
+            <div
+              key={key}
+              class=" border border-black/10 bg-white shadow-lg hover:shadow-2xl hover:shadow-slate-700"
+            >
+              <div class=" bg-cover p-4 rounded-md">
+                <img src={item.Image} />
               </div>
 
+              <div class="w-4/5 p-4 md:p-4">
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">
+                  <p>{item.Name}</p>
+                </h1>
 
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  {item.Description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      )}
       {/* step */}
 
       <div class="flex justify-center gap-6">

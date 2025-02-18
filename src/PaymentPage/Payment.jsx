@@ -32,13 +32,13 @@ function Payment() {
 
 
 
-    <div className="w-full flex flex-col gap-4 px-4">
+    <div className="w-full flex flex-col gap-4 px-4 py-24 bg-stone-200">
       <Helmet>
         <title>Payment </title>
       </Helmet>
-      <div className="border text-center mt-4 bg-violet-300 rounded-md">
+      <div className="border text-center mt-4 bg-white rounded-md p-4">
 
-        <p>TrainerName : {TrainerName}</p>
+        <p className="text-xl font-semibold">TrainerName : {TrainerName}</p>
         <p>TrainerEmail:{TrainerEmail}</p>
         <p>Package Name : {packageName}</p>
         <p>Price : {price}</p>
@@ -49,6 +49,7 @@ function Payment() {
       </div>
 
       <Elements stripe={stripePromise}>
+
         <Checkoutform pkprice={price}  TrainerName={TrainerName} id={id} Slot={Slot} TrainerEmail={TrainerEmail}/>
       </Elements>
     </div>

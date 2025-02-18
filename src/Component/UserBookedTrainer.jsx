@@ -66,18 +66,16 @@ function UserBookedTrainer() {
 
  
   return (
-    <div className="px-4 w-full">
+    <div className="px-4 w-full py-24 bg-stone-200 h-screen">
           <Helmet>
         <title>User booked</title>
       </Helmet>
-      <div>
-        <h2 className="text-4xl text-center mb-4">Your booked trainer</h2>
-      </div>
+  
       <ToastContainer/>
 
-      <section className="flex justify-center">
+      <section className=" justify-center  grid lg:grid-col-3 md:grid-col-2 grid-cols-2 gap-6  sm:ml-20">
         {trainerList.map((item, key) => (
-          <div className=" md:w-80  relative overflow-hidden group cursor-pointer rounded-md">
+          <div className=" md:w-80  relative overflow-hidden group cursor-pointer rounded-md border shadow-xl hover:shadow-2xl hover:shadow-stone-950">
             {/*  image  */}
             <img
               src={item.Image}
