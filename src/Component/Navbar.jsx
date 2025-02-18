@@ -169,7 +169,7 @@ function Navbar() {
             </div>
           ) : (
             <div>
-              <Link to={"/accountpage/login"} className="btn lg:px-9 border rounded  md:px-7 px-5 sm:text-xl text-white">
+              <Link to={"/accountpage/login"} className="btn lg:px-9 border rounded  md:px-7 px-5 sm:text-xl text-white bg-violet-600">
                 Log in{" "}
               </Link>
             </div>
