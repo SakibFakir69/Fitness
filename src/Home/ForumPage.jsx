@@ -23,7 +23,7 @@ function ForumPage() {
               </div>
 
               <div className="h-24 flex flex-col justify-center">
-                <h2 className="text-xl font-semibold">{item.Title}</h2>
+                <h2 className="text-xl font-semibold">{item.Title} </h2>
                 <p className="text-sm text-stone-800">{item.Message}</p>
               </div>
             </div>

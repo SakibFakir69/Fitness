@@ -50,8 +50,9 @@ function Navbar() {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
+
         {!TrainerIstrainer?.Trainer && !isAdmin?.admin && (
-          <NavLink to={"/alltrainer"}>All Trainer</NavLink>
+          <NavLink to={"/alltrainer"} className={'display'}>All Trainer</NavLink>
         )}
       </li>
       <li>
@@ -63,18 +64,14 @@ function Navbar() {
         )}
       </li>
 
-      <li>
-        {/* show trainer and admin dashboard  */}
+      <li className={`${isAdmin?.admin ? "" : "hidden"}`}>
+  <NavLink to="/admindashboard">Admin Dashboard</NavLink>
+</li>
 
-        {isAdmin?.admin && (
-          <NavLink to={"/admindashboard"}>Admin DashBoard</NavLink>
-        )}
-      </li>
-      <li>
-        {TrainerIstrainer?.Trainer && (
-          <NavLink to={"trainerdashboard"}>Trainer dashboard</NavLink>
-        )}
-      </li>
+
+      <li className={`${TrainerIstrainer?.Trainer ? "" : "hidden"}`}>
+  <NavLink to="trainerdashboard">Trainer Dashboard</NavLink>
+</li>
 
       <li>
         <NavLink to={"/formcomunity"}>Form</NavLink>
@@ -126,14 +123,14 @@ function Navbar() {
                   <li className="flex flex-row justify-around">
                     <div className="w-14 rounded-full">
                       <NavLink to={"/profile"}>
-                        <img src={user?.photoURL} />
+                        <img src={user?.photoURL} className="rounded-full" />
                       </NavLink>
                     </div>
 
                     {/* close button */}
                     <div>
-                      <button onClickCapture={() => setisclosed(false)}>
-                        X
+                      <button className="px-5 py-1 border rounded" onClickCapture={() => setisclosed(false)}>
+                        close
                       </button>
                     </div>
                   </li>

@@ -43,9 +43,14 @@ function Reviews() {
             <p>
               {" "}
               <span className="md:text-2xl font-semibold text-xl tracking-wide">
-                {item.Review}
+                {item.review}
               </span>{" "}
-              <i class="ri-double-quotes-r md:text-4xl text-2xl text-yellow-600"></i>{" "}
+              {" "}
+              <br/>
+
+
+              <span>{item.comment}</span>
+              <i class="ri-double-quotes-r md:text-4xl text-2xl text-yellow-600"></i>
             </p>
           </SwiperSlide>
         ))}

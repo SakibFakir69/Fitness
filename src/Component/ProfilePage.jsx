@@ -9,15 +9,12 @@ import UserData from "@/Hooks/UserData";
 import { Helmet } from "react-helmet";
 
 function ProfilePage() {
-
-    const {userData} = UserData();
-    // const {_id} = userData;
-    console.log(userData,"pro")
-
-
+  const { userData } = UserData();
+  // const {_id} = userData;
+  console.log(userData, "pro");
 
   const { user } = UseAuth();
-  console.log(user,"prile");
+  console.log(user, "prile");
   const useaxiosPublic = UseAxiosPublic();
 
   // update database
@@ -31,32 +28,28 @@ function ProfilePage() {
       displayName,
       photoURL,
       email,
-
-   
     })
       .then((res) => {
-        alert("update done");
+      
 
-        const userUpdateinfo={
-            Name:displayName,
-            Email:email,
-            LastLogin: user?.metadata?.lastSignInTime,
+        const userUpdateinfo = {
+          Name: displayName,
+          Email: email,
+          LastLogin: user?.metadata?.lastSignInTime,
+        };
 
-        }
-
-        useaxiosPublic.put(`/userupdate/${userData?._id}`,userUpdateinfo)
-        .then((res)=>{
-            alert("succesfully added to database")
-        })
-        .catch((error)=>{
-            console.log("error founede on profile")
-        })
-
-
-
+        useaxiosPublic
+          .put(`/userupdate/${userData?._id}`, userUpdateinfo)
+          .then((res) => {
+            toast.success("name changed")
+   
+          })
+          .catch((error) => {
+            console.log("error founede on profile");
+          });
       })
       .catch((error) => {
-        alert(error.message);
+
         console.log(error.code);
       });
 
@@ -65,8 +58,8 @@ function ProfilePage() {
   };
 
   return (
-    <div className="w-full border h-screen bg-red-200">
-          <Helmet>
+    <div className="w-full border h-screen bg-stone-200 py-20">
+      <Helmet>
         <title>Profile</title>
       </Helmet>
       <section className="flex justify-center  mt-10 ">
@@ -79,10 +72,10 @@ function ProfilePage() {
           />
 
           <h1 className="text-[1.3rem] font-[500] leading-[24px] mt-4">
-           Name: {user?.displayName || "not founeded"}
+            Name: {user?.displayName || "not founeded"}
           </h1>
           <p className="text-[0.9rem] text-gray-500 font-[400]">
-           Email: {user?.email}
+            Email: {user?.email}
           </p>
           <p>Last Login : {user?.metadata?.lastSignInTime}</p>
 
