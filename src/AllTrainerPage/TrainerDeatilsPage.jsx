@@ -62,35 +62,36 @@ function TrainerDeatilsPage() {
   ///Classes
 
   return (
-    <div className="w-full  r px-1 py-24 bg-stone-200 justify-center items-center mx-auto ">
+    <div className="w-full  r px-1 py-24 bg-stone-200 justify-center items-center mx-auto min-h-screen ">
       <Helmet>
         <title>Trainer Details page</title>
       </Helmet>
 
       <section className="p-2 rounded-md flex w-full justify-center ">
-        <section className=" md:w-3/5 w-4/5 md:justify-around mt-4  border-2 shadow-sm rounded-md  duration-200 gap-4  bg-white  flex  ">
+        <section className=" md:w-3/5 w-4/5 md:justify-around mt-4  shadow-sm rounded-md  duration-200 gap-4  bg-white  flex  ">
+
           <div className="w-full rounded ">
-            <div className="border w-full flex items-center justify-center flex-col p-6 ">
-              <div className="flex justify-start border w-full">
-                <div className="">
+            <div className=" w-full flex items-center justify-center flex-col p-6 ">
+              <div className="flex justify-start  w-full">
+                <div className="w-full">
                   {/* info  */}
-                  <img src={Image} className=" rounded-md h-52" />
+                  <img src={Image} className=" rounded-md h-52 w-full min-h-80" />
 
                   <p className="mt-2">
                     {" "}
-                    <span className="text-xl">Name </span>: {Name}
+                    <span className="text-xl">Name </span> {Name}
                   </p>
 
                   <p>
-                    <span className="text-xl">Email : {Email}</span>
+                    <span className="text-xl">Email  {Email}</span>
                   </p>
 
                   <p className="flex gap-2 ">
                     {" "}
-                    <p className="text-2xl">Skill</p>
+                    <p className="text-xl">Skill</p>
                     {Skill.map((item, key) => (
                       <span
-                        className="border p-1 bg-black text-white rounded-md  backdrop-blur-xl cursor-pointer"
+                        className=" p-1 text-green-500 rounded-md  backdrop-blur-xl cursor-pointer"
                         key={key}
                       >
                         {" " + item}
@@ -171,13 +172,14 @@ function TrainerDeatilsPage() {
       </section>
       {/* Share your expertise and help others by becoming a certified trainer today! Want to Become a Trainer? */}
 
-      <section className="flex justify-center items-center mt-60  ">
-        <div className="border-black px-4 flex flex-col text-center bg-red-200 p-10 space-y-5">
+      <section className="flex justify-center items-center mt-60  rounded ">
+
+        <div className="border-black px-4 flex flex-col text-center bg-violet-500  p-10 space-y-5">
           <h2 className="lg:text-4xl font-semibold sm:text-2xl">
             Want to Become a Trainer?
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-white">
             Share your expertise and help others by becoming a certified trainer
             today!
           </p>

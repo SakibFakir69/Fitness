@@ -171,13 +171,18 @@ function BecomeATrainer() {
 
     }
     
-    if(res.status===200)
+    if (res.status === 200 && res.data?.insertedId) 
+    
     {
       console.log(appliedUser);
       useaxioPublic.post('/applied',appliedUser)
+      
       .then((result)=>{
 
-        toast.success("Your application succesfullt submited")
+        if (res.status === 200 && res.data?.insertedId) {
+          toast.success("Your application succesfullt submited")
+        }
+        
 
       })
       .catch((error)=>{
@@ -201,7 +206,7 @@ function BecomeATrainer() {
       <Helmet>
         <title>Become a Trainer </title>
       </Helmet>
-      <section class="bg-green-300">
+      <section class="">
       <ToastContainer/>
 
         <div class="container flex items-center justify-center min-h-screen px-6 mx-auto ">

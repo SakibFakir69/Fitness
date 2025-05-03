@@ -79,7 +79,7 @@ function FormCommunity() {
             {result?.map((item, key) => (
               <div key={key} class="">
 
-                <div class=" py-8  duration-300 border cursor-pointer rounded-xl  group bg-white  justify-center items-center p-4 border-black/20 hover:shadow-slate-700 hover:shadow-2xl md:h-[450px] shadow-xl">
+                <div class=" py-8  duration-300  cursor-pointer rounded-xl  group bg-white  justify-center items-center p-4 border-black/20 hover:shadow-slate-700 hover:shadow-2xl md:h-[450px] shadow-xl">
 
                   <div class="flex flex-col    ">
                     <img
@@ -88,7 +88,7 @@ function FormCommunity() {
                       alt=""
                     />
 
-                    <div className="flex flex-col justify-center  border my-5  gap-4
+                    <div className="flex flex-col justify-center  my-5  gap-4
                     ">
                       <p className="text-xl font-semibold">{item.name} {item.role==="trainer" ? <i class="text-red-400 ri-presentation-line"></i> : <i class="text-green-400  ri-user-settings-line"></i> }</p>
                     
