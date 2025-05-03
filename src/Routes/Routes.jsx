@@ -54,19 +54,19 @@ export const route = createBrowserRouter([
       // become a trainer
       {
         path: '/becomeatrainer',
-        element :<PrivateRoutes> <BecomeATrainer/></PrivateRoutes>
+        element : <BecomeATrainer/>
 
       },
       {
         path :'/trainerbook/:id',
-        element: <PrivateRoutes><TrainerBooked/></PrivateRoutes>
+        element: <TrainerBooked/>
         // 
       },
 
       // payment page 
       {
         path:'/payment',
-        element: <PrivateRoutes><Payment/></PrivateRoutes>
+        element: <Payment/>
       },
       {
         path:'/userbookedtrainer',

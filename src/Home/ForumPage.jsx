@@ -18,13 +18,14 @@ function ForumPage() {
           <div key={key} className="border p-4 rounded-md bg-stone-200 shadow-xl hover:shadow-slate-100/50">
 
             <div className="">
-              <div className="h-64 borde-2 w-full border-2 sm:p-3">
-                <img src={item.Image} className="rounded-md h-60 w-full object-cover" />
+
+              <div className=" borde-2 w-full border-2 sm:p-3 h-72">
+                <img src={item.image} className="rounded-md w-full object-cover h-64" />
               </div>
 
               <div className="h-24 flex flex-col justify-center">
-                <h2 className="text-xl font-semibold">{item.Title} </h2>
-                <p className="text-sm text-stone-800">{item.Message}</p>
+                <h2 className="text-xl font-semibold">{item.title} </h2>
+                <p className="text-sm text-stone-800">{item.message}</p>
               </div>
             </div>
           </div>

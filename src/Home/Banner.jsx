@@ -49,7 +49,7 @@ function Banner() {
   return (
     <div className="w-full  flex  items-center mx-auto flex-col space-y-8  py-2">
       <Swiper
-        className="rounded p-10 md:h-[500px] sm:h-[400px] h-[400px] w-full border-2 border-red-500 flex items-center"
+        className="rounded p-10 md:h-[500px] sm:h-[400px] h-[400px] w-full  flex items-center"
         spaceBetween={40}
         slidesPerView={1}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
@@ -59,9 +59,9 @@ function Banner() {
         {data.map((item, key) => (
           <SwiperSlide
             key={key}
-            className="border-2 border-black flex items-center justify-center h-full w-11/12"
+            className=" border-black flex items-center justify-center h-full w-11/12"
           >
-            <div className="border-2 p-4">
+            <div className=" p-4">
               <img src={item.image} className="relative object-cover blur-sm " />
             </div>
 

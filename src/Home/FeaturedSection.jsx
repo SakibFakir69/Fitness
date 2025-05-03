@@ -45,7 +45,7 @@ function FeaturedSection() {
       Title: "Real-Time Feedback",
       description:
         "Get instant feedback from coaches or the app on your performance, form, and technique.",
-      image: img04,
+      image: "https://i.ibb.co.com/4Rwc9FnP/pexels-moose-photos-170195-1036641.jpg",
     },
     {
       Title: "Live Virtual Training",

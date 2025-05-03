@@ -1,11 +1,11 @@
 import UseAxiosSecure from "@/Hooks/UseAxiosSecure";
-import UseSptrainer from "@/Hooks/UseSptrainer";
+
 
 import { useQuery } from "@tanstack/react-query";
 
 import React, { useEffect, useState } from "react";
-import Five from "./Five";
-import { IterationCcw } from "lucide-react";
+
+
 import { Helmet } from "react-helmet";
 
 function AllClass() {
@@ -19,29 +19,27 @@ function AllClass() {
 
   const limit = 6;
 
-  const [currentPage, setcurrentPage] = useState(0);
+  const [currentPage, setcurrentPage] = useState(1);
   const [totalPage, settotalPage] = useState(1);
 
   const [queryx, setqueryx] = useState("");
 
-  const haddelSearch = (event) => {
-    event.prevenrDefault();
-    setqueryx(queryx);
-    alert(queryx);
-  };
+
 
   const { isLoading, data: allClass } = useQuery({
     queryKey: ["data", currentPage, queryx],
     queryFn: async () => {
       const res = await useaxiosSecure.get(
-        `/classpagination?page=${currentPage}&limit=${limit}&Name=${queryx}`
+        `/classpagination?page=${currentPage}&limit=${limit}&name=${queryx}`
       );
+      console.log(res,"red");
       return res.data;
     },
     keepPreviousData: true,
   });
 
-  console.log(allClass, "pagi");
+  console.log(queryx)
+  
 
   const result = allClass?.result || [];
   const totalCount = allClass?.totalCount || [];
@@ -85,7 +83,6 @@ function AllClass() {
       </Helmet>
 
       <div className="w-full p-3 fixed bg-transparent backdrop-blur-md flex justify-center items-center mx-auto -mt-6">
-
         <label
           for="default-search"
           class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -123,7 +120,7 @@ function AllClass() {
       </div>
 
       {isLoading ? (
-        <div className="w-full flex justify-center py-32">
+        <div className="w-full flex justify-center py-36 ">
           <span className="loading loading-ring loading-lg"></span>
         </div>
       ) : (
@@ -131,19 +128,19 @@ function AllClass() {
           {result.map((item, key) => (
             <div
               key={key}
-              class=" border border-black/10 bg-white shadow-lg hover:shadow-2xl hover:shadow-slate-700"
+              class=" border border-black/10 bg-white shadow-lg hover:shadow-2xl hover:shadow-slate-700 rounded w-full"
             >
-              <div class=" bg-cover p-4 rounded-md">
-                <img src={item.Image} />
+              <div class="  p-4 rounded-md h-72 w-10/11">
+                <img src={item.image} className="h-72 rounded w-full"/>
               </div>
 
               <div class="w-4/5 p-4 md:p-4">
                 <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-                  <p>{item.Name}</p>
+                  <p>{item.name}</p>
                 </h1>
 
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  {item.Description}
+                  {item.description}
                 </p>
               </div>
             </div>

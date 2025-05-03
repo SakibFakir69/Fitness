@@ -26,6 +26,7 @@ function TrainerDeatilsPage() {
       return res.data;
     },
   });
+
   console.log(Trainer, "details");
 
   if (isLoading) {
@@ -37,18 +38,21 @@ function TrainerDeatilsPage() {
 
   const {
     fullName,
+
     photo,
-    Availabledays = [],
+    AvailableDays = [],
+    AvailableTime,
     Name,
     Image,
     Email,
     Skill = [],
-    Availabletime = [],
+
     _id,
+    Time,
     Slot = [],
-  } = Trainer[0];
+  } = Trainer;
   console.log(fullName);
-  console.log(Slot, "thisis slot");
+  console.log(Trainer.result, "thisis slot");
 
   // about me
   // dmatrial status
@@ -59,22 +63,13 @@ function TrainerDeatilsPage() {
 
   return (
     <div className="w-full  r px-1 py-24 bg-stone-200 justify-center items-center mx-auto ">
-
       <Helmet>
         <title>Trainer Details page</title>
       </Helmet>
 
-
-    
-
       <section className="p-2 rounded-md flex w-full justify-center ">
-
         <section className=" md:w-3/5 w-4/5 md:justify-around mt-4  border-2 shadow-sm rounded-md  duration-200 gap-4  bg-white  flex  ">
-
           <div className="w-full rounded ">
-
-         
-
             <div className="border w-full flex items-center justify-center flex-col p-6 ">
               <div className="flex justify-start border w-full">
                 <div className="">
@@ -110,13 +105,14 @@ function TrainerDeatilsPage() {
                   <div className="flex p-2 cursor-pointer">
                     {Slot?.map((item, key) => (
                       <div key={key} className="flex flex-col">
-
-
-                        <div className="border m-2 p-2 rounded-sm text-white bg-indigo-600
+                        <div
+                          className="border m-2 p-2 rounded-sm text-white bg-indigo-600
                         
                         
-                        ">{item + ""} </div>
-
+                        "
+                        >
+                          {item + ""}{" "}
+                        </div>
 
                         <NavLink
                           key={key}
@@ -142,13 +138,13 @@ function TrainerDeatilsPage() {
                     <span className="text-xl ">Availabledays </span>
 
                     <div className="grid grid-cols-3 gap-2 mt-2">
-                      {Availabledays.map((item, key) => (
+                      {AvailableDays.map((item, key) => (
                         <button
                           // data pasing using state
 
                           className="ml-2 border p-1 rounded-md bg-violet-500 text-white "
                         >
-                          {item?.value || item?.label}
+                          {item}
                         </button>
                       ))}
                     </div>
@@ -157,7 +153,7 @@ function TrainerDeatilsPage() {
 
                   <p className="mt-4">
                     <span className="text-xl">Time :</span>
-                    {Availabletime.map((item, key) => (
+                    {AvailableTime.map((item, key) => (
                       <span className="border ml-2 p-1 rounded-md bg-stone-950 text-white ">
                         {item}
                       </span>

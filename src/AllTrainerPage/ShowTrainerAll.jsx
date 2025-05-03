@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 function ShowTrainerAll({ trainers }) {
   const {
-    availableTime,
-    availableDays,
+    AvailableTime,
+    AvailableDays,
     Skill,
-    profileImage,
+    photo,
     fullName,
     _id,
     Name,
