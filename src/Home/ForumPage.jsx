@@ -15,11 +15,12 @@ function ForumPage() {
 
         {communityPost?.map((item, key) => (
           
-          <div key={key} className="border p-4 rounded-md bg-stone-200 shadow-xl hover:shadow-slate-100/50">
+          <div key={key} className=" border-2 border-green-400/40  p-4 rounded-md bg-white shadow-xl hover:shadow-slate-100/50">
 
             <div className="">
 
-              <div className=" borde-2 w-full border-2 sm:p-3 h-72">
+              <div className="  w-full  sm:p-3 h-72">
+
                 <img src={item.image} className="rounded-md w-full object-cover h-64" />
               </div>
 

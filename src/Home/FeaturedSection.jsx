@@ -18,7 +18,7 @@ function FeaturedSection() {
   // use magic ui make eye catching
   const section = [
     {
-      Title: "Engaging & Interactive Workout Routines",
+      Title: "Engaging & Interactive Workout",
       description:
         "Get personalized workout plans that adapt to your progress, featuring interactive videos, timers, and live feedback",
       image: img01,
@@ -56,7 +56,7 @@ function FeaturedSection() {
   ];
 
   return (
-    <div className="px-4 bg-stone-200/40  border-2 border-green-400 ">
+    <div className="px-4 bg-white  ">
 
       <div className="text-center mt-4">
         {/* title */}
@@ -67,7 +67,8 @@ function FeaturedSection() {
       <section className="grid md:grid-cols-3 gap-4 mt-6 grid-cols-1 p-2 ">
 
         {section.map((item, key) => (
-          <div className="w-full border flex justify-center items-center">
+
+          <div className="w-full border flex justify-center items-center  hover:bg-teal-300/10">
 
             <ShineBorder
               className="p-4 shadow-lg "
@@ -81,15 +82,18 @@ function FeaturedSection() {
               >
 
 
-                <div className="p-2 flex flex-col space-y-2 h-80">
+                <div className=" flex flex-col space-y-2 h-80  justify-center items-center">
+
+                <div className="md:h-52 flex  items-center">
+                    <img src={item.image} className="h-48 rounded-md w-full"/>
+                  </div>
 
                   {/* font 16 12 */}
                   <p className="text-xl font-semibold">{item.Title}</p>
                   <p className="text-sm ">{item.description}</p>
 
-                  <div className="h-52 flex justify-start items-center">
-                    <img src={item.image} className="h-48 rounded-md"/>
-                  </div>
+                  
+
                 </div>
 
 

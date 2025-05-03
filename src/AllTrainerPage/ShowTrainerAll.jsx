@@ -27,7 +27,9 @@ function ShowTrainerAll({ trainers }) {
       <div class="w-full  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 mx-auto border ">
 
         <section class="bg-white dark:bg-gray-900 ">
-          <div class="flex p-1 flex-col items-center transition-colors duration-300 transform  cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 justify-center space-y-4 border-black  h-[550px]">
+
+          <div class="flex p-1 flex-col items-center transition-colors duration-300 transform  cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 justify-center 
+          space-y-1 border-black  h-[550px]">
 
             <img
               src={Image}
@@ -39,10 +41,10 @@ function ShowTrainerAll({ trainers }) {
                 <p>Name: {Name || "Not Founeded"}</p>
               </h1>
 
-              <div>
-                <p>Experience : {Experience || "0"} Year</p>
-                <p>Slot :{Slot} </p>
-                <p>Email: {Email}</p>
+              <div className="font-semibold">
+                <p>Experience  {Experience || "0"} Year</p>
+                <p>Slot {Slot} </p>
+                <p>Email  {Email}</p>
                 <p>
                   Skill:
                   {[Skill].map((item) => (
