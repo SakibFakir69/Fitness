@@ -49,7 +49,7 @@ function TrainerBooked() {
   const { Class, Slot } = location.state || {};
 
   return (
-    <div className="bg-stone-200 ">
+    <div className="bg-white ">
       <Helmet>
         <title>Trainer booked</title>
       </Helmet>

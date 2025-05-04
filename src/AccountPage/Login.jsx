@@ -229,9 +229,7 @@ function Login() {
             {/*  */}
           </div>
           <div className="text-xl text-black">
-          Login as admin
-          sakib@gmail.com
-          Sakibfakir69
+         
 
           <p></p>
         </div>

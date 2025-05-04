@@ -68,7 +68,7 @@ function FeaturedSection() {
 
         {section.map((item, key) => (
 
-          <div className="w-full border flex justify-center items-center  hover:bg-teal-300/10">
+          <div className="w-full flex justify-center items-center  hover:bg-teal-300/10">
 
             <ShineBorder
               className="p-4 shadow-lg "
