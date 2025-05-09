@@ -14,18 +14,18 @@ Fitness is a modern and easy-to-use web platform where users can find personal t
 
 ---
 
-## 🌟 Features You'll Love
 
-✅ User-Friendly Interface – Simple, clean, and easy to navigate  
-📈 SEO Optimized – Designed to rank better on search engines  
-👥 Trainer Management – Users can find and manage trainers easily  
-📋 Trainer Dashboard – Trainers can handle bookings, feedback, and schedules  
-🛡 Admin Panel – Full control over users, trainers, payments, and more  
-💬 Feedback System – Users can leave reviews for their sessions  
-💳 Easy Payments – Secure and smooth payment process  
-📅 Booking System – Schedule training sessions in just a few clicks  
-📊 Data Visualization – Insightful dashboards to track performance and growth  
-🎨 Beautiful UI – A visually appealing and responsive design
+ ✅ **User-Friendly Interface** – Clean, responsive, and easy to navigate  
+- 📈 **SEO Optimized** – Built to rank well on search engines  
+- 👥 **Trainer Management** – Browse, book, and review trainers  
+- 📋 **Trainer Dashboard** – Manage sessions, feedback, availability  
+- 🛡 **Admin Panel** – Full control over users, trainers, payments, and more  
+- 💬 **Feedback System** – Users can leave and view reviews  
+- 💳 **Secure Payments** – Integrated with safe payment gateways  
+- 📅 **Booking System** – Schedule sessions with just a few clicks  
+- 📊 **Data Visualization** – Track platform stats with insightful charts  
+- 🎨 **Beautiful UI** – Clean and modern design  
+- 🔐 **Role-Based Access System** – Access permissions for Admins, Trainers, and Students 
 
 ---
 
